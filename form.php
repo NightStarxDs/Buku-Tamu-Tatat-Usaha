@@ -11,7 +11,7 @@
            <h2>Login Admin</h2>
     <form id="registrationForm">
         <div class="form-group">
-            <label for="name">id:</label>
+            <label for="name">Nama:</label>
             <input type="text" id="name" name="name" placeholder="Masukkan nama">
             <div class="error-massage" id="nameError"> Nama tidak boleh kosong</div>
         </div>
@@ -27,6 +27,7 @@
             </label>
         </div>
         <button type="submit" class="submit-btn">Daftar</button>
+        <button type="back" class="back-btn" href="#">Back</button>
      </form>
     </div>
     <script src="script1.js"></script>
