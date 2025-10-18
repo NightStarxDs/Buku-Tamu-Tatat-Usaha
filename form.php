@@ -91,7 +91,7 @@
     .button-group {
       display: flex;
       justify-content: center;
-      gap: 3rem; /* sekitar satu tab */
+      gap: 3rem; 
     }
 
     input.form-control:focus {
