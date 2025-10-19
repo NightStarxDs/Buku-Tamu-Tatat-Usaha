@@ -1,17 +1,17 @@
-<?php include 'admin_template/header.php'; ?>
+<?php include 'dashboard_template/header.php'; ?>
 
 <body class="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-        <?php include 'admin_template/sidebar.php'; ?>
+        <?php include 'dashboard_template/sidebar.php'; ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
             <div id="content">
-                <?php include 'admin_template/topbar.php'; ?>
+                <?php include 'dashboard_template/topbar.php'; ?>
 
                 <!-- Content -->
                 <div class="container-fluid">
@@ -22,13 +22,17 @@
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                             <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
+
+                    <div class="text-center">
+                        <img src="kode.link_qrcode (1).png" alt="" style="height: auto; width: 500px;">
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php include 'admin_template/footer.php'; ?>
+            <?php include 'dashboard_template/footer.php'; ?>
 
 
 </body>
