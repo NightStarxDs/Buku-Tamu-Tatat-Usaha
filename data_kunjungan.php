@@ -1,17 +1,17 @@
-<?php include 'admin_template/header.php'; ?>
+<?php include 'dashboard_template/header.php'; ?>
 
 <body class="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-        <?php include 'admin_template/sidebar.php'; ?>
+        <?php include 'dashboard_template/sidebar.php'; ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
             <div id="content">
-                <?php include 'admin_template/topbar.php'; ?>
+                <?php include 'dashboard_template/topbar.php'; ?>
 
                 <!-- Content -->
                 <div class="container-fluid">
@@ -23,26 +23,117 @@
                             <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
-                    <div class="table">
+                    <div>
 
-                        <table class="table table-bordered table-striped table-hover table-condensed">
-                            <thead class="thead thead-dark">
+                        <table class="table table-bordered table-hover table-condensed">
+                            <thead class="thead bg-primary text-white">
                                 <tr>
-                                    <th>Hello</th>
-                                    <th>A</th>
-                                    <th>A</th>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Nama</th>
+                                    <th class="text-center">Nama Instansi</th>
+                                    <th class="text-center">Perihal Kunjungan</th>
+                                    <th class="text-center">Tanggal Kunjungan</th>
+                                    <th colspan="3" class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="row">A</td>
-                                    <td>A</td>
-                                    <td>A</td>
+                                    <td>1</td>
+                                    <td>Dwi Agung Willy Anto</td>
+                                    <td>SMKN 4 BATAM</td>
+                                    <td>Sosialisasi Lingkungan Kampus</td>
+                                    <td>25-10-2025</td>
+                                    <td><a href="" class="btn btn-primary" title="Info">
+                                            <i class=" fas fa-info px-1"></i>
+                                        </a>
+                                    </td>
+                                    <td><a href="" class="btn btn-warning" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td><a href="" class="btn btn-danger" title="Hapus">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td scope="row">A</td>
-                                    <td>A</td>
-                                    <td>A</td>
+                                    <td>2</td>
+                                    <td>Virgiawan Aziz Listianto</td>
+                                    <td>SMKN 4 BATAM</td>
+                                    <td>Sosialisasi Lingkungan Kampus</td>
+                                    <td>25-10-2025</td>
+                                    <td><a href="" class="btn btn-primary" title="Info">
+                                            <i class=" fas fa-info px-1"></i>
+                                        </a>
+                                    </td>
+                                    <td><a href="" class="btn btn-warning" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td><a href="" class="btn btn-danger" title="Hapus">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td>Zaid Hasbiya Abrar</td>
+                                    <td>SMKN 4 BATAM</td>
+                                    <td>Sosialisasi Lingkungan Kampus</td>
+                                    <td>25-10-2025</td>
+                                    <td><a href="" class="btn btn-primary" title="Info">
+                                            <i class=" fas fa-info px-1"></i>
+                                        </a>
+                                    </td>
+                                    <td><a href="" class="btn btn-warning" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td><a href="" class="btn btn-danger" title="Hapus">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td>Bapak Budi Santoso</td>
+                                    <td>Pemerintah Kota Sejahtera</td>
+                                    <td>Studi Banding Tata Kelola Pelayanan Publik Berbasis Digital</td>
+                                    <td>27-10-2025</td>
+                                    <td><a href="" class="btn btn-primary" title="Info">
+                                            <i class=" fas fa-info px-1"></i>
+                                        </a>
+                                    </td>
+                                    <td><a href="" class="btn btn-warning" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td><a href="" class="btn btn-danger" title="Hapus">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>5</td>
+                                    <td>Ibu Rina Kusuma</td>
+                                    <td>Universitas Maju Bangsa</td>
+                                    <td>Kunjungan Industri dan Diskusi Mekanisme Pengawasan Keuangan</td>
+                                    <td>28-10-2025</td>
+                                    <td><a href="" class="btn btn-primary" title="Info">
+                                            <i class=" fas fa-info px-1"></i>
+                                        </a>
+                                    </td>
+                                    <td><a href="" class="btn btn-warning" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td><a href="" class="btn btn-danger" title="Hapus">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -53,7 +144,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php include 'admin_template/footer.php'; ?>
+            <?php include 'dashboard_template/footer.php'; ?>
 
 
 </body>

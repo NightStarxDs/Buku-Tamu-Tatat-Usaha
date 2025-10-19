@@ -1,17 +1,17 @@
-<?php include 'admin_template/header.php'; ?>
+<?php include 'dashboard_template/header.php'; ?>
 
 <body class="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-        <?php include 'admin_template/sidebar.php'; ?>
+        <?php include 'dashboard_template/sidebar.php'; ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
             <div id="content">
-                <?php include 'admin_template/topbar.php'; ?>
+                <?php include 'dashboard_template/topbar.php'; ?>
 
                 <!-- Content -->
                 <div class="container-fluid">
@@ -22,10 +22,10 @@
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                             <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
-                    <?php include 'admin_template/content.php'; ?>
+                    <?php include 'dashboard_template/content.php'; ?>
 
                     <!-- Footer -->
-                    <?php include 'admin_template/footer.php'; ?>
+                    <?php include 'dashboard_template/footer.php'; ?>
 
 
 
