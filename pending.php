@@ -35,8 +35,8 @@
                                             <th>Nama Instansi</th>
                                             <th>Perihal Kunjungan</th>
                                             <th>Tanggal Kunjungan</th>
-                                            <th>Status</th>
-                                            <th>Aksi</th>
+                                            <th class="text-center">Status</th>
+                                            <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -45,7 +45,7 @@
                                             <td>SMKN 4 BATAM</td>
                                             <td>Berkunjung</td>
                                             <td>25-10-2025</td>
-                                            <td>Pending</td>
+                                            <td class="text-center"><span class="text-white bg-warning px-1 rounded">Pending</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="#" class="btn btn-success" title="Terima">
                                                     <i class=" fas fa-check px-1"></i>
@@ -60,7 +60,7 @@
                                             <td>SMKN 4 BATAM</td>
                                             <td>Berkunjung</td>
                                             <td>25-10-2025</td>
-                                            <td>Pending</td>
+                                            <td class="text-center"><span class="text-white bg-warning px-1 rounded">Pending</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="#" class="btn btn-success" title="Terima">
                                                     <i class=" fas fa-check px-1"></i>
@@ -75,7 +75,7 @@
                                             <td>SMKN 4 BATAM</td>
                                             <td>Berkunjung</td>
                                             <td>25-10-2025</td>
-                                            <td>Pending</td>
+                                            <td class="text-center"><span class="text-white bg-warning px-1 rounded">Pending</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="#" class="btn btn-success" title="Terima">
                                                     <i class=" fas fa-check px-1"></i>
@@ -91,7 +91,7 @@
                                             <td>Politeknik Negeri Batam</td>
                                             <td>Kajian</td>
                                             <td>25-10-2025</td>
-                                            <td>Pending</td>
+                                            <td class="text-center"><span class="text-white bg-warning px-1 rounded">Pending</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="#" class="btn btn-success" title="Terima">
                                                     <i class=" fas fa-check px-1"></i>

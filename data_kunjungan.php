@@ -35,8 +35,8 @@
                                             <th>Nama Instansi</th>
                                             <th>Perihal Kunjungan</th>
                                             <th>Tanggal Kunjungan</th>
-                                            <th>Status</th>
-                                            <th>Aksi</th>
+                                            <th class="text-center">Status</th>
+                                            <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -45,7 +45,7 @@
                                             <td>SMKN 4 BATAM</td>
                                             <td>Sosialisasi</td>
                                             <td>2011/04/25</td>
-                                            <td>On Going</td>
+                                            <td class="text-center"><span class="text-white bg-info p-1 rounded">On Going</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="info.php" class="btn btn-primary" title="Info">
                                                     <i class=" fas fa-info px-1"></i>
@@ -64,7 +64,7 @@
                                             <td>SMKN 4 BATAM</td>
                                             <td>Sosialisasi</td>
                                             <td>2011/04/25</td>
-                                            <td>On Going</td>
+                                            <td class="text-center"><span class="text-white bg-info p-1 rounded">On Going</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="info.php" class="btn btn-primary" title="Info">
                                                     <i class=" fas fa-info px-1"></i>
@@ -83,7 +83,7 @@
                                             <td>SMKN 4 BATAM</td>
                                             <td>Sosialisasi</td>
                                             <td>2011/04/25</td>
-                                            <td>On Going</td>
+                                            <td class="text-center"><span class="text-white bg-info p-1 rounded">On Going</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="info.php" class="btn btn-primary" title="Info">
                                                     <i class=" fas fa-info px-1"></i>
@@ -102,7 +102,7 @@
                                             <td>Institusi Teknologi Batam</td>
                                             <td>Seminar</td>
                                             <td>2011/04/25</td>
-                                            <td>Now</td>
+                                            <td class="text-center"><span class="text-white bg-danger p-1 rounded">Now</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="info.php" class="btn btn-primary" title="Info">
                                                     <i class=" fas fa-info px-1"></i>

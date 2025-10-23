@@ -56,6 +56,7 @@
 <!-- Charts -->
 <script src="assets/vendor/chart.js/Chart.min.js"></script>
 <script src="assets/js/demo/chart-area-demo.js"></script>
+<script src="assets/js/demo/chart-bar-demo.js"></script>
 <script src="assets/js/demo/chart-pie-demo.js"></script>
 
 <!-- Initialize DataTables (only once) -->
