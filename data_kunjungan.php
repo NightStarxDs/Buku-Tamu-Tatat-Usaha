@@ -24,12 +24,12 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data Kunjungan</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                                    <thead class="thead bg-primary text-white fw-bold">
                                         <tr>
                                             <th>Nama</th>
                                             <th>Nama Instansi</th>
@@ -39,33 +39,79 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Nama</th>
-                                            <th>Nama Instansi</th>
-                                            <th>Perihal Kunjungan</th>
-                                            <th>Tanggal Kunjungan</th>
-                                            <th>Status</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </tfoot>
-
                                     <tbody>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
+                                            <td>Dwi Agung Willy Anto</td>
+                                            <td>SMKN 4 BATAM</td>
+                                            <td>Sosialisasi</td>
                                             <td>2011/04/25</td>
+                                            <td>On Going</td>
                                             <td class="d-flex justify-content-between">
-                                                <a href="" class="btn btn-primary" title="Info">
+                                                <a href="info.php" class="btn btn-primary" title="Info">
                                                     <i class=" fas fa-info px-1"></i>
                                                 </a>
-                                                <a href="" class="btn btn-warning" title="Edit">
+                                                <a href="edit.php" class="btn btn-warning" title="Edit">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
 
-                                                <a href="" class="btn btn-danger" title="Hapus">
+                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Virgiawan Aziz Listianto</td>
+                                            <td>SMKN 4 BATAM</td>
+                                            <td>Sosialisasi</td>
+                                            <td>2011/04/25</td>
+                                            <td>On Going</td>
+                                            <td class="d-flex justify-content-between">
+                                                <a href="info.php" class="btn btn-primary" title="Info">
+                                                    <i class=" fas fa-info px-1"></i>
+                                                </a>
+                                                <a href="edit.php" class="btn btn-warning" title="Edit">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+
+                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Zaid Hasbiya Abrar</td>
+                                            <td>SMKN 4 BATAM</td>
+                                            <td>Sosialisasi</td>
+                                            <td>2011/04/25</td>
+                                            <td>On Going</td>
+                                            <td class="d-flex justify-content-between">
+                                                <a href="info.php" class="btn btn-primary" title="Info">
+                                                    <i class=" fas fa-info px-1"></i>
+                                                </a>
+                                                <a href="edit.php" class="btn btn-warning" title="Edit">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+
+                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Safamal Jovanda</td>
+                                            <td>Institusi Teknologi Batam</td>
+                                            <td>Seminar</td>
+                                            <td>2011/04/25</td>
+                                            <td>Now</td>
+                                            <td class="d-flex justify-content-between">
+                                                <a href="info.php" class="btn btn-primary" title="Info">
+                                                    <i class=" fas fa-info px-1"></i>
+                                                </a>
+                                                <a href="edit.php" class="btn btn-warning" title="Edit">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+
+                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>

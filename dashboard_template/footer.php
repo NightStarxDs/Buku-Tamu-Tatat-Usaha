@@ -32,12 +32,13 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" href="login.php">Logout</a>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Load scripts only once, in correct order -->
 <!-- Bootstrap core JavaScript-->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -45,49 +46,26 @@
 <!-- Core plugin JavaScript-->
 <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- DataTables core + bootstrap integration -->
-<script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-<!-- SB Admin scripts -->
-<script src="assets/js/sb-admin-2.js"></script>
-
-<!-- Init -->
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable();
-    });
-</script>
-
-<!-- Page level plugins -->
-<script src="assets/vendor/chart.js/Chart.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="assets/js/demo/chart-area-demo.js"></script>
-<script src="assets/js/demo/chart-pie-demo.js"></script>
-
-<!-- Third Party Table Plugin -->
-<script>
-    $(document).ready(function() {
-        $('table#dataTable').DataTable();
-    });
-</script>
-
-<!-- Core scripts (order matters) -->
-<script src="assets/vendor/jquery/jquery.min.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Custom scripts -->
 <script src="assets/js/sb-admin-2.js"></script>
 
 <!-- DataTables -->
 <script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-<script src="assets/js/demo/datatables-demo.js"></script>
 
-<!-- Initialize (if you don't use datatables-demo.js) -->
+<!-- Charts -->
+<script src="assets/vendor/chart.js/Chart.min.js"></script>
+<script src="assets/js/demo/chart-area-demo.js"></script>
+<script src="assets/js/demo/chart-pie-demo.js"></script>
+
+<!-- Initialize DataTables (only once) -->
 <script>
     $(document).ready(function() {
-        $('#dataTable').DataTable();
+        if (!$.fn.dataTable.isDataTable('#dataTable')) {
+            $('#dataTable').DataTable({
+                ordering: false
+            });
+        }
     });
 </script>
 
