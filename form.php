@@ -13,7 +13,7 @@
 
   <style>
     body {
-      background: linear-gradient(135deg, #4facfe 0%, #43e97b 100%);
+      background: blue;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -22,7 +22,6 @@
       overflow: hidden;
     }
 
-    /* ✨ Animasi shake slow */
     @keyframes shakeSlow {
       0% { transform: translateX(0); opacity: 0; }
       10% { transform: translateX(-10px); opacity: 0.6; }
@@ -64,14 +63,14 @@
     }
 
     .btn-primary {
-      background-color: #43e97b;
+      background-color: #15abe7;
       border: none;
       font-weight: 500;
       transition: all 0.3s ease;
     }
 
     .btn-primary:hover {
-      background-color: #38c172;
+      background-color: #0e9eff;
       transform: translateY(-2px);
     }
 
@@ -87,7 +86,6 @@
       transform: translateY(-2px);
     }
 
-    /* 🔧 Jarak antar tombol ≈ satu tab */
     .button-group {
       display: flex;
       justify-content: center;
@@ -96,7 +94,7 @@
 
     input.form-control:focus {
       box-shadow: 0 0 8px rgba(67, 233, 123, 0.5);
-      border-color: #43e97b;
+      border-color: #2d97fb;
     }
 
     .form-check-label {
@@ -123,7 +121,7 @@
           required
         />
         <div class="invalid-feedback">
-          Username harus berupa NIM (hanya angka, minimal 8 digit).
+          Username harus berupa angka
         </div>
       </div>
 
@@ -141,16 +139,6 @@
         </div>
       </div>
 
-      <div class="form-check mb-3 text-start">
-        <input class="form-check-input" type="checkbox" id="agreement" required />
-        <label class="form-check-label" for="agreement">
-          Saya mengerti dan menyetujui kebijakan yang berlaku
-        </label>
-        <div class="invalid-feedback">
-          Anda harus mencentang pernyataan ini.
-        </div>
-      </div>
-
       <!-- 🔘 Tombol -->
       <div class="button-group mt-3">
         <button type="button" class="btn btn-secondary px-3" id="backBtn">
@@ -159,14 +147,6 @@
         <button type="submit" class="btn btn-primary px-4">Masuk</button>
       </div>
     </form>
-
-    <div class="text-center mt-3">
-      <small>
-        Belum punya akun?
-        <a href="#" class="text-success text-decoration-none">Daftar di sini</a>
-      </small>
-    </div>
-  </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -177,7 +157,6 @@
       event.preventDefault();
       const username = document.getElementById("username");
       const password = document.getElementById("password");
-      const agreement = document.getElementById("agreement");
       let valid = true;
 
       if (!/^[0-9]{8,}$/.test(username.value.trim())) {
@@ -194,13 +173,6 @@
       } else {
         password.classList.remove("is-invalid");
         password.classList.add("is-valid");
-      }
-
-      if (!agreement.checked) {
-        agreement.classList.add("is-invalid");
-        valid = false;
-      } else {
-        agreement.classList.remove("is-invalid");
       }
 
       if (valid) {
