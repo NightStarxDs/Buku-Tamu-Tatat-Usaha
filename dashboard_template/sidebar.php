@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin.php">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-user-tie"></i>
+            <img src="" alt="">
         </div>
         <div class="sidebar-brand-text mx-3">Staf Dashboard</div>
     </a>
