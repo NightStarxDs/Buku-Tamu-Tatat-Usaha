@@ -77,9 +77,9 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group mt-3">
+                                <div class="form-group mt-3 d-flex justify-content-between">
                                     <a href="data_kunjungan.php" class="btn btn-secondary">Kembali</a>
-                                    <a href="" class="btn btn-success">Export</a>
+                                    <a href="" class="btn btn-outline-success">Export As Excel</a>
                                 </div>
                             </form>
                         </div>
