@@ -44,7 +44,7 @@
                                             <td>Dwi Agung Willy Anto</td>
                                             <td>SMKN 4 BATAM</td>
                                             <td>Sosialisasi</td>
-                                            <td>2011/04/25</td>
+                                            <td>25-10-2025</td>
                                             <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="info.php" class="btn btn-primary" title="Info">
@@ -63,7 +63,7 @@
                                             <td>Virgiawan Aziz Listianto</td>
                                             <td>SMKN 4 BATAM</td>
                                             <td>Sosialisasi</td>
-                                            <td>2011/04/25</td>
+                                            <td>25-10-2025</td>
                                             <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="info.php" class="btn btn-primary" title="Info">
@@ -82,7 +82,7 @@
                                             <td>Zaid Hasbiya Abrar</td>
                                             <td>SMKN 4 BATAM</td>
                                             <td>Sosialisasi</td>
-                                            <td>2011/04/25</td>
+                                            <td>25-10-2025</td>
                                             <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="info.php" class="btn btn-primary" title="Info">
@@ -101,7 +101,7 @@
                                             <td>Safamal Jovanda</td>
                                             <td>Institusi Teknologi Batam</td>
                                             <td>Seminar</td>
-                                            <td>2011/04/25</td>
+                                            <td>25-10-2025</td>
                                             <td class="text-center"><span class="text-white bg-danger px-1 rounded">In Progess</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="info.php" class="btn btn-primary" title="Info">
@@ -120,7 +120,7 @@
                                             <td>Arief Han ZK</td>
                                             <td>Institusi Teknologi Batam</td>
                                             <td>Seminar</td>
-                                            <td>2011/04/25</td>
+                                            <td>25-10-2025</td>
                                             <td class="text-center"><span class="text-white bg-success px-1 rounded">Complete</span></td>
                                             <td class="d-flex justify-content-between">
                                                 <a href="info.php" class="btn btn-primary" title="Info">
