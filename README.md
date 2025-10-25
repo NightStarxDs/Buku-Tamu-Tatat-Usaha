@@ -9,6 +9,7 @@ Buku Tamu Tata Usaha dirancang untuk mempermudah pencatatan tamu Tata Usaha mela
 **Form Login**
 
 **Dashboard Admin**
+
 Untuk megakses Dashboard admin staf/admin diminta untuk login melalui form login yang disediakan, kemudian setelah melalui authentikasi login dan dinyatakan benar, staf/admin akan langsung diarahkan ke Dashboard Admin. Pada Dashboard Admin terdapat:
 
 - Dashboard: Pada page Dashboard kita dapat melihat seberapa banyak tamu Perbulan, Perminggu, serta berapa banyak Data Pengunjung dan Data yang masi di masa Pending
