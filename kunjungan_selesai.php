@@ -24,12 +24,12 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Kunjungan</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data Kunjungan (Complete)</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead class="thead bg-primary text-white fw-bold">
+                                    <thead class="thead bg-success text-white fw-bold">
                                         <tr>
                                             <th>Nama</th>
                                             <th>Nama Instansi</th>
@@ -41,82 +41,6 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Dwi Agung Willy Anto</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Sosialisasi</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="info.php" class="btn btn-primary" title="Info">
-                                                    <i class=" fas fa-info px-1"></i>
-                                                </a>
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Virgiawan Aziz Listianto</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Sosialisasi</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="info.php" class="btn btn-primary" title="Info">
-                                                    <i class=" fas fa-info px-1"></i>
-                                                </a>
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zaid Hasbiya Abrar</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Sosialisasi</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="info.php" class="btn btn-primary" title="Info">
-                                                    <i class=" fas fa-info px-1"></i>
-                                                </a>
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Safamal Jovanda</td>
-                                            <td>Institusi Teknologi Batam</td>
-                                            <td>Seminar</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-danger px-1 rounded">In Progess</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="info.php" class="btn btn-primary" title="Info">
-                                                    <i class=" fas fa-info px-1"></i>
-                                                </a>
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
                                             <td>Arief Han ZK</td>
                                             <td>Institusi Teknologi Batam</td>
                                             <td>Seminar</td>
@@ -126,10 +50,36 @@
                                                 <a href="info.php" class="btn btn-primary" title="Info">
                                                     <i class=" fas fa-info px-1"></i>
                                                 </a>
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
+                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
+                                                    <i class="fas fa-trash"></i>
                                                 </a>
-
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dimas Pratama Putra</td>
+                                            <td>Politeknik Negeri Batam</td>
+                                            <td>Seminar</td>
+                                            <td>25-10-2025</td>
+                                            <td class="text-center"><span class="text-white bg-success px-1 rounded">Complete</span></td>
+                                            <td class="d-flex justify-content-between">
+                                                <a href="info.php" class="btn btn-primary" title="Info">
+                                                    <i class=" fas fa-info px-1"></i>
+                                                </a>
+                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>M Davawin Cahyono</td>
+                                            <td>Politeknik Negeri Batam</td>
+                                            <td>Seminar</td>
+                                            <td>25-10-2025</td>
+                                            <td class="text-center"><span class="text-white bg-success px-1 rounded">Complete</span></td>
+                                            <td class="d-flex justify-content-between">
+                                                <a href="info.php" class="btn btn-primary" title="Info">
+                                                    <i class=" fas fa-info px-1"></i>
+                                                </a>
                                                 <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
