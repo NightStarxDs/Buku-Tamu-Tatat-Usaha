@@ -60,7 +60,7 @@
 
 <!-- HERO SECTION -->
 <section class="hero position-relative text-center text-white">
-  <img src="poli.jpg" class="img-fluid w-100" alt="Hero Image" style="height: 100vh; object-fit: cover;">
+  <img src="bg.jpg" class="img-fluid w-100" alt="Hero Image" style="height: 100vh; object-fit: cover;">
 
   <!-- Overlay -->
   <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.5);"></div>
