@@ -24,24 +24,40 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        Data Kunjungan
     </div>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="kunjungan_selesai.php">
+            <i class="fas fa-fw fa-check-square"></i>
+            <span>Complete</span>
+        </a>
+    </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="data_kunjungan.php">
+        <a class="nav-link collapsed" href="kunjungan_berjalan.php">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Data Kunjungan</span>
+            <span>Upcoming</span>
         </a>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="pending.php">
+        <a class="nav-link collapsed" href="kunjungan_pending.php">
             <i class="fas fa-fw fa-wrench"></i>
-            <span>Pending Data Kunjungan</span>
+            <span>Pending</span>
         </a>
     </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+    <br>
+    <!-- Nav Item - QR Code -->
+    <div class="sidebar-heading">
+        Aditional Menu
+    </div>
+
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="qrcode.php">
