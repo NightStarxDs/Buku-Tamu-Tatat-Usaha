@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Buku Tamu Digital</title>
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
- <link rel="stylesheet" href="slogin.css">
+ 
 
   <style>
     body {
@@ -60,7 +60,7 @@
 
 <!-- HERO SECTION -->
 <section class="hero position-relative text-center text-white">
-  <img src="poli.jpg" class="img-fluid w-100" alt="Hero Image" style="height: 100vh; object-fit: cover;">
+  <img src="bg.jpg" class="img-fluid w-100" alt="Hero Image" style="height: 100vh; object-fit: cover;">
 
   <!-- Overlay -->
   <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.5);"></div>
