@@ -5,22 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: #3e7bcb;
+      border-bottom: 2px solid #f9f9f9;
+
+    }
+
+    footer {
+      background-color: #3e7bcb;
+      text-align: center;
+      border-top: 1px solid #ddd;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">Buku Tamu</a>
-      <div class="collapse navbar-collapse justify-content-end">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="landing.php">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="landing.php">FAQ</a></li>
-          <li class="nav-item"><a class="nav-link" href="landing.php">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="form.php">Login</a></li>
-        </ul>
-      </div>
-    </div>
+
+<!-- HEADER -->
+<header class="d-flex justify-content-between align-items-center px-4 py-3">
+  <div class="d-flex align-items-center">
+    <img src="poltek.png" alt="poltek.png" width="40" class="me-2">
+    <span class="">BukuTamu Digital</span>
+  </div>
+  <nav>
+    <a href="landing.php#home" class="btn btn-outline-white mx-1">Home</a>
+    <a href="landing.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
+    <a href="landing.php#about" class="btn btn-outline-white mx-1">About Us</a>
+    <a href="form.php" class="btn btn-outline-warning mx-1">Login</a>
   </nav>
+</header>
+
 
   <!-- Contact Form -->
   <div class="container py-5">
@@ -41,5 +59,10 @@
       <button type="submit" class="btn btn-primary w-100">Send</button>
     </form>
   </div>
+
+    <!-- FOOTER -->
+<footer>
+  &copy; 2025 Buku Tamu Digital. All Rights Reserved.
+</footer>
 </body>
 </html>
