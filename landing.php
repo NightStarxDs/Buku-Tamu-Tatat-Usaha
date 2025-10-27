@@ -13,7 +13,7 @@
     }
     header {
       background-color: #3e7bcb;
-      border-bottom: 2px solid #f9f9f9;
+      border-bottom: 2px solid #3e7bcb;
 
     }
     .logo-text {
@@ -40,6 +40,11 @@
       border-top: 1px solid #ddd;
       padding: 20px;
     }
+
+    html {
+  scroll-behavior: smooth;
+}
+
   </style>
 </head>
 <body>
@@ -51,9 +56,9 @@
     <span class="">BukuTamu Digital</span>
   </div>
   <nav>
-    <a href="#home" class="btn btn-outline-danger mx-1">Home</a>
-    <a href="#faq" class="btn btn-outline-danger mx-1">FAQ</a>
-    <a href="#about" class="btn btn-outline-danger mx-1">About Us</a>
+    <a href="#home" class="btn btn-outline-white mx-1">Home</a>
+    <a href="#faq" class="btn btn-outline-white mx-1">FAQ</a>
+    <a href="#about" class="btn btn-outline-white mx-1">About Us</a>
     <a href="form.php" class="btn btn-outline-warning mx-1">Login</a>
   </nav>
 </header>
@@ -78,30 +83,73 @@
 <!-- FAQ SECTION -->
 <section id="faq" class="faq-section container">
   <h2 class="text-center mb-5">Frequently Asked Questions</h2>
-  <div class="row">
-    <div class="col-md-6 mb-3">
-      <div class="p-3 border rounded">Apa yang perlu diisi?</div>
+
+  <div class="accordion" id="faqAccordion">
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Apa yang perlu diisi?
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Anda perlu mengisi data sesuai formulir yang tersedia di halaman utama.
+        </div>
+      </div>
     </div>
-    <div class="col-md-6 mb-3">
-      <div class="p-3 border rounded">Kapan boleh berkunjung?</div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Kapan boleh berkunjung?
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Kunjungan dapat dilakukan pada jam operasional yang telah ditentukan.
+        </div>
+      </div>
     </div>
-    <div class="col-md-6 mb-3">
-      <div class="p-3 border rounded">Kemana isi form?</div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Kemana isi form?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Form yang sudah diisi akan otomatis dikirim ke sistem kami untuk diproses.
+        </div>
+      </div>
     </div>
-    <div class="col-md-6 mb-3">
-      <div class="p-3 border rounded">Jika QR tidak bisa?</div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Jika QR tidak bisa?
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Silakan hubungi admin atau gunakan form manual sebagai alternatif.
+        </div>
+      </div>
     </div>
+
   </div>
+
   <div class="text-center mt-4">
     <a href="contact.php" class="btn btn-outline-primary">Ask Our Customer Service</a>
   </div>
 </section>
 
 <!-- ABOUT US SECTION -->
-<section id="about" class="about-section container-fluid" style="background-color: #a8c3e6;">
+<section id="about" class="about-section container-fluid text-center" style="background-color: #a8c3e6;">
   <h2 class="text-center mb-5">About Us</h2>
 
-  <div class="row align-items-center mb-5">
+  <div class="row align-items-center justify-content-center mb-5">
     <div class="col-md-6">
       <p>Kami menyediakan sistem buku tamu digital untuk mempermudah pencatatan data pengunjung dan pelaporan.</p>
     </div>
@@ -112,6 +160,9 @@
 <footer>
   &copy; 2025 Buku Tamu Digital. All Rights Reserved.
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>

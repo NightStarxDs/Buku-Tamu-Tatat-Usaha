@@ -5,21 +5,39 @@
   <title>Buku Tatausaha - Form Kunjungan</title>
   <link rel="stylesheet" href="slogin.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: #3e7bcb;
+      border-bottom: 2px solid #f9f9f9;
+
+    }
+
+    footer {
+      background-color: #3e7bcb;
+      text-align: center;
+      border-top: 1px solid #ddd;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
- <header class="py-3 px-5 d-flex justify-content-between align-items-center" style="background-color: #1a4d8eff;">
-    <div class="d-flex align-items-center">
-      <div class="me-2" style="width:40px; height:40px; background:blue; border-radius:50%;"></div>
-      <h5 class="m-0">BUKU TAMU DIGITAL</h5>
-    </div>
-    <nav>
-      <a href="landing.php" class="btn btn-outline-dark mx-1">HOME</a>
-      <a href="landing.php" class="btn btn-outline-dark mx-1">FAQ</a>
-      <a href="landing.php" class="btn btn-outline-dark mx-1">ABOUT US</a>
-      <a href="form.php" class="btn btn-outline-dark mx-1">LOGIN</a>
-    </nav>
-  </header>
+  <!-- HEADER -->
+<header class="d-flex justify-content-between align-items-center px-4 py-3">
+  <div class="d-flex align-items-center">
+    <img src="poltek.png" alt="poltek.png" width="40" class="me-2">
+    <span class="">BukuTamu Digital</span>
+  </div>
+  <nav>
+    <a href="landing.php#home" class="btn btn-outline-white mx-1">Home</a>
+    <a href="landing.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
+    <a href="landing.php#about" class="btn btn-outline-white mx-1">About Us</a>
+    <a href="form.php" class="btn btn-outline-warning mx-1">Login</a>
+  </nav>
+</header>
 
   <!-- Main Form -->
   <main class="container my-5">
@@ -53,13 +71,9 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-light py-3 mt-5 text-center">
-    <p>@ KELOMPOK 1</p>
-    <div>SOSIAL MEDIA 
-      <span style="color:red;">● ● ●</span>
-    </div>
-    <p>KELOMPOK 1<br>Nayla | Samuel | Agung</p>
-  </footer>
+  <!-- FOOTER -->
+<footer>
+  &copy; 2025 Buku Tamu Digital. All Rights Reserved.
+</footer>
 </body>
 </html>
