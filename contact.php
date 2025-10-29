@@ -10,15 +10,16 @@
       font-family: Arial, sans-serif;
     }
     header {
-      background-color: #3e7bcb;
-      border-bottom: 2px solid #f9f9f9;
+      background-color: #ffffff;
+      border-bottom: 2px solid #008080;
 
     }
 
     footer {
-      background-color: #3e7bcb;
+      background-color: #008080;
+      color: #ffffff;
       text-align: center;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #008080;
       padding: 20px;
     }
   </style>
@@ -26,10 +27,9 @@
 <body>
 
 <!-- HEADER -->
-<header class="d-flex justify-content-between align-items-center px-4 py-3">
+<header class="d-flex justify-content-between align-items-center px-4 py-3 position-relative">
   <div class="d-flex align-items-center">
-    <img src="poltek.png" alt="poltek.png" width="40" class="me-2">
-    <span class="">BukuTamu Digital</span>
+    <img src="visilog.png" alt="" width="100" class="me-2 position-absolute top-1 start-0">
   </div>
   <nav>
     <a href="landing.php#home" class="btn btn-outline-white mx-1">Home</a>

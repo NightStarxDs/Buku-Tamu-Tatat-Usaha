@@ -12,9 +12,9 @@
       font-family: Arial, sans-serif;
     }
     header {
-      background-color: #3e7bcb;
-      border-bottom: 2px solid #3e7bcb;
-
+      background-color: #ffffff;
+      border-bottom: 2px solid #008080;
+      
     }
     .logo-text {
       font-weight: bold;
@@ -28,16 +28,15 @@
       flex-direction: column;
       background-color: #e9ecef;
     }
-    .about-section{
-      background-color: #aac2e0;
-    }
+    
     .faq-section, .about-section, footer {
       padding: 60px 0;
     }
     footer {
-      background-color: #1a4d8eff;
+      background-color: #008080;
+      color: #ffffff;
       text-align: center;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #008080;
       padding: 20px;
     }
 
@@ -50,10 +49,9 @@
 <body>
 
 <!-- HEADER -->
-<header class="d-flex justify-content-between align-items-center px-4 py-3">
+<header class="d-flex justify-content-between align-items-center px-4 py-3 position-relative">
   <div class="d-flex align-items-center">
-    <img src="poltek.png" alt="poltek.png" width="40" class="me-2">
-    <span class="">BukuTamu Digital</span>
+    <img src="visilog.png" alt="" width="100" class="me-2 position-absolute top-1 start-0">
   </div>
   <nav>
     <a href="#home" class="btn btn-outline-white mx-1">Home</a>
@@ -65,7 +63,7 @@
 
 <!-- HERO SECTION -->
 <section class="hero position-relative text-center text-white">
-  <img src="bg.jpg" class="img-fluid w-100" alt="Hero Image" style="height: 100vh; object-fit: cover;">
+  <img src="bg.png" class="img-fluid w-100" alt="Hero Image" style="height: 100vh; object-fit: cover;">
 
   <!-- Overlay -->
   <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.5);"></div>
@@ -145,16 +143,26 @@
   </div>
 </section>
 
-<!-- ABOUT US SECTION -->
-<section id="about" class="about-section container-fluid text-center" style="background-color: #a8c3e6;">
-  <h2 class="text-center mb-5">About Us</h2>
+<!-- About Us-->
+<section id="about" class="about-section container-fluid text-center py-5" style="background-color: #a8c3e6;">
+  <div class="container">
+    <h2 class="text-center mb-3">About Us</h2>
 
-  <div class="row align-items-center justify-content-center mb-5">
-    <div class="col-md-6">
-      <p>Kami menyediakan sistem buku tamu digital untuk mempermudah pencatatan data pengunjung dan pelaporan.</p>
+    <div class="row align-items-center ">
+      <!-- Image -->
+      <img src="LOGO_lagi.png" alt="Visilog Logo" class="img-fluid"
+     style="max-width: 30%; height: auto; margin-left: 10px;">
+
+      <!-- Text -->
+      <div class="col-md-6 text-center text-md-start mt-4 mt-md-0 ms-n3">
+        <p style="font-size: 1.1rem;">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, aliquid ipsam nisi quod eum nulla ab optio, odit sequi blanditiis deserunt repellat consequatur? Ab libero alias obcaecati illo dolor cumque.
+        </p>
+      </div>
     </div>
   </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer>
