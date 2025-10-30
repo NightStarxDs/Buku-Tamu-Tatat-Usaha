@@ -71,6 +71,17 @@
                                     </div>
                                 </div>
 
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="waktu_datang">Waktu Kedatangan</label>
+                                        <input type="time" class="form-control" name="waktu_datang" id="waktu_datang">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="waktu_pulang">Waktu Kepulangan</label>
+                                        <input type="time" class="form-control" name="waktu_pulang" id="waktu_pulang">
+                                    </div>
+                                </div>
+
                                 <div class="form-group mt-3">
                                     <a href="data_kunjungan.php" class="btn btn-secondary">Kembali</a>
                                     <button type="submit" class="btn btn-primary px-3">Simpan</button>
@@ -83,3 +94,15 @@
 
                     <!-- Footer -->
                     <?php include 'dashboard_template/footer.php'; ?>
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content-wrapper -->
+        </div>
+        <!-- /#wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+</body>
+
+</html>
