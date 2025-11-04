@@ -75,9 +75,9 @@
       <img src="visilog.png" alt="" width="120" class="me-2 position-absolute">
     </div>
     <nav>
-      <a href="landing.php#home" class="btn btn-outline-white mx-1">Home</a>
+      <a href="landing.php#home" class="btn btn-outline-white mx-1">Beranda</a>
       <a href="landing.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
-      <a href="landing.php#about" class="btn btn-outline-white mx-1">About Us</a>
+      <a href="landing.php#about" class="btn btn-outline-white mx-1">Tentang Kami</a>
       <a href="form.php" class="btn btn-outline-warning mx-1">Login</a>
     </nav>
   </header>
@@ -93,7 +93,7 @@
     <div class="hero-content position-absolute top-50 start-50 translate-middle">
       <h1 class="display-4 fw-bold">Selamat Datang di Buku Tamu Digital</h1>
       <p>Catat kunjungan dengan cepat, mudah, dan efisien</p>
-      <a href="tamu.php" class="btn btn-primary mt-3">Go to Form</a>
+      <a href="tamu.php" class="btn btn-primary mt-3">Menuju Form</a>
     </div>
   </section>
 
@@ -101,7 +101,7 @@
 
   <!-- FAQ SECTION -->
   <section id="faq" class="faq-section container">
-    <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+    <h2 class="text-center mb-5">Tanyakan pada Layanan Pelanggan Kami</h2>
 
     <div class="accordion" id="faqAccordion">
 
@@ -167,7 +167,7 @@
   <!-- About Us-->
   <section id="about" class="about-section container-fluid text-center py-5" style="background-color: #a8c3e6;">
     <div class="container">
-      <h2 class="text-center mb-3">About Us</h2>
+      <h2 class="text-center mb-3">Tentang Kami</h2>
 
       <div class="row d-flex align-items-center justify-content-center">
         <div class="col-md-4">
