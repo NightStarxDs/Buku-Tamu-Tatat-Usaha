@@ -169,10 +169,10 @@
       <img src="visilog.png" alt="" width="120" class="me-2 position-absolute">
     </div>
     <nav>
-      <a href="landing.php#home" class="btn btn-outline-white mx-1">Home</a>
+      <a href="landing.php#home" class="btn btn-outline-white mx-1">Beranda</a>
       <a href="landing.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
-      <a href="landing.php#about" class="btn btn-outline-white mx-1">About Us</a>
-      <a href="form.php" class="btn btn-outline-warning mx-1">Login</a>
+      <a href="landing.php#about" class="btn btn-outline-white mx-1">Tentang Kami</a>
+      <a href="form.php" class="btn btn-outline-warning mx-1">Masuk</a>
     </nav>
   </header>
 
@@ -181,25 +181,25 @@
       <img
         src="LOGO_lagi.png"
         alt="Visilog" />
-      <h3 class="mb-4">Login</h3>
+      <h3 class="mb-4">Masuk</h3>
 
       <form id="loginForm" novalidate action="admin.php" method="post">
         <div class=" mb-3 text-start">
-          <label for="username" class="form-label">Username</label>
+          <label for="username" class="form-label">Nama Pengguna</label>
           <input
             type="text"
             id="username"
             class="form-control"
-            placeholder="Masukkan Username"
+            placeholder="Masukkan Nama Pengguna"
             required />
           <div class="invalid-feedback">
-            Username harus di isi
+            Nama Pengguna harus di isi
           </div>
         </div>
 
 
         <div class="mb-3 text-start">
-          <label for="password" class="form-label">Password</label>
+          <label for="password" class="form-label">Kata Sandi</label>
           <input
             type="password"
             id="password"
@@ -207,7 +207,7 @@
             placeholder="Masukkan password"
             required />
           <div class="invalid-feedback">
-            Password harus minimal 6 karakter.
+            Kata Sandi harus minimal 6 karakter.
           </div>
         </div>
 
