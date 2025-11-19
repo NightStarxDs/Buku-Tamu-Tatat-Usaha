@@ -1,4 +1,10 @@
-<?php include 'dashboard_template/header.php'; ?>
+<?php include 'dashboard_template/header.php'; 
+include 'koneksi.php';
+$id = $_GET['id'];
+$sql = "SELECT * FROM visit_data WHERE id = $id";
+$query = mysqli_query($koneksi, $sql);
+$data = mysqli_fetch_array($query);
+?>
 
 <body class="page-top">
 
@@ -20,7 +26,7 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Edit Data</h1>
                     </div>
-
+  
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 bg-warning">
                             <h6 class="m-0 font-weight-bold text-white">Edit Data Kunjungan</h6>
@@ -29,56 +35,56 @@
                             <form action="">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="nama_pengunjung">Nama Pengunjung</label>
-                                        <input type="text" class="form-control" name="nama_pengunjung" id="nama_pengunjung">
+                                        <label for="guest_name">Nama Pengunjung</label>
+                                        <input type="text" class="form-control" name="guest_name" id="guest_name" value="<?= $data['guest_name'] ?>">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="email_pengunjung">Alamat Email</label>
+                                        <label for="email">Alamat Email</label>
                                         <div class="input-group">
-                                            <input type="email" class="form-control" name="email_pengunjung" id="email_pengunjung">
+                                            <input type="email" class="form-control" name="email" id="email" value="<?= $data['email'] ?>">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="nomor_pengunjung">No. Telepon</label>
-                                        <input type="tel" class="form-control" name="nomor_pengunjung" id="nomor_pengunjung">
+                                        <label for="phone_number">No. Telepon</label>
+                                        <input type="tel" class="form-control" name="phone_number" id="phone_number" value="<?= $data['phone_number'] ?>">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="nama_instansi">Nama Instansi</label>
-                                        <input type="text" class="form-control" name="nama_instansi" id="nama_instansi">
+                                        <label for="company_name">Nama Instansi</label>
+                                        <input type="text" class="form-control" name="company_name" id="company_name" value="<?= $data['company_name'] ?>">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="perihal_kunjungan">Perihal Kunjungan</label>
-                                    <textarea class="form-control" name="perihal_kunjungan" id="perihal_kunjungan" rows="3"></textarea>
+                                    <label for="visit_regards">Perihal Kunjungan</label>
+                                    <textarea class="form-control" name="visit_regards" id="visit_regards" rows="3"><?= $data['visit_regards'] ?></textarea>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="tanggal_kunjungan">Tanggal Kunjungan</label>
-                                        <input type="date" class="form-control" name="tanggal_kunjungan" id="tanggal_kunjungan">
+                                        <label for="visit_date">Tanggal Kunjungan</label>
+                                        <input type="date" class="form-control" name="visit_date" id="visit_date" value="<?= $data['visit_date'] ?>">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="status">Status</label>
                                         <select class="form-control" name="status" id="status">
-                                            <option value="">Pilih...</option>
-                                            <option value="pending">Pending</option>
-                                            <option value="selesai">Selesai</option>
-                                            <option value="batal">Batal</option>
+                                            <option value="<?= $data['status'] ?>"><?= $data['status'] ?></option>
+                                            <option value="Pending">Pending</option>
+                                            <option value="Done">Done</option>
+                                            <option value="Upcoming">Upcoming</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="waktu_datang">Waktu Kedatangan</label>
-                                        <input type="time" class="form-control" name="waktu_datang" id="waktu_datang">
+                                        <label for="arrival_time">Waktu Kedatangan</label>
+                                        <input type="time" class="form-control" name="arrival_time" id="arrival_time" value="<?= $data['arrival_time']; ?>">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="waktu_pulang">Waktu Kepulangan</label>
-                                        <input type="time" class="form-control" name="waktu_pulang" id="waktu_pulang">
+                                        <label for="return_time">Waktu Kepulangan</label>
+                                        <input type="time" class="form-control" name="return_time" id="return_time" value="<?= $data['return_time']; ?>">
                                     </div>
                                 </div>
 

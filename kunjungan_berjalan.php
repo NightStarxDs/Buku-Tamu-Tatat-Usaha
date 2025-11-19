@@ -41,13 +41,22 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Dwi Agung Willy Anto</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Sosialisasi</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
+                                        <?php include 'koneksi.php';
+                                        $sql = "SELECT * FROM visit_data WHERE `status` = 'Upcoming' ORDER BY id DESC" ;
+                                        $query = mysqli_query($koneksi, $sql);
+                                        foreach ($query as $data) {
+                                        ?>
+                                            <td><?= $data['guest_name']; ?></td>
+                                            <td><?= $data['company_name'];?></td>
+                                            <td><?= $data['visit_regards']; ?></td>
+                                            <td><?= $data['visit_date']; ?></td>
+                                            <td class="text-center">
+                                                <span class="badge badge-info" style="padding: 10px; font-size: 15px;">
+                                                    <?= $data['status']; ?>
+                                                </span>
+                                            </td>
                                             <td class="d-flex justify-content-between">
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
+                                                <a href="edit.php?id=<?= $data['id'] ?>" class="btn btn-warning" title="Edit">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
 
@@ -55,54 +64,7 @@
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Virgiawan Aziz Listianto</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Sosialisasi</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zaid Hasbiya Abrar</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Sosialisasi</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Safamal Jovanda</td>
-                                            <td>Institusi Teknologi Batam</td>
-                                            <td>Seminar</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-danger px-1 rounded">In Progess</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
+                                            <?php } ?>
                                         </tr>
                                     </tbody>
                                 </table>

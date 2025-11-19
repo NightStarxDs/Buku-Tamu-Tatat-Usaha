@@ -40,14 +40,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php include 'koneksi.php';
+                                        $sql = "SELECT * FROM visit_data WHERE `status` = 'Pending' ORDER BY id DESC" ;
+                                        $query = mysqli_query($koneksi, $sql);
+                                        foreach ($query as $data) {
+                                        ?>
                                         <tr>
-                                            <td>Rizky Ramadhani</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Berkunjung</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-warning px-1 rounded">Pending</span></td>
+                                            <td><?= $data['guest_name']; ?></td>
+                                            <td><?= $data['company_name'];?></td>
+                                            <td><?= $data['visit_regards']; ?></td>
+                                            <td><?= $data['visit_date']; ?></td>
+                                            <td class="text-center">
+                                                <span class="badge badge-warning" style="padding: 10px; font-size: 15px;">
+                                                    <?= $data['status']; ?>
+                                                </span>
+                                            </td>
                                             <td class="d-flex justify-content-between">
-                                                <a href="#" class="btn btn-success" title="Terima">
+                                                <a href="?url" class="btn btn-success" title="Terima">
                                                     <i class=" fas fa-check px-1"></i>
                                                 </a>
                                                 <a href="#" class="btn btn-danger" title="Tolak">
@@ -55,52 +64,7 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>Muhammad Riswan</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Berkunjung</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-warning px-1 rounded">Pending</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="#" class="btn btn-success" title="Terima">
-                                                    <i class=" fas fa-check px-1"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger" title="Tolak">
-                                                    <i class="fas fa-times px-2"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kevin Febriano</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Berkunjung</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-warning px-1 rounded">Pending</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="#" class="btn btn-success" title="Terima">
-                                                    <i class=" fas fa-check px-1"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger" title="Tolak">
-                                                    <i class="fas fa-times px-2"></i>
-                                                </a>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fuzan Najib Ali</td>
-                                            <td>Politeknik Negeri Batam</td>
-                                            <td>Kajian</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-warning px-1 rounded">Pending</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="#" class="btn btn-success" title="Terima">
-                                                    <i class=" fas fa-check px-1"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger" title="Tolak">
-                                                    <i class="fas fa-times px-2"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
