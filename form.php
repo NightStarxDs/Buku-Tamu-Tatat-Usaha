@@ -183,7 +183,7 @@
         alt="Visilog" />
       <h3 class="mb-4">Masuk</h3>
 
-      <form id="loginForm" novalidate action="admin.php" method="post">
+      <form id="loginForm" novalidate action="proses_login.php" method="post">
         <div class=" mb-3 text-start">
           <label for="username" class="form-label">Nama Pengguna</label>
           <input
