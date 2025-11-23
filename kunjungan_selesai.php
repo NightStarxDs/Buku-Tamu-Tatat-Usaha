@@ -35,35 +35,37 @@
                                             <th>Nama Instansi</th>
                                             <th>Perihal Kunjungan</th>
                                             <th>Tanggal Kunjungan</th>
+                                            <th>Waktu Kunjungan</th>
                                             <th class="text-center">Status</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <tr>
-                                        <?php include 'koneksi.php';
-                                        $sql = "SELECT * FROM visit_data WHERE `status` = 'Done' ORDER BY id DESC" ;
-                                        $query = mysqli_query($koneksi, $sql);
-                                        foreach ($query as $data) {
-                                        ?>
-                                            <td><?= $data['guest_name']; ?></td>
-                                            <td><?= $data['company_name'];?></td>
-                                            <td><?= $data['visit_regards']; ?></td>
-                                            <td><?= $data['visit_date']; ?></td>
-                                            <td class="text-center">
-                                                <span class="badge badge-success" style="padding: 10px; font-size: 15px;">
-                                                    <?= $data['status']; ?>
-                                                </span>
-                                            </td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="info.php?id=<?= $data['id'] ?>" class="btn btn-primary" title="Info">
-                                                    <i class=" fas fa-info px-1"></i>
-                                                </a>
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
+                                        <tr>
+                                            <?php include 'koneksi.php';
+                                            $sql = "SELECT * FROM visit_data WHERE `status` = 'Done' ORDER BY id DESC";
+                                            $query = mysqli_query($koneksi, $sql);
+                                            foreach ($query as $data) {
+                                            ?>
+                                                <td><?= $data['guest_name']; ?></td>
+                                                <td><?= $data['company_name']; ?></td>
+                                                <td><?= ucwords(str_replace('_', ' ', strtolower($data['visit_regards']))) ?></td>
+                                                <td><?= $data['visit_date']; ?></td>
+                                                <td><?= date('H:i', strtotime($data['time_in'])) ?> - <?= date('H:i', strtotime($data['time_out'])) ?></td>
+                                                <td class="text-center">
+                                                    <span class="badge badge-success" style="padding: 10px; font-size: 15px;">
+                                                        <?= $data['status']; ?>
+                                                    </span>
+                                                </td>
+                                                <td class="d-flex justify-content-between">
+                                                    <a href="info.php?id=<?= $data['id'] ?>" class="btn btn-primary" title="Info">
+                                                        <i class=" fas fa-info px-1"></i>
+                                                    </a>
+                                                    <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                </td>
                                             <?php } ?>
                                         </tr>
                                     </tbody>

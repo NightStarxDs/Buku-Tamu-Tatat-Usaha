@@ -35,35 +35,39 @@
                                             <th>Nama Instansi</th>
                                             <th>Perihal Kunjungan</th>
                                             <th>Tanggal Kunjungan</th>
+                                            <th>Waktu Kunjungan</th>
+                                            <th>Staf Dituju</th>
                                             <th class="text-center">Status</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php include 'koneksi.php';
-                                        $sql = "SELECT * FROM visit_data WHERE `status` = 'Pending' ORDER BY id DESC" ;
+                                        $sql = "SELECT * FROM visit_data WHERE `status` = 'Pending' ORDER BY id DESC";
                                         $query = mysqli_query($koneksi, $sql);
                                         foreach ($query as $data) {
                                         ?>
-                                        <tr>
-                                            <td><?= $data['guest_name']; ?></td>
-                                            <td><?= $data['company_name'];?></td>
-                                            <td><?= $data['visit_regards']; ?></td>
-                                            <td><?= $data['visit_date']; ?></td>
-                                            <td class="text-center">
-                                                <span class="badge badge-warning" style="padding: 10px; font-size: 15px;">
-                                                    <?= $data['status']; ?>
-                                                </span>
-                                            </td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="?url" class="btn btn-success" title="Terima">
-                                                    <i class=" fas fa-check px-1"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger" title="Tolak">
-                                                    <i class="fas fa-times px-2"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td><?= $data['guest_name']; ?></td>
+                                                <td><?= $data['company_name']; ?></td>
+                                                <td><?= ucwords(str_replace('_', ' ', strtolower($data['visit_regards']))) ?></td>
+                                                <td><?= $data['visit_date']; ?></td>
+                                                <td><?= date('H:i', strtotime($data['time_in'])) ?></td>
+                                                <td><?= $data['staf_name'] ?></td>
+                                                <td class="text-center">
+                                                    <span class="badge badge-warning" style="padding: 10px; font-size: 15px;">
+                                                        <?= $data['status']; ?>
+                                                    </span>
+                                                </td>
+                                                <td class="d-flex justify-content-between">
+                                                    <a href="?url" class="btn btn-success" title="Terima">
+                                                        <i class=" fas fa-check px-1"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-danger" title="Tolak">
+                                                        <i class="fas fa-times px-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>
