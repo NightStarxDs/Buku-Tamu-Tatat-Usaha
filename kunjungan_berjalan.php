@@ -41,12 +41,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <?php include 'koneksi.php';
+                                        <?php include 'koneksi.php';
                                             $sql = "SELECT * FROM visit_data WHERE `status` = 'Upcoming' ORDER BY id DESC";
                                             $query = mysqli_query($koneksi, $sql);
                                             foreach ($query as $data) {
                                             ?>
+                                        <tr>
                                                 <td><?= $data['guest_name']; ?></td>
                                                 <td><?= $data['company_name']; ?></td>
                                                 <td><?= ucwords(str_replace('_', ' ', strtolower($data['visit_regards']))) ?></td>
@@ -66,8 +66,8 @@
                                                         <i class="fas fa-trash"></i>
                                                     </a>
                                                 </td>
-                                            <?php } ?>
-                                        </tr>
+                                            </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

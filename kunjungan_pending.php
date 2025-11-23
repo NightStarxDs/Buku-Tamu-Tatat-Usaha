@@ -53,7 +53,7 @@
                                                 <td><?= ucwords(str_replace('_', ' ', strtolower($data['visit_regards']))) ?></td>
                                                 <td><?= $data['visit_date']; ?></td>
                                                 <td><?= date('H:i', strtotime($data['time_in'])) ?></td>
-                                                <td><?= $data['staf_name'] ?></td>
+                                                <td><?= $data['staff_in_charge']; ?></td>
                                                 <td class="text-center">
                                                     <span class="badge badge-warning" style="padding: 10px; font-size: 15px;">
                                                         <?= $data['status']; ?>
