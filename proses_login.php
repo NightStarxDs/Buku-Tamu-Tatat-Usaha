@@ -1,6 +1,6 @@
 <?php
 session_start(); // Untuk memulai session
-include '.php'; // Panggil koneksi database
+include 'db.php'; // Panggil koneksi database
 
 // Ambil data dari form
 $admin = $_POST['admin'];
