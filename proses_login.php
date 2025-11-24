@@ -1,33 +1,19 @@
 <?php
-session_start(); // Untuk memulai session
-include 'db.php'; // Panggil koneksi database
+include "koneksi.php";
 
-// Ambil data dari form
-$admin = $_POST['admin'];
-$password_admin = $_POST['password'];
+$username = $_POST['username'];
+$password = md5($_POST['password']); // enkripsi sama dengan di database
 
-// Enkripsi password dengan MD5 (agar sama dengan di database)
-$password_enkripsi = md5($password_admin);
-
-// Query untuk cek apakah admin dan password cocok
-$query = "SELECT * FROM users WHERE admin='$admin' AND password='$password_enkripsi'";
-$result = mysqli_query($koneksi, $query);
-
-// Hitung jumlah baris hasil query
-$cek = mysqli_num_rows($result);
+$query = mysqli_query($koneksi, "SELECT * FROM users WHERE username='$username' AND password='$password'");
+$cek = mysqli_num_rows($query);
 
 if ($cek > 0) {
-    // Jika cocok, ambil datanya
-    $data = mysqli_fetch_assoc($result);
+    session_start();
+    $_SESSION['username'] = $username;
 
-    // Buat session login
-    $_SESSION['admin'] = $data['admin'];
-    $_SESSION['status'] = "login";
-
-    // Arahkan ke halaman dashboard
     header("Location: admin.php");
+    exit;
 } else {
-    // Jika tidak cocok
-    echo "Username atau password salah!";
+    echo "<script>alert('Login gagal! Username atau password salah'); window.location='login.php';</script>";
 }
 ?>

@@ -248,7 +248,7 @@
         }
 
         if (valid) {
-          alert("Login berhasil! (simulasi)");
+          alert("Login berhasil!");
           this.reset();
           username.classList.remove("is-valid");
           password.classList.remove("is-valid");
