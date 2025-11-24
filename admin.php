@@ -1,3 +1,8 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin'])) 
+    header("Location: form.php");?>
+
 <?php include 'dashboard_template/header.php'; ?>
 
 <!-- Page Wrapper -->
@@ -22,8 +27,6 @@
 
                 <!-- Footer -->
                 <?php include 'dashboard_template/footer.php'; ?>
-
-
 
             </div>
         </div>
