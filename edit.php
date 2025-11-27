@@ -1,4 +1,4 @@
-<?php include 'dashboard_template/header.php'; 
+<?php include 'dashboard_template/header.php';
 include 'koneksi.php';
 $id = $_GET['id'];
 $sql = "SELECT * FROM visit_data WHERE id = $id";
@@ -26,7 +26,7 @@ $data = mysqli_fetch_array($query);
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Edit Data</h1>
                     </div>
-  
+
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 bg-warning">
                             <h6 class="m-0 font-weight-bold text-white">Edit Data Kunjungan</h6>
@@ -69,22 +69,23 @@ $data = mysqli_fetch_array($query);
                                     <div class="form-group col-md-6">
                                         <label for="status">Status</label>
                                         <select class="form-control" name="status" id="status">
-                                            <option value="<?= $data['status'] ?>"><?= $data['status'] ?></option>
-                                            <option value="Pending">Pending</option>
-                                            <option value="Done">Done</option>
-                                            <option value="Upcoming">Upcoming</option>
+                                            <option value="Pending" <?= $data['status'] === 'Pending' ? 'selected' : '' ?>>Pending</option>
+                                            <option value="Done" <?= $data['status'] === 'Done' ? 'selected' : '' ?>>Done</option>
+                                            <option value="Upcoming" <?= $data['status'] === 'Upcoming' ? 'selected' : '' ?>>Upcoming</option>
+                                            <option value="Close" <?= $data['status'] === 'Close' ? 'selected' : '' ?>>Close</option>
+                                            <option value="Now" <?= $data['status'] === 'Now' ? 'selected' : '' ?>>Now</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="arrival_time">Waktu Kedatangan</label>
-                                        <input type="time" class="form-control" name="arrival_time" id="arrival_time" value="<?= $data['arrival_time']; ?>">
+                                        <label for="time_in">Waktu Mulai</label>
+                                        <input type="time" class="form-control" name="time_in" id="time_in" value="<?= $data['time_in']; ?>">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="return_time">Waktu Kepulangan</label>
-                                        <input type="time" class="form-control" name="return_time" id="return_time" value="<?= $data['return_time']; ?>">
+                                        <label for="time_out">Waktu Selesai</label>
+                                        <input type="time" class="form-control" name="time_out" id="time_out" value="<?= $data['time_out']; ?>">
                                     </div>
                                 </div>
 

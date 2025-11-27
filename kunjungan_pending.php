@@ -31,44 +31,48 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="thead bg-warning text-white fw-bold">
                                         <tr>
-                                            <th>Nama</th>
-                                            <th>Nama Instansi</th>
-                                            <th>Perihal Kunjungan</th>
-                                            <th>Tanggal Kunjungan</th>
-                                            <th>Waktu Kunjungan</th>
-                                            <th>Staf Dituju</th>
-                                            <th class="text-center">Status</th>
+                                            <th>Tamu</th>
+                                            <th>Instansi</th>
+                                            <th>Perihal </th>
+                                            <th>Tanggal & Waktu </th>
+                                            <th>Staf / Unit</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php include 'koneksi.php';
-                                        $sql = "SELECT * FROM visit_data WHERE `status` = 'Pending' ORDER BY id DESC";
+                                        <?php
+                                        include 'koneksi.php';
+                                        $sql = "SELECT 
+                                                    visit_data.*,
+                                                    staf.staf_name,
+                                                    unit.unit_name
+                                                FROM 
+                                                    visit_data
+                                                LEFT JOIN staf ON visit_data.id_staf = staf.id_staf
+                                                LEFT JOIN unit ON visit_data.id_unit = unit.id_unit
+                                                WHERE 
+                                                    visit_data.`status` = 'Pending' 
+                                                ORDER BY 
+                                                    visit_data.id DESC";
+
                                         $query = mysqli_query($koneksi, $sql);
                                         foreach ($query as $data) {
                                         ?>
                                             <tr>
-                                                <td><?= $data['guest_name']; ?></td>
-                                                <td><?= $data['company_name']; ?></td>
-                                                <td><?= ucwords(str_replace('_', ' ', strtolower($data['visit_regards']))) ?></td>
-                                                <td><?= $data['visit_date']; ?></td>
-                                                <td><?= date('H:i', strtotime($data['time_in'])) ?></td>
-                                                <td><?= $data['staff_in_charge']; ?></td>
-                                                <td class="text-center">
-                                                    <span class="badge badge-warning" style="padding: 10px; font-size: 15px;">
-                                                        <?= $data['status']; ?>
-                                                    </span>
-                                                </td>
+                                                <td><?= htmlspecialchars($data['guest_name']); ?></td>
+                                                <td><?= htmlspecialchars($data['company_name']); ?></td>
+                                                <td><?= $data['visit_desc'] ?></td>
+                                                <td><?= date('d/m/Y', strtotime($data['visit_date'])); ?> <span><?= date('H:i', strtotime($data['time_in'])); ?></span></td>
+                                                <td><?= !empty($data['staf_name']) ? htmlspecialchars($data['staf_name']) : htmlspecialchars($data['unit_name']); ?></td>
                                                 <td class="d-flex justify-content-between">
-                                                    <a href="?url" class="btn btn-success" title="Terima">
-                                                        <i class=" fas fa-check px-1"></i>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger" title="Tolak">
-                                                        <i class="fas fa-times px-2"></i>
-                                                    </a>
+                                                    <a href="info.php?id=<?= $data['id'] ?>" class="btn btn-primary btn-sm" title="Info"><i class=" fas fa-eye"></i></a>
+                                                    <a onclick="confirm('Apakah anda yakin ingin menerima data ini?')" href="proses_terima.php?id=<?= $data['id']; ?>" class="btn btn-success btn-sm" title="Terima"><i class="fas fa-check"></i></a>
+                                                    <a onclick="confirm('Apakah anda yakin ingin menerima data ini?')" href="proses_tolak.php?id=<?= $data['id']; ?>" class="btn btn-danger btn-sm" title="Tolak"><i class="fas fa-times"></i></a>
                                                 </td>
                                             </tr>
-                                        <?php } ?>
+                                        <?php
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
