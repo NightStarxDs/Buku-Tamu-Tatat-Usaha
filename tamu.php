@@ -44,9 +44,9 @@
       <img src="visilog.png" alt="" width="120" class="me-2 position-absolute">
     </div>
     <nav>
-      <a href="landing.php#home" class="btn btn-outline-white mx-1">Home</a>
+      <a href="landing.php#home" class="btn btn-outline-white mx-1">Beranda</a>
       <a href="landing.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
-      <a href="landing.php#about" class="btn btn-outline-white mx-1">About Us</a>
+      <a href="landing.php#about" class="btn btn-outline-white mx-1">Tentang Kami</a>
       <a href="form.php" class="btn btn-outline-warning mx-1">Login</a>
     </nav>
   </header>
