@@ -58,7 +58,7 @@
   <!-- Contact Form -->
   <div class="card shadow-sm my-5 mx-auto" style="max-width: 700px;">
     <div class="container py-5">
-      <h2 class="text-center mb-4">Beri Pertanyaan</h2>
+      <h2 class="text-center mb-4">Berikan Pertanyaan Anda</h2>
       <form action="submit_question.php" method="POST" class="mx-auto" style="max-width: 600px;">
         <div class="mb-3">
           <label for="name" class="form-label">Nama</label>
