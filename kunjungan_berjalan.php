@@ -31,79 +31,89 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="thead bg-primary text-white fw-bold">
                                         <tr>
-                                            <th>Nama</th>
-                                            <th>Nama Instansi</th>
-                                            <th>Perihal Kunjungan</th>
-                                            <th>Tanggal Kunjungan</th>
+                                            <th>Tamu</th>
+                                            <th>Instansi</th>
+                                            <th>Perihal</th>
+                                            <th>Tanggal & Waktu</th>
                                             <th class="text-center">Status</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Dwi Agung Willy Anto</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Sosialisasi</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
+                                        <?php
+                                        include 'koneksi.php';
+                                        $sql = "SELECT * FROM visit_data WHERE `status` IN ('Upcoming','Close','Now') ORDER BY id DESC";
+                                        $result = mysqli_query($koneksi, $sql);
+                                        if (!$result) {
+                                            echo '<tr><td colspan="7">Query error: ' . htmlspecialchars(mysqli_error($koneksi)) . '</td></tr>';
+                                        } else {
+                                            $tz = new DateTimeZone('Asia/Jakarta');
+                                            $closeThreshold = 24 * 3600; // 24 jam
 
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Virgiawan Aziz Listianto</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Sosialisasi</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
+                                            while ($data = mysqli_fetch_assoc($result)) {
+                                                $now = new DateTime('now', $tz);
 
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zaid Hasbiya Abrar</td>
-                                            <td>SMKN 4 BATAM</td>
-                                            <td>Sosialisasi</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-info px-1 rounded">Upcoming</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
+                                                $in = DateTime::createFromFormat('Y-m-d H:i:s', $data['visit_date'] . ' ' . ($data['time_in'] ?: '00:00:00'), $tz);
+                                                if (!$in) $in = new DateTime($data['visit_date'] . ' ' . $data['time_in'], $tz);
 
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Safamal Jovanda</td>
-                                            <td>Institusi Teknologi Batam</td>
-                                            <td>Seminar</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-danger px-1 rounded">In Progess</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="edit.php" class="btn btn-warning" title="Edit">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
+                                                $out = DateTime::createFromFormat('Y-m-d H:i:s', $data['visit_date'] . ' ' . ($data['time_out'] ?: '00:00:00'), $tz);
+                                                if (!$out) $out = new DateTime($data['visit_date'] . ' ' . $data['time_out'], $tz);
 
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                                if ($out <= $in) $out->modify('+1 day');
+
+                                                $newStatus = $data['status'];
+
+                                                if ($now >= $out) {
+                                                    $newStatus = 'Done';
+                                                } elseif ($now >= $in && $now < $out) {
+                                                    $newStatus = 'Now';
+                                                } else {
+                                                    $secondsToIn = $in->getTimestamp() - $now->getTimestamp();
+                                                    if ($secondsToIn > 0 && $secondsToIn <= $closeThreshold) {
+                                                        $newStatus = 'Close';
+                                                    } else {
+                                                        $newStatus = 'Upcoming';
+                                                    }
+                                                }
+
+                                                // Debug setelah Verifikasi
+                                                if ($newStatus !== $data['status']) {
+                                                    $safeStatus = mysqli_real_escape_string($koneksi, $newStatus);
+                                                    $id = (int)$data['id'];
+                                                    mysqli_query($koneksi, "UPDATE visit_data SET `status` = '{$safeStatus}' WHERE id = {$id}");
+                                                    $data['status'] = $newStatus;
+                                                }
+
+                                                // Pemetaan badge
+                                                $badgeClass = 'badge-info';
+                                                if ($data['status'] === 'Now') $badgeClass = 'badge-warning';
+                                                if ($data['status'] === 'Done') $badgeClass = 'badge-success';
+                                                if ($data['status'] === 'Close') $badgeClass = 'badge-danger';
+                                                if ($data['status'] === 'Upcoming') $badgeClass = 'badge-primary';
+                                        ?>
+                                                <tr>
+                                                    <td><?= htmlspecialchars($data['guest_name']); ?></td>
+                                                    <td><?= htmlspecialchars($data['company_name']); ?></td>
+                                                    <td><?= htmlspecialchars($data['visit_desc']); ?></td>
+                                                    <td><?= date('d/m/Y', strtotime($data['visit_date'])); ?> <span><?= date('H:i', strtotime($data['time_in'])); ?></span></td>
+                                                    <td class="text-center">
+                                                        <span class="badge <?= $badgeClass ?>" style="padding: 10px; font-size: 15px;">
+                                                            <?= htmlspecialchars($data['status']); ?>
+                                                        </span>
+                                                    </td>
+                                                    <td class="d-flex justify-content-between">
+                                                        <a href="edit.php?id=<?= (int)$data['id'] ?>" class="btn btn-warning btn-sm" title="Edit">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-danger btn-sm" title="Hapus" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

@@ -23,8 +23,6 @@
                 <!-- Footer -->
                 <?php include 'dashboard_template/footer.php'; ?>
 
-
-
             </div>
         </div>
     </div>

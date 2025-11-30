@@ -31,60 +31,40 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="thead bg-success text-white fw-bold">
                                         <tr>
-                                            <th>Nama</th>
-                                            <th>Nama Instansi</th>
-                                            <th>Perihal Kunjungan</th>
-                                            <th>Tanggal Kunjungan</th>
+                                            <th>Tamu</th>
+                                            <th>Instansi</th>
+                                            <th>Perihal </th>
+                                            <th>Tanggal & Waktu</th>
                                             <th class="text-center">Status</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Arief Han ZK</td>
-                                            <td>Institusi Teknologi Batam</td>
-                                            <td>Seminar</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-success px-1 rounded">Complete</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="info.php" class="btn btn-primary" title="Info">
-                                                    <i class=" fas fa-info px-1"></i>
-                                                </a>
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dimas Pratama Putra</td>
-                                            <td>Politeknik Negeri Batam</td>
-                                            <td>Seminar</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-success px-1 rounded">Complete</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="info.php" class="btn btn-primary" title="Info">
-                                                    <i class=" fas fa-info px-1"></i>
-                                                </a>
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M Davawin Cahyono</td>
-                                            <td>Politeknik Negeri Batam</td>
-                                            <td>Seminar</td>
-                                            <td>25-10-2025</td>
-                                            <td class="text-center"><span class="text-white bg-success px-1 rounded">Complete</span></td>
-                                            <td class="d-flex justify-content-between">
-                                                <a href="info.php" class="btn btn-primary" title="Info">
-                                                    <i class=" fas fa-info px-1"></i>
-                                                </a>
-                                                <a href="" class="btn btn-danger" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        <?php include 'koneksi.php';
+                                        $sql = "SELECT * FROM visit_data WHERE `status` = 'Done' ORDER BY id DESC";
+                                        $query = mysqli_query($koneksi, $sql);
+                                        foreach ($query as $data) {
+                                        ?>
+                                            <tr>
+                                                <td><?= $data['guest_name']; ?></td>
+                                                <td><?= $data['company_name']; ?></td>
+                                                <td><?= $data['visit_desc']; ?></td>
+                                                <td><?= date('d/m/Y', strtotime($data['visit_date'])); ?> <span><?= date('H:i', strtotime($data['time_in'])); ?></span></td>
+                                                <td class="text-center">
+                                                    <span class="badge badge-success" style="padding: 10px; font-size: 15px;">
+                                                        <?= $data['status']; ?>
+                                                    </span>
+                                                </td>
+                                                <td class="d-flex justify-content-between">
+                                                    <a href="info.php?id=<?= $data['id'] ?>" class="btn btn-primary btn-sm" title="Info">
+                                                        <i class=" fas fa-eye"></i>
+                                                    </a>
+                                                    <a onclick="confirm('Apakah anda yakin ingin menghapus data ini?')" href="proses_hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger btn-sm" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

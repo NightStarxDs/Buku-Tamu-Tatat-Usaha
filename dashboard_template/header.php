@@ -21,6 +21,9 @@
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.css" rel="stylesheet">
 
+    <!-- Our Css -->
+    <link rel="stylesheet" href="assets/css/style2.css ">
+
     <!-- Third Party Table Plugins -->
     <link rel="stylesheet" href="assets/vendor/datatables/dataTables.bootstrap4.min.css">
 

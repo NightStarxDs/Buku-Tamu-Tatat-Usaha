@@ -78,7 +78,7 @@
       <a href="landing.php#home" class="btn btn-outline-white mx-1">Beranda</a>
       <a href="landing.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
       <a href="landing.php#about" class="btn btn-outline-white mx-1">Tentang Kami</a>
-      <a href="form.php" class="btn btn-outline-warning mx-1">Login</a>
+      <a href="form.php" class="btn btn-outline-warning mx-1">Masuk</a>
     </nav>
   </header>
 
@@ -160,7 +160,7 @@
     </div>
 
     <div class="text-center mt-4">
-      <a href="contact.php" class="btn btn-outline-primary">Ask Our Customer Service</a>
+      <a href="contact.php" class="btn btn-outline-primary">Hubungi Layanan Pelanggan</a>
     </div>
   </section>
 

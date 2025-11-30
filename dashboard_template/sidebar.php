@@ -30,7 +30,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="kunjungan_selesai.php">
             <i class="fas fa-fw fa-check-square"></i>
-            <span>Complete</span>
+            <span>Selesai</span>
         </a>
     </li>
 
@@ -38,7 +38,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="kunjungan_berjalan.php">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Upcoming</span>
+            <span>Akan Datang</span>
         </a>
     </li>
 
@@ -46,7 +46,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="kunjungan_pending.php">
             <i class="fas fa-fw fa-wrench"></i>
-            <span>Pending</span>
+            <span>Menunggu Persetujuan</span>
         </a>
     </li>
 
@@ -62,7 +62,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="qrcode.php">
             <i class="fas fa-fw fa-qrcode"></i>
-            <span>QR Code</span>
+            <span>Kode QR</span>
         </a>
     </li>
 
