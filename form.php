@@ -189,6 +189,7 @@
           <input
             type="text"
             id="username"
+            name="usename"
             class="form-control"
             placeholder="Masukkan Nama Pengguna"
             required />
@@ -203,6 +204,7 @@
           <input
             type="password"
             id="password"
+            name="password"
             class="form-control"
             placeholder="Masukkan password"
             required />
@@ -226,7 +228,6 @@
     <!-- Validasi -->
     <script>
       document.getElementById("loginForm").addEventListener("submit", function(event) {
-        event.preventDefault();
         const username = document.getElementById("username");
         const password = document.getElementById("password");
         let valid = true;
@@ -248,10 +249,7 @@
         }
 
         if (valid) {
-          alert("Login berhasil!");
-          this.reset();
-          username.classList.remove("is-valid");
-          password.classList.remove("is-valid");
+          even.preventDefault();
         }
       });
 
