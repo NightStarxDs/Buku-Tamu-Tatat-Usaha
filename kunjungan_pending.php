@@ -41,7 +41,6 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        include 'koneksi.php';
                                         $sql = "SELECT 
                                                     visit_data.*,
                                                     staf.staf_name,

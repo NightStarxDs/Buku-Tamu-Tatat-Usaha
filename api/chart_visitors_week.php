@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
-require_once __DIR__ . '/../koneksi.php';
 
+require_once __DIR__ . '/../koneksi.php';
 if (!isset($koneksi) || !($koneksi instanceof mysqli)) {
     echo json_encode(['error' => 'Database connection not available']);
     exit;

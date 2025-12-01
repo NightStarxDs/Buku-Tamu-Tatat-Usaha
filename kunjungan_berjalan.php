@@ -41,7 +41,6 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        include 'koneksi.php';
                                         $sql = "SELECT * FROM visit_data WHERE `status` IN ('Upcoming','Close','Now') ORDER BY id DESC";
                                         $result = mysqli_query($koneksi, $sql);
                                         if (!$result) {

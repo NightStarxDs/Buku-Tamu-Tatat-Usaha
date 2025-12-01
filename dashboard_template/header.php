@@ -1,3 +1,13 @@
+<?php
+session_start();
+include 'koneksi.php';
+$username = $_SESSION['username'];
+if (!isset($_SESSION['login'])) {
+    header("Location: form.php");
+    exit;
+}
+?>
+
 <!--Header-->
 <!DOCTYPE html>
 <html lang="en">

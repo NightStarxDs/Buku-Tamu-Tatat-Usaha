@@ -55,14 +55,15 @@
       scroll-behavior: smooth;
     }
 
-    .btn-outline-warning {
+    .btn-outline-info {
       color: teal;
       border-color: teal;
     }
 
-    .btn-outline-warning:hover {
+    .btn-outline-info:hover {
       background-color: teal;
       color: white;
+      border-color: teal;
     }
   </style>
 </head>
@@ -75,10 +76,10 @@
       <img src="visilog.png" alt="" width="120" class="me-2 position-absolute">
     </div>
     <nav>
-      <a href="landing.php#home" class="btn btn-outline-white mx-1">Beranda</a>
-      <a href="landing.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
-      <a href="landing.php#about" class="btn btn-outline-white mx-1">Tentang Kami</a>
-      <a href="form.php" class="btn btn-outline-warning mx-1">Masuk</a>
+      <a href="index.php#home" class="btn btn-outline-white mx-1">Beranda</a>
+      <a href="index.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
+      <a href="index.php#about" class="btn btn-outline-white mx-1">Tentang Kami</a>
+      <a href="form.php" class="btn btn-outline-info mx-1">Masuk</a>
     </nav>
   </header>
 
@@ -101,7 +102,7 @@
 
   <!-- FAQ SECTION -->
   <section id="faq" class="faq-section container">
-    <h2 class="text-center mb-5">Tanyakan pada Layanan Pelanggan Kami</h2>
+    <h2 class="text-center mb-5">Frequently Asked Questions</h2>
 
     <div class="accordion" id="faqAccordion">
 
@@ -160,11 +161,11 @@
     </div>
 
     <div class="text-center mt-4">
-      <a href="contact.php" class="btn btn-outline-primary">Hubungi Layanan Pelanggan</a>
+      <a href="contact.php" class="btn btn-outline-primary">Tanyakan pada Layanan Pelanggan kami</a>
     </div>
   </section>
 
-  <!-- About Us-->
+  <!-- Tentang Kami-->
   <section id="about" class="about-section container-fluid text-center py-5" style="background-color: #a8c3e6;">
     <div class="container">
       <h2 class="text-center mb-3">Tentang Kami</h2>

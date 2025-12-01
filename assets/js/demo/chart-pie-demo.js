@@ -46,7 +46,7 @@ var myPieChart = new Chart(ctx, {
       displayColors: true,
       caretPadding: 10,
     },
-    legend: { display: true, position: "bottom" },
+    legend: { display: false }, // <-- hide Chart.js legend (v2)
     // removed cutoutPercentage (not applicable to pie)
   },
 });
@@ -144,7 +144,8 @@ try {
           displayColors: true,
           caretPadding: 10,
         },
-        legend: { display: true, position: "bottom" },
+        legend: { display: false }, // <-- hide Chart.js legend (v2)
+        plugins: { legend: { display: false } }, // <-- also hide for Chart.js v3+
       },
     });
   } catch (err) {

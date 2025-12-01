@@ -35,65 +35,71 @@ $data = mysqli_fetch_array($query);
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="guest_name">Nama Pengunjung</label>
-                                    <input type="text" class="form-control" name="guest_name" id="guest_name" value="<?= $data['guest_name'] ?>" readonly>
+                                    <input type="text" class="form-control" name="guest_name" id="guest_name" value="<?= htmlspecialchars($data['guest_name'] ?? ''); ?>" readonly>
                                 </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="company_name">Nama Instansi</label>
+                                    <input type="text" class="form-control" name="company_name" id="company_name" value="<?= htmlspecialchars($data['company_name'] ?? ''); ?>" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="email">Alamat Email</label>
                                     <div class="input-group">
-                                        <input type="email" class="form-control" name="email" id="email" value="<?= $data['email'] ?>" readonly>
+                                        <input type="email" class="form-control" name="email" id="email" value="<?= $data['email']; ?>" readonly>
+                                        <div class="input-group-append">
+                                            <a class="btn btn-outline-primary" title="Kirim Email" aria-label="Kirim Email">
+                                                <i class="fas fa-envelope"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="phone_number">No. Telepon</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="phone_number" id="phone_number" value="<?= $data['phone_number']; ?>" readonly>
+                                        <div class="input-group-append">
+                                            <a class="btn btn-success" title="Hubungi via WhatsApp" aria-label="WhatsApp">
+                                                <i class="fab fa-whatsapp"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="phone_number">No. Telepon</label>
-                                    <input type="tel" class="form-control" name="phone_number" id="phone_number" value="<?= $data['phone_number'] ?>" readonly>
+                                    <label for="visit_regards">Perihal Kunjungan</label>
+                                    <input class="form-control" name="visit_regards" id="visit_regards" value="<?= htmlspecialchars($data['visit_regards'] ?? ''); ?>" readonly>
                                 </div>
+
                                 <div class="form-group col-md-6">
-                                    <label for="company_name">Nama Instansi</label>
-                                    <input type="text" class="form-control" name="company_name" id="company_name" value="<?= $data['company_name'] ?>" readonly>
+                                    <label for="status">Status</label>
+                                    <input type="text" class="form-control" name="status" id="status" value="<?= htmlspecialchars($data['status'] ?? ''); ?>" readonly>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="visit_regards">Perihal Kunjungan</label>
-                                <textarea class="form-control" name="visit_regards" id="visit_regards" rows="3" readonly><?= $data['visit_regards'] ?></textarea>
+                                <label for="visit_desc">Deskripsi Kunjungan</label>
+                                <textarea class="form-control" name="visit_desc" id="visit_desc" rows="4" readonly><?= htmlspecialchars($data['visit_desc'] ?? ''); ?></textarea>
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="visit_date">Tanggal Kunjungan</label>
-                                    <input type="date" class="form-control" name="visit_date" id="visit_date" value="<?= $data['visit_date'] ?>" readonly>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="status">Status</label>
-                                    <input type="text" class="form-control" name="status" id="status" value="<?= $data['status'] ?>" readonly>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="time_in">Waktu Mulai</label>
-                                    <input type="time" class="form-control" name="time_in" id="time_in" value="<?= $data['time_in']; ?>" readonly>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="time_out">Waktu Selesai</label>
-                                    <input type="time" class="form-control" name="time_out" id="time_out" value="<?= $data['time_out']; ?>" readonly>
-                                </div>
-
                                 <div class="form-group mt-3 w-100 d-flex justify-content-between">
                                     <a href="kunjungan_selesai.php" class="btn btn-secondary">Kembali</a>
-                                    <a href="" class="btn btn-outline-success">Export As Excel</a>
+                                    <a href="#" class="btn btn-outline-success">Export As Excel</a>
                                 </div>
                             </div>
-                            <!-- /.container-fluid -->
                         </div>
-                        <!-- End of Main Content -->
-
-                        <!-- Footer -->
-                        <?php include 'dashboard_template/footer.php'; ?>
+                        <!-- /.container-fluid -->
                     </div>
-                    <!-- /.container-fluid -->
+                    <!-- End of Main Content -->
+
+                    <!-- Footer -->
+                    <?php include 'dashboard_template/footer.php'; ?>
                 </div>
                 <!-- /.content-wrapper -->
             </div>

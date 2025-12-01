@@ -7,7 +7,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // query cek user
-$query = "SELECT * FROM pengguna WHERE username='$username' AND password='$password'";
+$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 $result = mysqli_query($koneksi, $query);
 
 // cek hasil
@@ -21,4 +21,3 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo "<script>alert('Username atau password salah!'); window.location='form.php';</script>";
 }
-?>
