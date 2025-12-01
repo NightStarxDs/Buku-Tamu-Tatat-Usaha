@@ -7,7 +7,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // query cek user
-$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+$query = "SELECT * FROM pengguna WHERE username='$username' AND password='$password'";
 $result = mysqli_query($koneksi, $query);
 
 // cek hasil
