@@ -189,7 +189,7 @@
           <input
             type="text"
             id="username"
-            name="usename"
+            name="username"
             class="form-control"
             placeholder="Masukkan Nama Pengguna"
             required />
@@ -230,6 +230,7 @@
       document.getElementById("loginForm").addEventListener("submit", function(event) {
         const username = document.getElementById("username");
         const password = document.getElementById("password");
+
         let valid = true;
 
         if (username.value.trim() === "") {

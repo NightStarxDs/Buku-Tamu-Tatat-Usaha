@@ -113,7 +113,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'agung', '13210agung');
+(1, 'admin', 'admin123');
 
 -- --------------------------------------------------------
 
