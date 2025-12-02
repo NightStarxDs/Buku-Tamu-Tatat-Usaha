@@ -11,7 +11,6 @@
                                                 Pengunjung Bulanan</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
-                                                include 'koneksi.php';
                                                 $sql = "SELECT COUNT(*) as pengujung_bulanan FROM visit_data WHERE" . " MONTH(visit_date) = MONTH(CURDATE()) AND STATUS = 'Done'";
                                                 $query = mysqli_query($koneksi, $sql);
                                                 $data = mysqli_fetch_assoc($query);
@@ -37,7 +36,6 @@
                                                 Pengunjung Mingguan</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
-                                                include 'koneksi.php';
                                                 $sql = "SELECT COUNT(*) as pengujung_mingguan FROM visit_data WHERE WEEK(visit_date) = WEEK(CURDATE()) AND STATUS = 'Done'";
                                                 $query = mysqli_query($koneksi, $sql);
                                                 $data = mysqli_fetch_assoc($query);
@@ -64,7 +62,6 @@
                                                 <div class="col-auto">
                                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
                                                         <?php
-                                                        include 'koneksi.php';
                                                         $sql = "SELECT COUNT(*) as akan_datang FROM visit_data WHERE `status` IN ('Upcoming', 'Close', 'Now')";
                                                         $query = mysqli_query($koneksi, $sql);
                                                         $data = mysqli_fetch_assoc($query);
@@ -92,9 +89,10 @@
                                                 Pending Kunjungan</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
-                                                include 'koneksi.php';
                                                 $sql = "SELECT COUNT(*) as pending_kunjungan FROM visit_data WHERE `status` = 'Pending'";
                                                 $query = mysqli_query($koneksi, $sql);
+                                                $data = mysqli_fetch_assoc($query);
+                                                echo $data['pending_kunjungan'];
                                                 ?>
                                             </div>
                                         </div>

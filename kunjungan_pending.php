@@ -65,8 +65,8 @@
                                                 <td><?= !empty($data['staf_name']) ? htmlspecialchars($data['staf_name']) : htmlspecialchars($data['unit_name']); ?></td>
                                                 <td class="d-flex justify-content-between">
                                                     <a href="info.php?id=<?= $data['id'] ?>" class="btn btn-primary btn-sm" title="Info"><i class=" fas fa-eye"></i></a>
-                                                    <a onclick="confirm('Apakah anda yakin ingin menerima data ini?')" href="proses_terima.php?id=<?= $data['id']; ?>" class="btn btn-success btn-sm" title="Terima"><i class="fas fa-check"></i></a>
-                                                    <a onclick="confirm('Apakah anda yakin ingin menerima data ini?')" href="proses_tolak.php?id=<?= $data['id']; ?>" class="btn btn-danger btn-sm" title="Tolak"><i class="fas fa-times"></i></a>
+                                                    <a onclick="return confirm('Apakah anda yakin ingin menerima data ini?')" href="proses_terima.php?id=<?= $data['id']; ?>" class="btn btn-success btn-sm" title="Terima"><i class="fas fa-check"></i></a>
+                                                    <a onclick="return confirm('Apakah anda yakin ingin menerima data ini?')" href="proses_tolak.php?id=<?= $data['id']; ?>" class="btn btn-danger btn-sm" title="Tolak"><i class="fas fa-times"></i></a>
                                                 </td>
                                             </tr>
                                         <?php

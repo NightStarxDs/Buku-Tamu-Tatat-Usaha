@@ -11,7 +11,7 @@ var myPieChart = new Chart(ctx, {
     labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
     datasets: [
       {
-        data: [1, 1, 2, 1, 3, 2, 2],
+        data: [0, 0, 0, 0, 0, 0, 0],
         backgroundColor: [
           "#4e73df",
           "#1cc88a",
