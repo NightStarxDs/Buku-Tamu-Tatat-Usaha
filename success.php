@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Success</title>
+    <title>Berhasil</title>
 </head>
 <body>
-    <h2>Data saved successfully</h2>
-    <a href="tamu.php">Back to form</a>
+    <h2>Data Telah Tersimpan</h2>
+    <a href="tamu.php">Kembali ke form</a>
 </body>
 </html>
