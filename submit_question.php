@@ -9,7 +9,7 @@ $query = "INSERT INTO pertanyaan_faq (nama, email, pertanyaan)
           VALUES ('$name', '$email', '$question')";
 
 if (mysqli_query($conn, $query)) {
-    header("Location: success.php");
+    header("Location: succees2.php");
     exit;
 } else {
     echo "Error: " . mysqli_error($conn);
