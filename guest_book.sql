@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 27, 2025 at 05:16 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Dec 01, 2025 at 01:52 AM
+-- Server version: 8.4.3
+-- PHP Version: 8.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,15 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `password`) VALUES
+(0, 'admin', 'admin123');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `staf`
 --
 
 CREATE TABLE `staf` (
-  `id_staf` int(11) NOT NULL,
-  `staf_name` varchar(255) NOT NULL,
-  `staf_email` varchar(255) NOT NULL,
-  `staf_number` int(20) NOT NULL,
-  `staf_unit` enum('dosen_informatika','dosen_manajemen','dosen_elektro','dosen_mesin') NOT NULL
+  `id_staf` int NOT NULL,
+  `staf_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `staf_email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `staf_number` int NOT NULL,
+  `staf_unit` enum('dosen_informatika','dosen_manajemen','dosen_elektro','dosen_mesin') COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -68,10 +87,10 @@ INSERT INTO `staf` (`id_staf`, `staf_name`, `staf_email`, `staf_number`, `staf_u
 --
 
 CREATE TABLE `unit` (
-  `id_unit` int(11) NOT NULL,
-  `unit_name` varchar(255) NOT NULL,
-  `unit_number` int(20) NOT NULL,
-  `unit_email` varchar(255) NOT NULL
+  `id_unit` int NOT NULL,
+  `unit_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `unit_number` int NOT NULL,
+  `unit_email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -99,21 +118,26 @@ INSERT INTO `unit` (`id_unit`, `unit_name`, `unit_number`, `unit_email`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `id` int NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'agung', '13210agung');
 
 -- --------------------------------------------------------
 
@@ -122,20 +146,20 @@ INSERT INTO `users` (`id`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `visit_data` (
-  `id` int(11) NOT NULL,
-  `guest_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone_number` varchar(255) NOT NULL,
-  `company_name` varchar(255) NOT NULL,
-  `visit_regards` enum('Urusan_surat','Urusan_keuangan','Urusan_umum','Urusan_sarana','Janji_temu_unit','Janji_temu_staf') NOT NULL,
-  `visit_desc` varchar(255) DEFAULT NULL,
-  `id_unit` int(11) DEFAULT NULL,
-  `id_staf` int(11) DEFAULT NULL,
+  `id` int NOT NULL,
+  `guest_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone_number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `company_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `visit_regards` enum('Urusan_surat','Urusan_keuangan','Urusan_umum','Urusan_sarana','Janji_temu_unit','Janji_temu_staf') COLLATE utf8mb4_general_ci NOT NULL,
+  `visit_desc` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id_unit` int DEFAULT NULL,
+  `id_staf` int DEFAULT NULL,
   `visit_date` date NOT NULL,
   `time_in` time NOT NULL,
   `time_out` time NOT NULL,
-  `appointment` enum('Ya','Tidak') NOT NULL,
-  `status` enum('Pending','Done','Upcoming') NOT NULL
+  `appointment` enum('Ya','Tidak') COLLATE utf8mb4_general_ci NOT NULL,
+  `status` enum('Pending','Done','Upcoming') COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -152,6 +176,12 @@ INSERT INTO `visit_data` (`id`, `guest_name`, `email`, `phone_number`, `company_
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `staf`
 --
 ALTER TABLE `staf`
@@ -162,6 +192,12 @@ ALTER TABLE `staf`
 --
 ALTER TABLE `unit`
   ADD PRIMARY KEY (`id_unit`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -185,25 +221,25 @@ ALTER TABLE `visit_data`
 -- AUTO_INCREMENT for table `staf`
 --
 ALTER TABLE `staf`
-  MODIFY `id_staf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_staf` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_unit` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `visit_data`
 --
 ALTER TABLE `visit_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

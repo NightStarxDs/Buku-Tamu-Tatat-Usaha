@@ -1,19 +1,23 @@
 <?php
+session_start();
 include "koneksi.php";
 
+// ambil data dari form
 $username = $_POST['username'];
-$password = md5($_POST['password']); // enkripsi sama dengan di database
+$password = $_POST['password'];
 
-$query = mysqli_query($koneksi, "SELECT * FROM users WHERE username='$username' AND password='$password'");
-$cek = mysqli_num_rows($query);
+// query cek user
+$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+$result = mysqli_query($koneksi, $query);
 
-if ($cek > 0) {
-    session_start();
-    $_SESSION['username'] = $username;
+// cek hasil
+if (mysqli_num_rows($result) > 0) {
+    $data = mysqli_fetch_assoc($result);
 
-    header("Location: admin.php");
-    exit;
+    $_SESSION['username'] = $data['username'];
+    $_SESSION['login'] = true;
+
+    header("Location: dashboard.php");
 } else {
-    echo "<script>alert('Login gagal! Username atau password salah'); window.location='login.php';</script>";
+    echo "<script>alert('Username atau password salah!'); window.location='form.php';</script>";
 }
-?>

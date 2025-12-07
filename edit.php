@@ -1,5 +1,4 @@
 <?php include 'dashboard_template/header.php';
-include 'koneksi.php';
 $id = $_GET['id'];
 $sql = "SELECT * FROM visit_data WHERE id = $id";
 $query = mysqli_query($koneksi, $sql);

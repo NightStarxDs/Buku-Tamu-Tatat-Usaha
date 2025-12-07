@@ -40,7 +40,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php include 'koneksi.php';
+                                        <?php
                                         $sql = "SELECT * FROM visit_data WHERE `status` = 'Done' ORDER BY id DESC";
                                         $query = mysqli_query($koneksi, $sql);
                                         foreach ($query as $data) {
@@ -59,7 +59,7 @@
                                                     <a href="info.php?id=<?= $data['id'] ?>" class="btn btn-primary btn-sm" title="Info">
                                                         <i class=" fas fa-eye"></i>
                                                     </a>
-                                                    <a onclick="confirm('Apakah anda yakin ingin menghapus data ini?')" href="proses_hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger btn-sm" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
+                                                    <a onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" href="proses_hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger btn-sm" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
                                                         <i class="fas fa-trash"></i>
                                                     </a>
                                                 </td>

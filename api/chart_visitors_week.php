@@ -1,28 +1,38 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
-require_once __DIR__ . '/../koneksi.php';
 
+require_once __DIR__ . '/../koneksi.php';
 if (!isset($koneksi) || !($koneksi instanceof mysqli)) {
     echo json_encode(['error' => 'Database connection not available']);
     exit;
 }
 
-// optional params: year and ISO week number
-$year = isset($_GET['year']) ? (int)$_GET['year'] : (int)date('o'); // ISO year
-$week = isset($_GET['week']) ? (int)$_GET['week'] : (int)date('W');  // ISO week number
+// --- REQUIRE YEAR AND WEEK PARAMETERS ---
+if (!isset($_GET['year']) || !isset($_GET['week'])) {
+    echo json_encode(['error' => 'Missing required URL parameters: year and week.']);
+    exit;
+}
+
+// Get required parameters
+$year = (int)$_GET['year'];
+$week = (int)$_GET['week'];
+// --- END REQUIREMENT CHECK ---
+
 
 // initialize counts for Mon..Sun
 $counts = array_fill(0, 7, 0);
 
 $sql = "SELECT DAYOFWEEK(visit_date) AS dow, COUNT(*) AS cnt
         FROM visit_data
-        WHERE YEAR(visit_date) = ? AND WEEK(visit_date, 1) = ?
+        WHERE YEAR(visit_date) = ? AND WEEK(visit_date, 1) = ? AND status = 'Done'
         GROUP BY dow";
+
 $stmt = mysqli_prepare($koneksi, $sql);
 if (!$stmt) {
     echo json_encode(['error' => mysqli_error($koneksi)]);
     exit;
 }
+
 mysqli_stmt_bind_param($stmt, 'ii', $year, $week);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_bind_result($stmt, $dow, $cnt);

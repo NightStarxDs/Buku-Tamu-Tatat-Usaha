@@ -11,7 +11,7 @@ var myPieChart = new Chart(ctx, {
     labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
     datasets: [
       {
-        data: [1, 1, 2, 1, 3, 2, 2],
+        data: [0, 0, 0, 0, 0, 0, 0],
         backgroundColor: [
           "#4e73df",
           "#1cc88a",
@@ -46,7 +46,7 @@ var myPieChart = new Chart(ctx, {
       displayColors: true,
       caretPadding: 10,
     },
-    legend: { display: true, position: "bottom" },
+    legend: { display: false }, // <-- hide Chart.js legend (v2)
     // removed cutoutPercentage (not applicable to pie)
   },
 });
@@ -144,7 +144,8 @@ try {
           displayColors: true,
           caretPadding: 10,
         },
-        legend: { display: true, position: "bottom" },
+        legend: { display: false }, // <-- hide Chart.js legend (v2)
+        plugins: { legend: { display: false } }, // <-- also hide for Chart.js v3+
       },
     });
   } catch (err) {

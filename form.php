@@ -169,10 +169,10 @@
       <img src="visilog.png" alt="" width="120" class="me-2 position-absolute">
     </div>
     <nav>
-      <a href="landing.php#home" class="btn btn-outline-white mx-1">Beranda</a>
-      <a href="landing.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
-      <a href="landing.php#about" class="btn btn-outline-white mx-1">Tentang Kami</a>
-      <a href="form.php" class="btn btn-outline-warning mx-1">Masuk</a>
+      <a href="index.php#home" class="btn btn-outline-white mx-1">Beranda</a>
+      <a href="index.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
+      <a href="index.php#about" class="btn btn-outline-white mx-1">Tentang Kami</a>
+      <a href="form.php" class="btn btn-outline-info mx-1 active">Masuk</a>
     </nav>
   </header>
 
@@ -189,6 +189,7 @@
           <input
             type="text"
             id="username"
+            name="username"
             class="form-control"
             placeholder="Masukkan Nama Pengguna"
             required />
@@ -203,6 +204,7 @@
           <input
             type="password"
             id="password"
+            name="password"
             class="form-control"
             placeholder="Masukkan password"
             required />
@@ -226,9 +228,9 @@
     <!-- Validasi -->
     <script>
       document.getElementById("loginForm").addEventListener("submit", function(event) {
-        event.preventDefault();
         const username = document.getElementById("username");
         const password = document.getElementById("password");
+
         let valid = true;
 
         if (username.value.trim() === "") {
@@ -248,10 +250,7 @@
         }
 
         if (valid) {
-          alert("Login berhasil!");
-          this.reset();
-          username.classList.remove("is-valid");
-          password.classList.remove("is-valid");
+          even.preventDefault();
         }
       });
 
