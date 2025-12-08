@@ -66,5 +66,15 @@
         </a>
     </li>
 
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="arsip_kunjungan.php">
+            <i class="fas fa-file-archive"></i>
+            <span>Arsip Penolakan</span>
+        </a>
+    </li>
+
+
+
 </ul>
 <!-- End of Sidebar -->

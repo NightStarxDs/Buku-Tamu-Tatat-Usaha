@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 01, 2025 at 01:52 AM
--- Server version: 8.4.3
--- PHP Version: 8.3.26
+-- Host: 127.0.0.1
+-- Generation Time: Dec 08, 2025 at 12:58 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,34 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(0, 'admin', 'admin123');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `staf`
 --
 
 CREATE TABLE `staf` (
-  `id_staf` int NOT NULL,
-  `staf_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `staf_email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `staf_number` int NOT NULL,
-  `staf_unit` enum('dosen_informatika','dosen_manajemen','dosen_elektro','dosen_mesin') COLLATE utf8mb4_general_ci NOT NULL
+  `id_staf` int(11) NOT NULL,
+  `staf_name` varchar(255) NOT NULL,
+  `staf_email` varchar(255) NOT NULL,
+  `staf_number` int(20) NOT NULL,
+  `staf_unit` enum('dosen_informatika','dosen_manajemen','dosen_elektro','dosen_mesin') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -87,10 +68,10 @@ INSERT INTO `staf` (`id_staf`, `staf_name`, `staf_email`, `staf_number`, `staf_u
 --
 
 CREATE TABLE `unit` (
-  `id_unit` int NOT NULL,
-  `unit_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `unit_number` int NOT NULL,
-  `unit_email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `id_unit` int(11) NOT NULL,
+  `unit_name` varchar(255) NOT NULL,
+  `unit_number` int(20) NOT NULL,
+  `unit_email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -118,26 +99,21 @@ INSERT INTO `unit` (`id_unit`, `unit_name`, `unit_number`, `unit_email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `id` int NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'agung', '13210agung');
 
 -- --------------------------------------------------------
 
@@ -146,20 +122,20 @@ CREATE TABLE `users` (
 --
 
 CREATE TABLE `visit_data` (
-  `id` int NOT NULL,
-  `guest_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `phone_number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `company_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `visit_regards` enum('Urusan_surat','Urusan_keuangan','Urusan_umum','Urusan_sarana','Janji_temu_unit','Janji_temu_staf') COLLATE utf8mb4_general_ci NOT NULL,
-  `visit_desc` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `id_unit` int DEFAULT NULL,
-  `id_staf` int DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `guest_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone_number` varchar(255) NOT NULL,
+  `company_name` varchar(255) NOT NULL,
+  `visit_regards` enum('Mengurus surat','Urusan Keuangan','Urusan Umum','Urusan Sarana','Janji Temu Unit','Janji Temu Staf') NOT NULL,
+  `visit_desc` varchar(255) DEFAULT NULL,
+  `id_unit` int(11) DEFAULT NULL,
+  `id_staf` int(11) DEFAULT NULL,
   `visit_date` date NOT NULL,
   `time_in` time NOT NULL,
-  `time_out` time NOT NULL,
-  `appointment` enum('Ya','Tidak') COLLATE utf8mb4_general_ci NOT NULL,
-  `status` enum('Pending','Done','Upcoming') COLLATE utf8mb4_general_ci NOT NULL
+  `time_out` time DEFAULT NULL,
+  `appointment` enum('Ya','Tidak') NOT NULL,
+  `status` enum('Pending','Done','Upcoming','Close','Now','Rejected') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -167,19 +143,34 @@ CREATE TABLE `visit_data` (
 --
 
 INSERT INTO `visit_data` (`id`, `guest_name`, `email`, `phone_number`, `company_name`, `visit_regards`, `visit_desc`, `id_unit`, `id_staf`, `visit_date`, `time_in`, `time_out`, `appointment`, `status`) VALUES
-(1, 'Dwi Agung Willy Anto', 'dwiagung0515@gmail.com', '0895337342838', 'Black Market', 'Urusan_surat', 'Mengurus Surat', NULL, NULL, '2025-11-22', '09:43:59', '09:49:17', 'Tidak', 'Done'),
-(2, 'Samuel Simorangkir', 'samuel@gmail.com', '08954612172', 'Visilog', 'Janji_temu_unit', 'Mengurus Kerja sama', 11, NULL, '2025-11-22', '12:49:11', '13:49:11', 'Tidak', 'Upcoming'),
-(3, 'Nayla Azkyah Azra', 'Nayla@gmail.com', '08654321564', 'Visilog', 'Janji_temu_staf', 'Konsultasi dengan Waldos aagahfpahfawhaohgaphwfaphwgahpfdhaspfhapshapgsh-awhgpwahfgpaihsgoahgawhawfhahfaphg0qw9tghq9ht-16etoifbabpaqwr1yt0ehfoHBOGR0111rfasgtqhSFAfgGs', NULL, 8, '2025-11-22', '09:38:57', '10:50:57', 'Ya', 'Pending');
+(1, 'Dwi Agung Willy Anto', 'dwiagung0515@gmail.com', '+62895337342838', 'Black Market', 'Mengurus surat', 'Mengurus Surat', NULL, NULL, '2025-11-22', '09:43:59', '09:49:17', 'Tidak', 'Done'),
+(2, 'Samuel Simorangkir', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji Temu Unit', 'Mengurus Kerja sama', 11, NULL, '2025-11-22', '12:49:11', '13:49:11', 'Tidak', 'Done'),
+(3, 'Nayla Azkyah Azra', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji Temu Staf', 'Konsultasi dengan Waldos aagahfpahfawhaohgaphwfaphwgahpfdhaspfhapshapgsh-awhgpwahfgpaihsgoahgawhawfhahfaphg0qw9tghq9ht-16etoifbabpaqwr1yt0ehfoHBOGR0111rfasgtqhSFAfgGs', NULL, 8, '2025-11-22', '09:38:57', '10:50:57', 'Ya', 'Done'),
+(4, 'Fauzan Najib Ali', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji Temu Unit', 'Menemui UPA Perpustakaan', 4, NULL, '2025-11-27', '12:24:40', '14:24:40', 'Ya', 'Done'),
+(9, 'Berly Aditya Alfarizi', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji Temu Staf', 'Bertemu Dosen Teknik Mesin', NULL, 14, '2025-12-05', '12:05:53', NULL, 'Ya', 'Rejected'),
+(10, 'Arys Apriatna Ananda', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan Umum', 'Mengurus Surat PKM', NULL, NULL, '2025-12-02', '10:34:17', '10:34:17', 'Tidak', 'Done'),
+(14, 'Zaky Fajar Permana', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji Temu Unit', 'Mengurus Surat PKM', 6, NULL, '2025-12-08', '06:13:00', '06:15:00', 'Tidak', 'Done'),
+(15, 'Muhammad Safamal Jovanda', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Mengurus surat', 'Mengurus Surat', NULL, NULL, '2025-02-08', '06:17:05', '06:21:05', 'Tidak', 'Done'),
+(16, 'Arief Han ZK', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-04-08', '06:18:01', '06:23:01', 'Tidak', 'Done'),
+(17, 'Rizky Ramadhani', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-04-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(18, 'Firman Kholiq', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-10-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(19, 'Dedeng Puji Atmoko', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-10-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(20, 'Muhammad Melvin Vernandez', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-09-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(21, 'Alfat Khomara', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(22, 'Christh Valdo Aritonang', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(23, 'Arif Ifansyah', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(24, 'Dimas Putra Pratama', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-07-10', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(25, 'M Davawin Cahyono', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-06-11', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(26, 'Kevin Febriano', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-05-07', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(27, 'Muhammad Riswan', 'dwiagung0515@gmail.com', '+62895337342838', 'Uknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-03-11', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(28, 'Muhammad Febriyadi', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-03-14', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(29, 'Taufiq Qurrohman', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-02-05', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(30, 'Johan Fanizar', 'dwiagung0515@gmail.com', '+62895337342838', 'Uknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-01-01', '06:21:56', '06:24:56', 'Tidak', 'Done'),
+(31, 'Ilham Pramana', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-01-09', '06:21:56', '06:24:56', 'Tidak', 'Done');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `staf`
@@ -192,12 +183,6 @@ ALTER TABLE `staf`
 --
 ALTER TABLE `unit`
   ADD PRIMARY KEY (`id_unit`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -221,25 +206,25 @@ ALTER TABLE `visit_data`
 -- AUTO_INCREMENT for table `staf`
 --
 ALTER TABLE `staf`
-  MODIFY `id_staf` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_staf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id_unit` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `visit_data`
 --
 ALTER TABLE `visit_data`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables

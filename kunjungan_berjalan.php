@@ -47,7 +47,7 @@
                                             echo '<tr><td colspan="7">Query error: ' . htmlspecialchars(mysqli_error($koneksi)) . '</td></tr>';
                                         } else {
                                             $tz = new DateTimeZone('Asia/Jakarta');
-                                            $closeThreshold = 24 * 3600; // 24 jam
+                                            $closeThreshold = 24 * 3600;
 
                                             while ($data = mysqli_fetch_assoc($result)) {
                                                 $now = new DateTime('now', $tz);
