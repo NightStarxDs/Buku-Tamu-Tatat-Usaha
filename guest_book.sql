@@ -113,7 +113,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(3, '21232f297a57a5a743894a0e4a801fc3', '0192023a7bbd73250516f069df18b500');
+(3, 'admin', '0192023a7bbd73250516f069df18b500');
 
 -- --------------------------------------------------------
 

@@ -24,18 +24,20 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Profile</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Change Username</h1>
                     </div>
                     <div class="card card-head">
                         <div class="card card-body">
-                            <div class="parent">
-                                <div class="div1">Hello</div>
-                                <div class="div5">Hello</div>
-                                <div class="div6">Hello</div>
-                                <div class="div7">Hello</div>
-                                <div class="div8">Hello</div>
-                                <div class="div9">Hello</div>
-                            </div>
+                            <form action="proses_ganti_username.php" method="POST" id="changeUsernameForm">
+                                <div class="form-group">
+                                    <label for="username_baru">Username Baru</label>
+                                    <input type="username" name="username_baru" id="username_baru" class="form-control" placeholder="Masukkan Username Baru">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Ubah Username</button>
+                                    <a href="dashboard.php" class="btn btn-secondary">Batal</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

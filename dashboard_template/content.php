@@ -8,13 +8,18 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Pengunjung Bulanan</div>
+                                                Pengunjung Tahunan</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
-                                                $sql = "SELECT COUNT(*) as pengujung_bulanan FROM visit_data WHERE" . " MONTH(visit_date) = MONTH(CURDATE()) AND STATUS = 'Done'";
+                                                $sql = "SELECT COUNT(*) AS pengunjung_bulanan
+                                                        FROM visit_data
+                                                        WHERE MONTH(visit_date) = MONTH(CURDATE())
+                                                        AND YEAR(visit_date) = YEAR(CURDATE())
+                                                        AND status = 'Done'
+                                                        ";
                                                 $query = mysqli_query($koneksi, $sql);
                                                 $data = mysqli_fetch_assoc($query);
-                                                echo $data['pengujung_bulanan'];
+                                                echo $data['pengunjung_bulanan'];
                                                 ?>
                                             </div>
                                         </div>
@@ -33,13 +38,17 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Pengunjung Mingguan</div>
+                                                Pengunjung Bulanan</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
-                                                $sql = "SELECT COUNT(*) as pengujung_mingguan FROM visit_data WHERE WEEK(visit_date) = WEEK(CURDATE()) AND STATUS = 'Done'";
+                                                $sql = "SELECT COUNT(*) AS pengunjung_mingguan
+                                                        FROM visit_data
+                                                        WHERE YEARWEEK(visit_date, 1) = YEARWEEK(CURDATE(), 1)
+                                                        AND status = 'Done'
+                                                        ";
                                                 $query = mysqli_query($koneksi, $sql);
                                                 $data = mysqli_fetch_assoc($query);
-                                                echo $data['pengujung_mingguan'];
+                                                echo $data['pengunjung_mingguan'];
                                                 ?></div>
                                         </div>
                                         <div class="col-auto">

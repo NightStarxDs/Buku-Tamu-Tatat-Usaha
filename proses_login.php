@@ -2,7 +2,7 @@
 session_start();
 include "koneksi.php";
 
-$username = md5($_POST['username']);
+$username = $_POST['username'];
 $password = md5($_POST['password']);
 
 $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";

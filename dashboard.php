@@ -21,10 +21,10 @@
                 <?php include 'dashboard_template/content.php'; ?>
 
                 <!-- Footer -->
-                <?php include 'dashboard_template/footer.php'; ?>
+
 
             </div>
         </div>
+        <?php include 'dashboard_template/footer.php'; ?>
     </div>
-
     </body>

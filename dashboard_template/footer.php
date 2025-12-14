@@ -1,4 +1,4 @@
-<footer class="sticky-footer bg-white">
+<footer class="sticky-footer bg-white shadow">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <span>Copyright &copy; 2025 Visilog, All Right Reserved.</span>
@@ -32,7 +32,7 @@
             <div class="modal-body">Pilih "Keluar" dibawah untuk mengakhiri sesi ini.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                <a class="btn btn-primary" href="login.php">Keluar</a>
+                <a class="btn btn-primary" href="logout.php">Keluar</a>
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
 
 <!-- Charts -->
 <script src="assets/vendor/chart.js/Chart.min.js"></script>
-<script src="assets/js/demo/chart-area-demo.js"></script>
+<!-- REMOVED: chart-area-demo.js -->
 <script src="assets/js/demo/chart-bar-demo.js"></script>
 <script src="assets/js/demo/chart-pie-demo.js"></script>
 
