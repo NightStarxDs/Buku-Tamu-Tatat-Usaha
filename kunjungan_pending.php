@@ -58,9 +58,12 @@
                                         foreach ($query as $data) {
                                         ?>
                                             <tr>
-                                                <td><?= htmlspecialchars($data['guest_name']); ?></td>
-                                                <td><?= htmlspecialchars($data['company_name']); ?></td>
-                                                <td><?= $data['visit_desc'] ?></td>
+                                                <td><?= htmlspecialchars($data['nama']); ?></td>
+                                                <td><?= htmlspecialchars($data['instansi']); ?></td>
+                                                <td><?= htmlspecialchars($data['perihal']) ?></td>
+
+                                                <td>
+                                                    <?= $data['visit_desc'] ?></td>
                                                 <td><?= date('d/m/Y', strtotime($data['visit_date'])); ?> <span><?= date('H:i', strtotime($data['time_in'])); ?></span></td>
                                                 <td><?= !empty($data['staf_name']) ? htmlspecialchars($data['staf_name']) : htmlspecialchars($data['unit_name']); ?></td>
                                                 <td class="d-flex justify-content-between">

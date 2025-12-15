@@ -1,37 +1,78 @@
 <?php
-require 'auth.php';
 require 'koneksi.php';
 
-$q1 = mysqli_query($koneksi, "
-    SELECT COUNT(*) AS total 
-    FROM visit_data 
-    WHERE YEAR(visit_date) = YEAR(CURDATE()) 
-      AND status = 'Done'
-");
-$pengunjung_tahunan = mysqli_fetch_assoc($q1)['total'] ?? 0;
+/* =====================
+   CHART TAHUNAN
+===================== */
+$bulan = [];
+$total_tahunan = [];
 
-$q2 = mysqli_query($koneksi, "
-    SELECT COUNT(*) AS total 
-    FROM visit_data 
+$sql = "
+    SELECT 
+        MONTH(visit_date) AS bulan,
+        COUNT(*) AS total
+    FROM visit_data
+    WHERE status = 'Done'
+      AND YEAR(visit_date) = YEAR(CURDATE())
+    GROUP BY MONTH(visit_date)
+    ORDER BY bulan
+";
+
+$q = mysqli_query($koneksi, $sql);
+while ($row = mysqli_fetch_assoc($q)) {
+    $bulan[] = (int)$row['bulan'];
+    $total_tahunan[] = (int)$row['total'];
+}
+
+/* =====================
+   CHART BULANAN
+===================== */
+$status = [];
+$total_bulanan = [];
+
+$sql = "
+    SELECT status, COUNT(*) AS total
+    FROM visit_data
     WHERE MONTH(visit_date) = MONTH(CURDATE())
       AND YEAR(visit_date) = YEAR(CURDATE())
-      AND status = 'Done'
-");
-$pengunjung_bulanan = mysqli_fetch_assoc($q2)['total'] ?? 0;
+    GROUP BY status
+";
 
-$q3 = mysqli_query($koneksi, "
-    SELECT COUNT(*) AS total 
-    FROM visit_data 
-    WHERE status IN ('Upcoming','Now','Close')
-");
-$akan_datang = mysqli_fetch_assoc($q3)['total'] ?? 0;
+$q = mysqli_query($koneksi, $sql);
+while ($row = mysqli_fetch_assoc($q)) {
+    $status[] = $row['status'];
+    $total_bulanan[] = (int)$row['total'];
+}
 
-$q4 = mysqli_query($koneksi, "
-    SELECT COUNT(*) AS total 
+/* =====================
+   CARD STATISTIK
+===================== */
+$pengunjung_tahunan = mysqli_fetch_assoc(mysqli_query($koneksi,"
+    SELECT COUNT(*) total 
     FROM visit_data 
-    WHERE status = 'Pending'
-");
-$pending = mysqli_fetch_assoc($q4)['total'] ?? 0;
+    WHERE YEAR(visit_date)=YEAR(CURDATE())
+      AND status='Done'
+"))['total'] ?? 0;
+
+$pengunjung_bulanan = mysqli_fetch_assoc(mysqli_query($koneksi,"
+    SELECT COUNT(*) total 
+    FROM visit_data 
+    WHERE MONTH(visit_date)=MONTH(CURDATE())
+      AND YEAR(visit_date)=YEAR(CURDATE())
+      AND status='Done'
+"))['total'] ?? 0;
+
+$akan_datang = mysqli_fetch_assoc(mysqli_query($koneksi,"
+    SELECT COUNT(*) total 
+    FROM visit_data 
+    WHERE status IN ('Upcoming','Now')
+"))['total'] ?? 0;
+
+$pending = mysqli_fetch_assoc(mysqli_query($koneksi,"
+    SELECT COUNT(*) total 
+    FROM visit_data 
+    WHERE status='Pending'
+"))['total'] ?? 0;
 ?>
 
 <div class="row">

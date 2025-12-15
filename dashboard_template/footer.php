@@ -46,6 +46,14 @@ $username = $_SESSION['username'];
 </div>
 
 <!-- Load scripts only once, in correct order -->
+ <script>
+const chartBulan = <?= json_encode($bulan) ?>;
+const chartTotalTahunan = <?= json_encode($total_tahunan) ?>;
+
+const chartStatus = <?= json_encode($status) ?>;
+const chartTotalBulanan = <?= json_encode($total_bulanan) ?>;
+</script>
+
 <!-- Bootstrap core JavaScript-->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

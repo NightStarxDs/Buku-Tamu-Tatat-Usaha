@@ -47,7 +47,7 @@
       <a href="landing.php#home" class="btn btn-outline-white mx-1">Beranda</a>
       <a href="landing.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
       <a href="landing.php#about" class="btn btn-outline-white mx-1">Tentang Kami</a>
-      <a href="form.php" class="btn btn-outline-warning mx-1">Login</a>
+      <a href="login.php" class="btn btn-outline-warning mx-1">Login</a>
     </nav>
   </header>
 

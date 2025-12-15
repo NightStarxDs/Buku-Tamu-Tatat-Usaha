@@ -1,4 +1,31 @@
-<?php include 'dashboard_template/header.php'; ?>
+<?php
+require 'auth.php';
+require 'koneksi.php';
+
+if (!isset($koneksi)) {
+    die("Koneksi database tidak tersedia");
+}
+
+if (!isset($_GET['id'])) {
+    header("Location: arsip_kunjungan.php");
+    exit;
+}
+
+$id = (int) $_GET['id'];
+
+/*
+  Arsip = ubah status, BUKAN delete
+*/
+$query = "
+    UPDATE visit_data
+    SET status = 'Close'
+    WHERE id = $id
+";
+
+mysqli_query($koneksi, $query);
+
+header("Location: arsip_kunjungan.php");
+exit;
 
 <?php
 $delete_sql = "DELETE FROM visit_data 
