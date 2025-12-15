@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 08, 2025 at 03:36 AM
+-- Generation Time: Dec 15, 2025 at 12:05 PM
 -- Server version: 8.0.40
 -- PHP Version: 8.3.14
 
@@ -99,21 +99,21 @@ INSERT INTO `unit` (`id_unit`, `unit_name`, `unit_number`, `unit_email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `user` (
   `id` int NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(3, 'admin', '0192023a7bbd73250516f069df18b500');
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(3, '21232f297a57a5a743894a0e4a801fc3', '0192023a7bbd73250516f069df18b500');
 
 -- --------------------------------------------------------
 
@@ -123,50 +123,17 @@ INSERT INTO `users` (`id`, `username`, `password`) VALUES
 
 CREATE TABLE `visit_data` (
   `id` int NOT NULL,
-  `guest_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `phone_number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `company_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `visit_regards` enum('Urusan_surat','Urusan_keuangan','Urusan_umum','Urusan_sarana','Janji_temu_unit','Janji_temu_staf') COLLATE utf8mb4_general_ci NOT NULL,
-  `visit_desc` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `id_unit` int DEFAULT NULL,
-  `id_staf` int DEFAULT NULL,
-  `visit_date` date NOT NULL,
-  `time_in` time NOT NULL,
-  `time_out` time NOT NULL,
-  `appointment` enum('Ya','Tidak') COLLATE utf8mb4_general_ci NOT NULL,
-  `status` enum('Pending','Done','Upcoming') COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `visit_data`
---
-
-INSERT INTO `visit_data` (`id`, `guest_name`, `email`, `phone_number`, `company_name`, `visit_regards`, `visit_desc`, `id_unit`, `id_staf`, `visit_date`, `time_in`, `time_out`, `appointment`, `status`) VALUES
-(1, 'Dwi Agung Willy Anto', 'dwiagung0515@gmail.com', '+62895337342838', 'Black Market', 'Mengurus surat', 'Mengurus Surat', NULL, NULL, '2025-11-22', '09:43:59', '09:49:17', 'Tidak', 'Done'),
-(2, 'Samuel Simorangkir', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji Temu Unit', 'Mengurus Kerja sama', 11, NULL, '2025-11-22', '12:49:11', '13:49:11', 'Tidak', 'Done'),
-(3, 'Nayla Azkyah Azra', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji Temu Staf', 'Konsultasi dengan Waldos aagahfpahfawhaohgaphwfaphwgahpfdhaspfhapshapgsh-awhgpwahfgpaihsgoahgawhawfhahfaphg0qw9tghq9ht-16etoifbabpaqwr1yt0ehfoHBOGR0111rfasgtqhSFAfgGs', NULL, 8, '2025-11-22', '09:38:57', '10:50:57', 'Ya', 'Done'),
-(4, 'Fauzan Najib Ali', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji Temu Unit', 'Menemui UPA Perpustakaan', 4, NULL, '2025-11-27', '12:24:40', '14:24:40', 'Ya', 'Done'),
-(9, 'Berly Aditya Alfarizi', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji Temu Staf', 'Bertemu Dosen Teknik Mesin', NULL, 14, '2025-12-05', '12:05:53', NULL, 'Ya', 'Rejected'),
-(10, 'Arys Apriatna Ananda', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan Umum', 'Mengurus Surat PKM', NULL, NULL, '2025-12-02', '10:34:17', '10:34:17', 'Tidak', 'Done'),
-(14, 'Zaky Fajar Permana', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji Temu Unit', 'Mengurus Surat PKM', 6, NULL, '2025-12-08', '06:13:00', '06:15:00', 'Tidak', 'Done'),
-(15, 'Muhammad Safamal Jovanda', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Mengurus surat', 'Mengurus Surat', NULL, NULL, '2025-02-08', '06:17:05', '06:21:05', 'Tidak', 'Done'),
-(16, 'Arief Han ZK', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-04-08', '06:18:01', '06:23:01', 'Tidak', 'Done'),
-(17, 'Rizky Ramadhani', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-04-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(18, 'Firman Kholiq', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-10-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(19, 'Dedeng Puji Atmoko', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-10-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(20, 'Muhammad Melvin Vernandez', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-09-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(21, 'Alfat Khomara', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(22, 'Christh Valdo Aritonang', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(23, 'Arif Ifansyah', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(24, 'Dimas Putra Pratama', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-07-10', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(25, 'M Davawin Cahyono', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-06-11', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(26, 'Kevin Febriano', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-05-07', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(27, 'Muhammad Riswan', 'dwiagung0515@gmail.com', '+62895337342838', 'Uknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-03-11', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(28, 'Muhammad Febriyadi', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-03-14', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(29, 'Taufiq Qurrohman', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-02-05', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(30, 'Johan Fanizar', 'dwiagung0515@gmail.com', '+62895337342838', 'Uknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-01-01', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(31, 'Ilham Pramana', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan Umum', 'Mengurus apa saja', NULL, NULL, '2025-01-09', '06:21:56', '06:24:56', 'Tidak', 'Done');
+  `nama` varchar(100) DEFAULT NULL,
+  `instansi` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `telepon` varchar(20) DEFAULT NULL,
+  `visit_date` date DEFAULT NULL,
+  `waktu_datang` time DEFAULT NULL,
+  `waktu_pulang` time DEFAULT NULL,
+  `perihal` text,
+  `status` enum('Pending','Upcoming','Now','Done','Close') DEFAULT 'Pending',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Indexes for dumped tables
@@ -185,18 +152,16 @@ ALTER TABLE `unit`
   ADD PRIMARY KEY (`id_unit`);
 
 --
--- Indexes for table `users`
+-- Indexes for table `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `visit_data`
 --
 ALTER TABLE `visit_data`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_unit` (`id_unit`,`id_staf`),
-  ADD KEY `id_staf` (`id_staf`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -215,27 +180,16 @@ ALTER TABLE `unit`
   MODIFY `id_unit` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `user`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `visit_data`
 --
 ALTER TABLE `visit_data`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `visit_data`
---
-ALTER TABLE `visit_data`
-  ADD CONSTRAINT `visit_data_ibfk_1` FOREIGN KEY (`id_unit`) REFERENCES `unit` (`id_unit`),
-  ADD CONSTRAINT `visit_data_ibfk_2` FOREIGN KEY (`id_staf`) REFERENCES `staf` (`id_staf`);
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
