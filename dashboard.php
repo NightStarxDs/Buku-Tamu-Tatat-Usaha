@@ -1,4 +1,9 @@
-<?php include 'dashboard_template/header.php'; ?>
+<?php
+require 'auth.php';
+require 'koneksi.php';
+
+$username = $_SESSION['username'];
+
 
 <!-- Page Wrapper -->
 <div id="wrapper">

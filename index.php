@@ -79,7 +79,7 @@
       <a href="index.php#home" class="btn btn-outline-white mx-1">Beranda</a>
       <a href="index.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
       <a href="index.php#about" class="btn btn-outline-white mx-1">Tentang Kami</a>
-      <a href="form.php" class="btn btn-outline-info mx-1">Masuk</a>
+      <a href="login.php" class="btn btn-outline-info mx-1">Masuk</a>
     </nav>
   </header>
 

@@ -1,4 +1,9 @@
-<?php include 'auth.php'; ?>
+<?php
+require 'auth.php';
+require 'koneksi.php';
+
+$username = $_SESSION['username'];
+?>
 
 <footer class="sticky-footer bg-white shadow">
     <div class="container my-auto">
