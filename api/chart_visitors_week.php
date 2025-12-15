@@ -7,24 +7,29 @@ if (!isset($koneksi) || !($koneksi instanceof mysqli)) {
     exit;
 }
 
-// --- REQUIRE YEAR AND WEEK PARAMETERS ---
-if (!isset($_GET['year']) || !isset($_GET['week'])) {
-    echo json_encode(['error' => 'Missing required URL parameters: year and week.']);
+// --- REQUIRE YEAR AND MONTH PARAMETERS ---
+if (!isset($_GET['year']) || !isset($_GET['month'])) {
+    echo json_encode(['error' => 'Missing required URL parameters: year and month.']);
     exit;
 }
 
 // Get required parameters
 $year = (int)$_GET['year'];
-$week = (int)$_GET['week'];
+$month = (int)$_GET['month'];
+
+// Validate month (1-12)
+if ($month < 1 || $month > 12) {
+    echo json_encode(['error' => 'Month must be between 1 and 12.']);
+    exit;
+}
 // --- END REQUIREMENT CHECK ---
 
-
-// initialize counts for Mon..Sun
+// Initialize counts for Mon..Sun
 $counts = array_fill(0, 7, 0);
 
 $sql = "SELECT DAYOFWEEK(visit_date) AS dow, COUNT(*) AS cnt
         FROM visit_data
-        WHERE YEAR(visit_date) = ? AND WEEK(visit_date, 1) = ? AND status = 'Done'
+        WHERE YEAR(visit_date) = ? AND MONTH(visit_date) = ? AND status = 'Done'
         GROUP BY dow";
 
 $stmt = mysqli_prepare($koneksi, $sql);
@@ -33,14 +38,17 @@ if (!$stmt) {
     exit;
 }
 
-mysqli_stmt_bind_param($stmt, 'ii', $year, $week);
+mysqli_stmt_bind_param($stmt, 'ii', $year, $month);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_bind_result($stmt, $dow, $cnt);
 while (mysqli_stmt_fetch($stmt)) {
-    // DAYOFWEEK: 1=Sunday,2=Monday,...7=Saturday
-    // map to index 0=Monday ... 6=Sunday
-    if ($dow == 1) $index = 6;
-    else $index = $dow - 2;
+    // DAYOFWEEK: 1=Sunday, 2=Monday, ... 7=Saturday
+    // Map to index 0=Monday ... 6=Sunday
+    if ($dow == 1) {
+        $index = 6; // Sunday
+    } else {
+        $index = $dow - 2; // Monday-Saturday
+    }
     $counts[$index] = (int)$cnt;
 }
 mysqli_stmt_close($stmt);
@@ -49,7 +57,7 @@ $labels = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
 
 echo json_encode([
     'year' => $year,
-    'week' => $week,
+    'month' => $month,
     'labels' => $labels,
     'data' => $counts
 ]);

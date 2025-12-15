@@ -50,21 +50,12 @@
         </a>
     </li>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-    <br>
-    <!-- Nav Item - QR Code -->
-    <div class="sidebar-heading">
-        Aditional Menu
-    </div>
-
-
     <li class="nav-item">
-        <a class="nav-link collapsed" href="qrcode.php">
-            <i class="fas fa-fw fa-qrcode"></i>
-            <span>Kode QR</span>
-        </a>
-    </li>
+    <a class="nav-link collapsed" href="arsip_kunjungan.php">
+        <i class="fas fa-fw fa-file-archive"></i>
+        <span>Arsip Penolakan</span>
+    </a>
+</li>
 
 </ul>
 <!-- End of Sidebar -->
