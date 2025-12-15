@@ -228,35 +228,32 @@
     <!-- Validasi -->
     <script>
       document.getElementById("loginForm").addEventListener("submit", function(event) {
-        const username = document.getElementById("username");
-        const password = document.getElementById("password");
+  const username = document.getElementById("username");
+  const password = document.getElementById("password");
 
-        let valid = true;
+  let valid = true;
 
-        if (username.value.trim() === "") {
-          username.classList.add("is-invalid");
-          valid = false;
-        } else {
-          username.classList.remove("is-invalid");
-          username.classList.add("is-valid");
-        }
+  if (username.value.trim() === "") {
+    username.classList.add("is-invalid");
+    valid = false;
+  } else {
+    username.classList.remove("is-invalid");
+    username.classList.add("is-valid");
+  }
 
-        if (password.value.length < 6) {
-          password.classList.add("is-invalid");
-          valid = false;
-        } else {
-          password.classList.remove("is-invalid");
-          password.classList.add("is-valid");
-        }
+  if (password.value.length < 6) {
+    password.classList.add("is-invalid");
+    valid = false;
+  } else {
+    password.classList.remove("is-invalid");
+    password.classList.add("is-valid");
+  }
 
-        if (valid) {
-          even.preventDefault();
-        }
-      });
+  if (!valid) {
+    event.preventDefault();
+  }
+});
 
-      document.getElementById("backBtn").addEventListener("click", function() {
-        window.history.back();
-      });
     </script>
 </body>
 

@@ -1,4 +1,7 @@
-                    <!-- Content Row -->
+         
+         <?php include 'auth.php'; ?>
+
+         <!-- Content Row -->
                     <div class="row">
 
                         <!-- Earnings (Monthly) Card Example -->

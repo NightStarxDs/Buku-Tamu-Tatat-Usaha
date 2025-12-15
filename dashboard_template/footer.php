@@ -1,3 +1,5 @@
+<?php include 'auth.php'; ?>
+
 <footer class="sticky-footer bg-white shadow">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
