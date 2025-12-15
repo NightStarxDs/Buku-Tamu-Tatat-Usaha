@@ -1,21 +1,28 @@
 <?php
 include 'db.php';
 
-$nama = $_POST['nama'];
-$instansi = $_POST['instansi'];
-$tanggal = $_POST['tanggal'];
-$email = $_POST['email'];
-$telepon = $_POST['telepon'];
-$datang = $_POST['waktu_datang'];
-$pulang = $_POST['waktu_pulang'];
-$perihal = $_POST['perihal'];
+$nama       = $_POST['nama'];
+$email      = $_POST['email'];
+$pertanyaan = $_POST['perihal']; // dari form, masuk ke kolom pertanyaan
 
-$query = "INSERT INTO visits 
-(nama, instansi, tanggal, email, telepon, waktu_datang, waktu_pulang, perihal) 
-VALUES 
-('$nama','$instansi','$tanggal','$email','$telepon','$datang','$pulang','$perihal')";
+$stmt = mysqli_prepare(
+    $conn,
+    "INSERT INTO pertanyaan_faq (nama, email, pertanyaan)
+     VALUES (?, ?, ?)"
+);
 
-mysqli_query($conn, $query);
+mysqli_stmt_bind_param(
+    $stmt,
+    "sss",
+    $nama,
+    $email,
+    $pertanyaan
+);
 
-header("Location: success.php");
+if (mysqli_stmt_execute($stmt)) {
+    header("Location: success.php");
+    exit;
+} else {
+    echo "Error: " . mysqli_error($conn);
+}
 ?>

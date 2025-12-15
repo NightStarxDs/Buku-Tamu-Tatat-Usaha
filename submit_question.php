@@ -5,10 +5,14 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $question = $_POST['question'];
 
-$query = "INSERT INTO pertanyaan_faq (nama, email, pertanyaan)
-          VALUES ('$name', '$email', '$question')";
+$stmt = mysqli_prepare(
+    $conn,
+    "INSERT INTO pertanyaan_faq (nama, email, pertanyaan) VALUES (?, ?, ?)"
+);
 
-if (mysqli_query($conn, $query)) {
+mysqli_stmt_bind_param($stmt, "sss", $name, $email, $question);
+
+if (mysqli_stmt_execute($stmt)) {
     header("Location: succees2.php");
     exit;
 } else {
