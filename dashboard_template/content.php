@@ -2,52 +2,38 @@
 require 'auth.php';
 require 'koneksi.php';
 
-/*
-|--------------------------------------------------------------------------
-| Helper Function
-|--------------------------------------------------------------------------
-*/
-function getCount($koneksi, $where = '') {
-    $sql = "SELECT COUNT(*) AS total FROM visit_data";
-    if ($where) {
-        $sql .= " WHERE $where";
-    }
-    $q = mysqli_query($koneksi, $sql);
-    $row = mysqli_fetch_assoc($q);
-    return $row['total'] ?? 0;
-}
+$q1 = mysqli_query($koneksi, "
+    SELECT COUNT(*) AS total 
+    FROM visit_data 
+    WHERE YEAR(visit_date) = YEAR(CURDATE()) 
+      AND status = 'Done'
+");
+$pengunjung_tahunan = mysqli_fetch_assoc($q1)['total'] ?? 0;
 
-/*
-|--------------------------------------------------------------------------
-| Dashboard Data
-|--------------------------------------------------------------------------
-*/
-$pengunjung_tahunan = getCount(
-    $koneksi,
-    "YEAR(visit_date) = YEAR(CURDATE()) AND status = 'Done'"
-);
+$q2 = mysqli_query($koneksi, "
+    SELECT COUNT(*) AS total 
+    FROM visit_data 
+    WHERE MONTH(visit_date) = MONTH(CURDATE())
+      AND YEAR(visit_date) = YEAR(CURDATE())
+      AND status = 'Done'
+");
+$pengunjung_bulanan = mysqli_fetch_assoc($q2)['total'] ?? 0;
 
-$pengunjung_bulanan = getCount(
-    $koneksi,
-    "MONTH(visit_date) = MONTH(CURDATE())
-     AND YEAR(visit_date) = YEAR(CURDATE())
-     AND status = 'Done'"
-);
+$q3 = mysqli_query($koneksi, "
+    SELECT COUNT(*) AS total 
+    FROM visit_data 
+    WHERE status IN ('Upcoming','Now','Close')
+");
+$akan_datang = mysqli_fetch_assoc($q3)['total'] ?? 0;
 
-$akan_datang = getCount(
-    $koneksi,
-    "status IN ('Upcoming','Now','Close')"
-);
-
-$pending = getCount(
-    $koneksi,
-    "status = 'Pending'"
-);
+$q4 = mysqli_query($koneksi, "
+    SELECT COUNT(*) AS total 
+    FROM visit_data 
+    WHERE status = 'Pending'
+");
+$pending = mysqli_fetch_assoc($q4)['total'] ?? 0;
 ?>
 
-<!-- ========================= -->
-<!-- STAT CARDS -->
-<!-- ========================= -->
 <div class="row">
 
     <div class="col-xl-3 col-md-6 mb-4">
@@ -104,9 +90,6 @@ $pending = getCount(
 
 </div>
 
-<!-- ========================= -->
-<!-- CHART PLACEHOLDER -->
-<!-- ========================= -->
 <div class="row">
     <div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4">

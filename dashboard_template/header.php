@@ -1,9 +1,3 @@
-<?php
-require 'auth.php';
-require 'koneksi.php';
-
-$username = $_SESSION['username'];
-?>
 
 <!--Header-->
 <!DOCTYPE html>
