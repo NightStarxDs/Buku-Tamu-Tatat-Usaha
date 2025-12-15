@@ -13,8 +13,7 @@
                                                 <?php
                                                 $sql = "SELECT COUNT(*) AS pengunjung_bulanan
                                                         FROM visit_data
-                                                        WHERE MONTH(visit_date) = MONTH(CURDATE())
-                                                        AND YEAR(visit_date) = YEAR(CURDATE())
+                                                        WHERE YEAR(visit_date) = YEAR(CURDATE())
                                                         AND status = 'Done'
                                                         ";
                                                 $query = mysqli_query($koneksi, $sql);
@@ -43,7 +42,7 @@
                                                 <?php
                                                 $sql = "SELECT COUNT(*) AS pengunjung_mingguan
                                                         FROM visit_data
-                                                        WHERE YEARWEEK(visit_date, 1) = YEARWEEK(CURDATE(), 1)
+                                                        WHERE MONTH(visit_date) = MONTH(CURDATE())
                                                         AND status = 'Done'
                                                         ";
                                                 $query = mysqli_query($koneksi, $sql);

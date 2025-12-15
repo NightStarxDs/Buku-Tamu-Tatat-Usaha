@@ -24,7 +24,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Change Username</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Ganti Username</h1>
                     </div>
                     <div class="card card-head">
                         <div class="card card-body">
