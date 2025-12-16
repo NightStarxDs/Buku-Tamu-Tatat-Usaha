@@ -1,5 +1,23 @@
 <?php
+include 'koneksi.php'; 
+
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+
+$sql = "SELECT v.*, s.staf_name, s.staf_email, s.staf_number, u.unit_name 
+        FROM visit_data v
+        LEFT JOIN staf s ON v.id_staf = s.id_staf
+        LEFT JOIN unit u ON v.id_unit = u.id_unit
+        WHERE v.id = $id";
+
+$query = mysqli_query($koneksi, $sql);
+
 $data = mysqli_fetch_array($query);
+
+// Cek jika data tidak ditemukan
+if (!$data) {
+    die("<div class='container mt-5'><div class='alert alert-danger'>Data kunjungan tidak ditemukan!</div></div>");
+}
 
 // Data dasar untuk pesan
 $guest_name = $data['guest_name'] ?? 'Pengunjung';
