@@ -35,7 +35,7 @@ if (!$data) {
                             <h6 class="m-0 font-weight-bold text-white">Edit Data Kunjungan</h6>
                         </div>
                         <div class="card-body py-3">
-                            <form action="edit.php" method="POST">
+                            <form action="proses_edit.php" method="POST">
                                 <input type="hidden" name="id" value="<?= $data['id'] ?>">
 
                                 <div class="form-row">

@@ -10,14 +10,14 @@
                                                 Pengunjung Tahunan</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
-                                                $sql = "SELECT COUNT(*) AS pengunjung_bulanan
+                                                $sql = "SELECT COUNT(*) AS pengunjung_tahunan
                                                         FROM visit_data
                                                         WHERE YEAR(visit_date) = YEAR(CURDATE())
                                                         AND status = 'Done'
                                                         ";
                                                 $query = mysqli_query($koneksi, $sql);
                                                 $data = mysqli_fetch_assoc($query);
-                                                echo $data['pengunjung_bulanan'];
+                                                echo $data['pengunjung_tahunan'];
                                                 ?>
                                             </div>
                                         </div>

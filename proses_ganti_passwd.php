@@ -7,12 +7,12 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_SESSION['username'];
     $password_lama = $_POST['password_lama'];
     $password_baru = $_POST['password_baru'];
 
-}if (empty($password_lama) || empty($password_baru)) {
+    if (empty($password_lama) || empty($password_baru)) {
         echo "<script>
                 alert('Semua field harus diisi!');
                 window.location='ganti_passwd.php';
@@ -29,16 +29,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     // Ambil password dari database
-    $password_db = null;
     $sql = "SELECT password FROM users WHERE username = ?";
     $stmt = mysqli_prepare($koneksi, $sql);
 
     if (!$stmt) {
+        die("Prepare failed: " . mysqli_error($koneksi));
+    }
+
+    mysqli_stmt_bind_param($stmt, 's', $username);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $password_db);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+
+    // Verifikasi password lama
     if (md5($password_lama) === $password_db) {
         $password_baru_hash = md5($password_baru);
 
         $sql_update = "UPDATE users SET password = ? WHERE username = ?";
-    
         $stmt_update = mysqli_prepare($koneksi, $sql_update);
 
         if (!$stmt_update) {
@@ -70,3 +78,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     header("Location: ganti_passwd.php");
     exit;
 }
+?>

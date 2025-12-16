@@ -65,7 +65,7 @@ $clean_visitor_phone = preg_replace('/[^0-9]/', '', ($data['phone_number'] ?? ''
 ?>
 
 <body class="page-top">
-
+<?php include 'dashboard_template/header.php' ?>
     <!-- Page Wrapper -->
     <div id="wrapper">
         <?php include 'dashboard_template/sidebar.php'; ?>
@@ -110,7 +110,7 @@ $clean_visitor_phone = preg_replace('/[^0-9]/', '', ($data['phone_number'] ?? ''
                                         <input type="email" class="form-control" name="email" id="email" value="<?= ($data['email'] ?? ''); ?>" readonly>
                                         <div class="input-group-append">
                                             <!-- Tautan mailto sederhana untuk pengunjung -->
-                                            <a href="mailto:<?= ($data['email'] ?? ''); ?>" class="btn btn-outline-primary" title="Kirim Email" aria-label="Kirim Email">
+                                            <a href="mailto:<?= ($data['email'] ?? ''); ?>" class="btn btn-outline-primary d-flex align-items-center" title="Kirim Email" aria-label="Kirim Email">
                                                 <i class="fas fa-envelope"></i>
                                             </a>
                                         </div>
@@ -123,7 +123,7 @@ $clean_visitor_phone = preg_replace('/[^0-9]/', '', ($data['phone_number'] ?? ''
                                         <input type="text" class="form-control" name="phone_number" id="phone_number" value="<?= ($data['phone_number'] ?? ''); ?>" readonly>
                                         <div class="input-group-append">
                                             <!-- Tautan WhatsApp untuk pengunjung -->
-                                            <a href="https://wa.me/<?= $clean_visitor_phone; ?>" target="_blank" class="btn btn-success" title="Hubungi via WhatsApp" aria-label="WhatsApp">
+                                            <a href="https://wa.me/<?= $clean_visitor_phone; ?>" target="_blank" class="btn btn-success d-flex align-items-center" title="Hubungi via WhatsApp" aria-label="WhatsApp">
                                                 <i class="fab fa-whatsapp"></i>
                                             </a>
                                         </div>
@@ -185,7 +185,7 @@ $clean_visitor_phone = preg_replace('/[^0-9]/', '', ($data['phone_number'] ?? ''
                                             <input class="form-control" name="staf_email" id="staf_email" value="<?= ($data['staf_email'] ?? ''); ?>" readonly>
                                             <div class="input-group-append">
                                                 <!-- Tautan Gmail dengan pre-filled content -->
-                                                <a href="<?= $target_gmail_link; ?>" target="_blank" class="btn btn-outline-primary" title="Kirim Email (Gmail) dengan pesan otomatis" aria-label="Kirim Email">
+                                                <a href="<?= $target_gmail_link; ?>" target="_blank" class="btn btn-outline-primary d-flex align-items-center" title="Kirim Email (Gmail) dengan pesan otomatis" aria-label="Kirim Email">
                                                     <i class="fas fa-envelope"></i>
                                                 </a>
                                             </div>
@@ -198,7 +198,7 @@ $clean_visitor_phone = preg_replace('/[^0-9]/', '', ($data['phone_number'] ?? ''
                                             <input class="form-control" name="staf_number" id="staf_number" value="<?= ($data['staf_number'] ?? ''); ?>" readonly>
                                             <div class="input-group-append">
                                                 <!-- Tautan WhatsApp dengan pesan otomatis -->
-                                                <a href="<?= $target_whatsapp_link; ?>" target="_blank" class="btn btn-success" title="Hubungi via WhatsApp dengan pesan otomatis" aria-label="WhatsApp">
+                                                <a href="<?= $target_whatsapp_link; ?>" target="_blank" class="btn btn-success d-flex align-items-center" title="Hubungi via WhatsApp dengan pesan otomatis" aria-label="WhatsApp">
                                                     <i class="fab fa-whatsapp"></i>
                                                 </a>
                                             </div>
@@ -212,7 +212,7 @@ $clean_visitor_phone = preg_replace('/[^0-9]/', '', ($data['phone_number'] ?? ''
                                             <input class="form-control" name="unit_email" id="unit_email" value="<?= ($data['unit_email'] ?? ''); ?>" readonly>
                                             <div class="input-group-append">
                                                 <!-- Tautan Gmail dengan pre-filled content -->
-                                                <a href="<?= $target_gmail_link; ?>" target="_blank" class="btn btn-outline-primary" title="Kirim Email (Gmail) dengan pesan otomatis" aria-label="Kirim Email">
+                                                <a href="<?= $target_gmail_link; ?>" target="_blank" class="btn btn-outline-primary d-flex align-items-center" title="Kirim Email (Gmail) dengan pesan otomatis" aria-label="Kirim Email">
                                                     <i class="fas fa-envelope"></i>
                                                 </a>
                                             </div>
@@ -223,11 +223,9 @@ $clean_visitor_phone = preg_replace('/[^0-9]/', '', ($data['phone_number'] ?? ''
                                         <label for="unit_number">No. Telepon Unit</label>
                                         <div class="input-group">
                                             <input class="form-control" name="unit_number" id="unit_number" value="<?= ($data['unit_number'] ?? ''); ?>" readonly>
-                                            <div class="input-group-append">
-                                                <!-- Tautan WhatsApp dengan pesan otomatis -->
-                                                <a href="<?= $target_whatsapp_link; ?>" target="_blank" class="btn btn-success" title="Hubungi via WhatsApp dengan pesan otomatis" aria-label="WhatsApp">
-                                                    <i class="fab fa-whatsapp"></i>
-                                                </a>
+                                           <div class="input-group-append">
+                                                <a href="<?= $target_whatsapp_link; ?>" target="_blank" class="btn btn-success d-flex align-items-center" title="Hubungi via WhatsApp dengan Pesan Otomatis">
+                                                <i class="fab fa-whatsapp"></i></a>
                                             </div>
                                         </div>
                                     </div>

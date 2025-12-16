@@ -61,8 +61,6 @@
                                                 <td><?= htmlspecialchars($data['guest_name']); ?></td>
                                                 <td><?= htmlspecialchars($data['company_name']); ?></td>
                                                 <td><?= $data['visit_desc'] ?></td>
-                                                <td>
-                                                    <?= $data['visit_desc'] ?></td>
                                                 <td><?= date('d/m/Y', strtotime($data['visit_date'])); ?> <span><?= date('H:i', strtotime($data['time_in'])); ?></span></td>
                                                 <td><?= !empty($data['staf_name']) ? htmlspecialchars($data['staf_name']) : htmlspecialchars($data['unit_name']); ?></td>
                                                 <td class="d-flex justify-content-between">
@@ -79,10 +77,19 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.container-fluid -->
                 </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <?php include 'dashboard_template/footer.php'; ?>
-
+                <!-- End of container-fluid -->
+                
+            </div>
+            <!-- End of content -->
+            
+            <!-- Footer harus di sini, SETELAH content tapi DALAM content-wrapper -->
+            <?php include 'dashboard_template/footer.php'; ?>
+            
+        </div>
+        <!-- End of content-wrapper -->
+        
+    </div>
+    <!-- End of wrapper -->
+    
+</body>

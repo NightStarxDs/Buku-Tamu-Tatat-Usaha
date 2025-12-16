@@ -106,15 +106,24 @@
                                             }
                                         }
                                         ?>
-                                    </tbody>
+                                   </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <!-- /.container-fluid -->
                 </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <?php include 'dashboard_template/footer.php'; ?>
-                </body>
+                <!-- End of container-fluid -->
+                
+            </div>
+            <!-- End of content -->
+            
+            <!-- Footer harus di sini, SETELAH content tapi DALAM content-wrapper -->
+            <?php include 'dashboard_template/footer.php'; ?>
+            
+        </div>
+        <!-- End of content-wrapper -->
+        
+    </div>
+    <!-- End of wrapper -->
+    
+</body>

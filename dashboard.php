@@ -27,3 +27,4 @@
         </div>
         <?php include 'dashboard_template/footer.php'; ?>
     </div>
+</div>

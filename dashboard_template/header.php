@@ -1,15 +1,17 @@
 <?php
 session_start();
 include 'koneksi.php';
-require 'auth.php';
-require 'koneksi.php';
 
 $username = $_SESSION['username'];
 if (!isset($_SESSION['login'])) {
     header("Location: form.php");
     exit;
 }
+
+$username = $_SESSION['username']
+
 ?>
+
 
 <!--Header-->
 <!DOCTYPE html>
