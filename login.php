@@ -215,8 +215,8 @@
 
         <!-- 🔘 Tombol -->
         <div class="button-group mt-3">
-          <button type="button" class="btn btn-secondary px-3" id="backBtn">
-            Back
+          <button  type="button" class="btn btn-secondary px-3" id="backBtn">
+            <a href="index.php">Back</a>
           </button>
           <button type="submit" class="btn btn-primary px-4">Masuk</button>
         </div>
