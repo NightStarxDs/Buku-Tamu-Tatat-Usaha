@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 <?php include 'dashboard_template/header.php'; ?>
+=======
+<?php
+include 'koneksi.php';
+?>
+
+<?php include 'dashboard_template/header.php' ?>
+>>>>>>> 884169cc7d11c5f74a07cf032ba1c656792e24f1
 <!-- Page Wrapper -->
 <div id="wrapper">
     <?php include 'dashboard_template/sidebar.php'; ?>

@@ -1,9 +1,9 @@
-<?php 
-include 'koneksi.php'; // Pastikan koneksi disertakan
-include 'dashboard_template/header.php'; 
+<?php
+include 'koneksi.php';
+include 'dashboard_template/header.php';
 
 // 1. Ambil ID dan Validasi agar tidak Error
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$id = $_GET['id'];
 
 if ($id <= 0) {
     die("<script>alert('ID tidak valid!'); window.location='kunjungan_berjalan.php';</script>");
@@ -113,4 +113,5 @@ if (!$data) {
         </div>
     </div>
 </body>
+
 </html>
