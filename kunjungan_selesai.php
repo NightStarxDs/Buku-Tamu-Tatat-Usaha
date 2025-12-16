@@ -1,4 +1,8 @@
-<?php include 'dashboard_template/header.php'; ?>
+<?php
+require 'auth.php';
+require 'koneksi.php';
+include 'dashboard_template/header.php';
+?>
 
 <body class="page-top">
 
