@@ -1,16 +1,9 @@
-<?php
-require 'auth.php';
-require 'koneksi.php';
-
-$username = $_SESSION['username'];
-?>
-
 <footer class="sticky-footer bg-white shadow">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; 2025 Visilog, All Right Reserved.</span>
-        </div>
-    </div>
+<div class="container my-auto">
+<div class="copyright text-center my-auto">
+<span>Copyright &copy; 2025 Visilog, All Right Reserved.</span>
+</div>
+</div>
 </footer>
 <!-- End of Footer -->
 
@@ -22,38 +15,30 @@ $username = $_SESSION['username'];
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
+<i class="fas fa-angle-up"></i>
 </a>
 
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin Ingin Keluar?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">x</span>
-                </button>
-            </div>
-            <div class="modal-body">Pilih "Keluar" dibawah untuk mengakhiri sesi ini.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                <a class="btn btn-primary" href="logout.php">Keluar</a>
-            </div>
-        </div>
-    </div>
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin Ingin Keluar?</h5>
+<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">x</span>
+</button>
+</div>
+<div class="modal-body">Pilih "Keluar" dibawah untuk mengakhiri sesi ini.</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+<a class="btn btn-primary" href="logout.php">Keluar</a>
+</div>
+</div>
+</div>
 </div>
 
 <!-- Load scripts only once, in correct order -->
- <script>
-const chartBulan = <?= json_encode($bulan) ?>;
-const chartTotalTahunan = <?= json_encode($total_tahunan) ?>;
-
-const chartStatus = <?= json_encode($status) ?>;
-const chartTotalBulanan = <?= json_encode($total_bulanan) ?>;
-</script>
-
 <!-- Bootstrap core JavaScript-->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -76,15 +61,13 @@ const chartTotalBulanan = <?= json_encode($total_bulanan) ?>;
 
 <!-- Initialize DataTables (only once) -->
 <script>
-    $(document).ready(function() {
-        if (!$.fn.dataTable.isDataTable('#dataTable')) {
-            $('#dataTable').DataTable({
-                ordering: false
-            });
-        }
-    });
+$(document).ready(function() {
+if (!$.fn.dataTable.isDataTable('#dataTable')) {
+$('#dataTable').DataTable({
+ordering: false
+});
+}
+});
 </script>
 
 </body>
-
-</html>

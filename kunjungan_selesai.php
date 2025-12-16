@@ -1,8 +1,4 @@
-<?php
-require 'auth.php';
-require 'koneksi.php';
-include 'dashboard_template/header.php';
-?>
+<?php include 'dashboard_template/header.php'; ?>
 
 <body class="page-top">
 
@@ -50,10 +46,10 @@ include 'dashboard_template/header.php';
                                         foreach ($query as $data) {
                                         ?>
                                             <tr>
-                                                <td><?= $data['nama_tamu']; ?></td>
-                                                <td><?= $data['instansi']; ?></td>
-                                                <td><?= $data['perihal']; ?></td>
-                                                <td><?= date('d/m/Y', strtotime($data['visit_date'])); ?> <span><?= date('H:i', strtotime($data['waktu_pulang'])); ?></span></td>
+                                                <td><?= $data['guest_name']; ?></td>
+                                                <td><?= $data['company_name']; ?></td>
+                                                <td><?= $data['visit_desc']; ?></td>
+                                                <td><?= date('d/m/Y', strtotime($data['visit_date'])); ?> <span><?= date('H:i', strtotime($data['time_in'])); ?></span></td>
                                                 <td class="text-center">
                                                     <span class="badge badge-success" style="padding: 10px; font-size: 15px;">
                                                         <?= $data['status']; ?>
@@ -80,6 +76,3 @@ include 'dashboard_template/header.php';
 
                 <!-- Footer -->
                 <?php include 'dashboard_template/footer.php'; ?>
-
-
-</body>
