@@ -2,10 +2,11 @@
 session_start();
 include 'koneksi.php';
 
-$user = md5($_POST['username']);
+$user = $_POST['username'];
 $pass = md5($_POST['password']);
 
-$q = mysqli_query($koneksi,
+$q = mysqli_query(
+    $koneksi,
     "SELECT * FROM users WHERE username='$user' AND password='$pass' LIMIT 1"
 );
 

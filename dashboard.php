@@ -1,9 +1,8 @@
 <?php
-require 'auth.php';
-require 'koneksi.php';
-
-$username = $_SESSION['username'];
+include 'koneksi.php';
 ?>
+
+<?php include 'dashboard_template/header.php' ?>
 <!-- Page Wrapper -->
 <div id="wrapper">
     <?php include 'dashboard_template/sidebar.php'; ?>
