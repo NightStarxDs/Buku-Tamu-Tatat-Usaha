@@ -34,8 +34,8 @@ $data = mysqli_fetch_array($query);
                             <form action="">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="nama_tamu">Nama Pengunjung</label>
-                                        <input type="text" class="form-control" name="nama_tamu" id="nama_tamu" value="<?= $data['nama_tamu'] ?>">
+                                        <label for="guest_name">Nama Pengunjung</label>
+                                        <input type="text" class="form-control" name="guest_name" id="guest_name" value="<?= $data['guest_name'] ?>">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="email">Alamat Email</label>
@@ -46,18 +46,18 @@ $data = mysqli_fetch_array($query);
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="telepon">No. Telepon</label>
-                                        <input type="tel" class="form-control" name="telepon" id="telepon" value="<?= $data['telepon'] ?>">
+                                        <label for="phone_number">No. Telepon</label>
+                                        <input type="tel" class="form-control" name="phone_number" id="phone_number" value="<?= $data['phone_number'] ?>">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="instansi">Nama Instansi</label>
-                                        <input type="text" class="form-control" name="instansi" id="instansi" value="<?= $data['instansi'] ?>">
+                                        <label for="company_name">Nama Instansi</label>
+                                        <input type="text" class="form-control" name="company_name" id="company_name" value="<?= $data['company_name'] ?>">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="visit_regards">Perihal Kunjungan</label>
-                                    <textarea class="form-control" name="perihal" id="perihal" rows="3"><?= $data['perihal'] ?></textarea>
+                                    <textarea class="form-control" name="visit_regards" id="visit_regards" rows="3"><?= $data['visit_regards'] ?></textarea>
                                 </div>
 
                                 <div class="form-row">
@@ -79,17 +79,17 @@ $data = mysqli_fetch_array($query);
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="waktu_datang">Waktu Mulai</label>
-                                        <input type="time" class="form-control" name="waktu_datang" id="waktu_datang" value="<?= $data['waktu_datang']; ?>">
+                                        <label for="time_in">Waktu Mulai</label>
+                                        <input type="time" class="form-control" name="time_in" id="time_in" value="<?= $data['time_in']; ?>">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="waktu_pulang">Waktu Selesai</label>
-                                        <input type="time" class="form-control" name="waktu_pulang" id="waktu_pulang" value="<?= $data['waktu_pulang']; ?>">
+                                        <label for="time_out">Waktu Selesai</label>
+                                        <input type="time" class="form-control" name="time_out" id="time_out" value="<?= $data['time_out']; ?>">
                                     </div>
                                 </div>
 
                                 <div class="form-group mt-3">
-                                    <a href="data_kunjungan.php" class="btn btn-secondary">Kembali</a>
+                                    <a href="dashboard.php" class="btn btn-secondary">Kembali</a>
                                     <button type="submit" class="btn btn-primary px-3">Simpan</button>
                                 </div>
                             </form>

@@ -8,7 +8,7 @@ $update_success = mysqli_query($koneksi, $update_query);
 
 if ($update_success) {
 
-   $sql_fetch = "SELECT guest_name, phone_number FROM visit_data WHERE id = '$id'";
+    $sql_fetch = "SELECT guest_name, phone_number FROM visit_data WHERE id = '$id'";
     $result = mysqli_query($koneksi, $sql_fetch);
 
     if ($result && $guest_data = mysqli_fetch_assoc($result)) {

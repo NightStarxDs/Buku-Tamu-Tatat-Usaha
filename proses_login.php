@@ -6,7 +6,7 @@ $user = md5($_POST['username']);
 $pass = md5($_POST['password']);
 
 $q = mysqli_query($koneksi,
-    "SELECT * FROM user WHERE username='$user' AND password='$pass' LIMIT 1"
+    "SELECT * FROM users WHERE username='$user' AND password='$pass' LIMIT 1"
 );
 
 if (mysqli_num_rows($q) === 1) {

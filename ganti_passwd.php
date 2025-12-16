@@ -16,7 +16,7 @@
                 <!-- Content -->
                 <div class="container-fluid">
                     <?php
-                    $sql = "SELECT * FROM user WHERE username='$username'";
+                    $sql = "SELECT * FROM users WHERE username='$username'";
                     $query = mysqli_query($koneksi, $sql);
                     $data = mysqli_fetch_array($query);
 

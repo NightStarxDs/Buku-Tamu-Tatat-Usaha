@@ -1,27 +1,11 @@
 <?php
-include 'dashboard_template/header.php';
-include 'koneksi.php';
-
-$id = mysqli_real_escape_string($koneksi, $_GET['id']);
-
-$sql = "SELECT 
-            visit_data.*,
-            staf.*,
-            unit.*
-        FROM 
-            visit_data
-        LEFT JOIN staf ON visit_data.id_staf = staf.id_staf
-        LEFT JOIN unit ON visit_data.id_unit = unit.id_unit
-        WHERE 
-            visit_data.`id` = '$id'";
-$query = mysqli_query($koneksi, $sql);
 $data = mysqli_fetch_array($query);
 
 // Data dasar untuk pesan
-$guest_name = $data['nama_tamu'] ?? 'Pengunjung';
-$time_in = $data['waktu_datang'] ?? 'Tidak Diketahui';
-$visit_desc = $data['perihal'] ?? 'Tidak ada deskripsi kunjungan';
-$visit_regards = $data[''] ?? 'Permintaan Kunjungan';
+$guest_name = $data['guest_name'] ?? 'Pengunjung';
+$time_in = $data['time_in'] ?? 'Tidak Diketahui';
+$visit_desc = $data['visit_desc'] ?? 'Tidak ada deskripsi kunjungan';
+$visit_regards = $data['visit_regards'] ?? 'Permintaan Kunjungan';
 
 // Menentukan Staf/Unit untuk mengisi pesan otomatis
 $target_name = '';
@@ -265,5 +249,3 @@ $clean_visitor_phone = preg_replace('/[^0-9]/', '', ($data['phone_number'] ?? ''
     <!-- /#wrapper -->
 
 </body>
-
-</html>
