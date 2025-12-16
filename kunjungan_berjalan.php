@@ -3,8 +3,25 @@ require 'koneksi.php';
 include 'dashboard_template/header.php';
 ?>
 
-<?php include 'dashboard_template/sidebar.php'; ?>
+<!-- Page Wrapper -->
+    <div id="wrapper">
+        <?php include 'dashboard_template/sidebar.php'; ?>
 
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+                <?php include 'dashboard_template/topbar.php'; ?>
+
+                <!-- Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Data Kunjungan</h1>
+                    </div>
+                    
 <div id="content-wrapper" class="d-flex flex-column">
     <div id="content">
 
@@ -51,8 +68,8 @@ while ($data = mysqli_fetch_assoc($result)) {
 
     $now = new DateTime('now', $tz);
 
-    $in  = new DateTime($data['visit_date'].' '.$data['time_in'], $tz);
-    $out = new DateTime($data['visit_date'].' '.$data['time_out'], $tz);
+    $in  = new DateTime($data['visit_date'].' '.$data['waktu_datang'], $tz);
+    $out = new DateTime($data['visit_date'].' '.$data['waktu_pulang'], $tz);
     if ($out <= $in) $out->modify('+1 day');
 
     if ($now >= $out) {
@@ -78,10 +95,10 @@ while ($data = mysqli_fetch_assoc($result)) {
 ?>
 
 <tr>
-    <td><?= htmlspecialchars($data['guest_name']) ?></td>
-    <td><?= htmlspecialchars($data['company_name']) ?></td>
-    <td><?= htmlspecialchars($data['visit_desc']) ?></td>
-    <td><?= date('d/m/Y H:i', strtotime($data['visit_date'].' '.$data['time_in'])) ?></td>
+    <td><?= htmlspecialchars($data['nama_tamu']) ?></td>
+    <td><?= htmlspecialchars($data['instansi']) ?></td>
+    <td><?= htmlspecialchars($data['perihal']) ?></td>
+    <td><?= date('d/m/Y H:i', strtotime($data['visit_date'].' '.$data['waktu_datang'])) ?></td>
     <td class="text-center">
         <span class="badge badge-<?= $badge ?> p-2"><?= $status ?></span>
     </td>

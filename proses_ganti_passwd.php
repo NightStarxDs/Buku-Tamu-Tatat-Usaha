@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Ambil password dari database
     $password_db = null;
-    $sql = "SELECT password FROM users WHERE username = ?";
+    $sql = "SELECT password FROM user WHERE username = ?";
     $stmt = mysqli_prepare($koneksi, $sql);
 
     if (!$stmt) {
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (md5($password_lama) === $password_db) {
         $password_baru_hash = md5($password_baru);
 
-        $sql_update = "UPDATE users SET password = ? WHERE username = ?";
+        $sql_update = "UPDATE user SET password = ? WHERE username = ?";
         $stmt_update = mysqli_prepare($koneksi, $sql_update);
 
         if (!$stmt_update) {

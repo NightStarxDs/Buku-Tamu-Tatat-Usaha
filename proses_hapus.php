@@ -1,8 +1,18 @@
 <?php
+require 'auth.php';
+require 'koneksi.php';
 
-include 'koneksi.php';
-$id = $_GET['id'];
-$query = "DELETE FROM visit_data WHERE id='$id'";
-mysqli_query($koneksi, $query);
-header("Location: kunjungan_selesai.php");
-exit();
+if (!isset($_GET['id'])) {
+    header("Location: arsip_kunjungan.php");
+    exit;
+}
+
+$id = (int) $_GET['id'];
+
+mysqli_query($koneksi, "
+    DELETE FROM visit_data
+    WHERE id = $id
+");
+
+header("Location: arsip_kunjungan.php");
+exit;

@@ -8,13 +8,13 @@ $update_success = mysqli_query($koneksi, $update_query);
 
 if ($update_success) {
 
-    $sql_fetch = "SELECT guest_name, phone_number FROM visit_data WHERE id = '$id'";
+    $sql_fetch = "SELECT nama_tamu, telepon FROM visit_data WHERE id = '$id'";
     $result = mysqli_query($koneksi, $sql_fetch);
 
     if ($result && $guest_data = mysqli_fetch_assoc($result)) {
 
-        $guest_name = $guest_data['guest_name'];
-        $phone_number = $guest_data['phone_number'];
+        $guest_name = $guest_data['nama_tamu'];
+        $phone_number = $guest_data['telepon'];
 
         $message = "Kepada " . $guest_name . ".\n\nPermintaan Kunjungan Anda *Diterima*.\n\nUntuk informasi lebih lanjut mengenai kunjungan, Anda bisa bertanya pada nomor ini atau Anda bisa menananyakan langsung ke Ruangan Tata Usaha.";
 

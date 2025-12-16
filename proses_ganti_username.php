@@ -46,7 +46,7 @@ if (!empty($pesan_error)) {
 
 
 // --- 2. Cek Username Baru Sudah Ada (Penting!) ---
-$sql_check = "SELECT username FROM users WHERE username = ?";
+$sql_check = "SELECT username FROM user WHERE username = ?";
 $stmt_check = mysqli_prepare($koneksi, $sql_check);
 mysqli_stmt_bind_param($stmt_check, 's', $new_username);
 mysqli_stmt_execute($stmt_check);
@@ -65,7 +65,7 @@ mysqli_stmt_close($stmt_check);
 
 // --- 3. Proses Update Username (Menggunakan Prepared Statement) ---
 
-$sql_update = "UPDATE users SET username = ? WHERE username = ?";
+$sql_update = "UPDATE user SET username = ? WHERE username = ?";
 $stmt_update = mysqli_prepare($koneksi, $sql_update);
 
 // Cek jika prepare gagal

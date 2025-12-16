@@ -18,10 +18,10 @@ $query = mysqli_query($koneksi, $sql);
 $data = mysqli_fetch_array($query);
 
 // Data dasar untuk pesan
-$guest_name = $data['guest_name'] ?? 'Pengunjung';
-$time_in = $data['time_in'] ?? 'Tidak Diketahui';
-$visit_desc = $data['visit_desc'] ?? 'Tidak ada deskripsi kunjungan';
-$visit_regards = $data['visit_regards'] ?? 'Permintaan Kunjungan';
+$guest_name = $data['nama_tamu'] ?? 'Pengunjung';
+$time_in = $data['waktu_datang'] ?? 'Tidak Diketahui';
+$visit_desc = $data['perihal'] ?? 'Tidak ada deskripsi kunjungan';
+$visit_regards = $data[''] ?? 'Permintaan Kunjungan';
 
 // Menentukan Staf/Unit untuk mengisi pesan otomatis
 $target_name = '';
