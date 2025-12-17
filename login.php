@@ -215,9 +215,7 @@
 
         <!-- 🔘 Tombol -->
         <div class="button-group mt-3">
-          <button  type="button" class="btn btn-secondary px-3" id="backBtn">
-            <a href="index.php">Back</a>
-          </button>
+          <a type="button" class="btn btn-secondary px-3" id="backBtn" href="index.php">Back</a>
           <button type="submit" class="btn btn-primary px-4">Masuk</button>
         </div>
       </form>
@@ -228,32 +226,31 @@
     <!-- Validasi -->
     <script>
       document.getElementById("loginForm").addEventListener("submit", function(event) {
-  const username = document.getElementById("username");
-  const password = document.getElementById("password");
+        const username = document.getElementById("username");
+        const password = document.getElementById("password");
 
-  let valid = true;
+        let valid = true;
 
-  if (username.value.trim() === "") {
-    username.classList.add("is-invalid");
-    valid = false;
-  } else {
-    username.classList.remove("is-invalid");
-    username.classList.add("is-valid");
-  }
+        if (username.value.trim() === "") {
+          username.classList.add("is-invalid");
+          valid = false;
+        } else {
+          username.classList.remove("is-invalid");
+          username.classList.add("is-valid");
+        }
 
-  if (password.value.length < 6) {
-    password.classList.add("is-invalid");
-    valid = false;
-  } else {
-    password.classList.remove("is-invalid");
-    password.classList.add("is-valid");
-  }
+        if (password.value.length < 6) {
+          password.classList.add("is-invalid");
+          valid = false;
+        } else {
+          password.classList.remove("is-invalid");
+          password.classList.add("is-valid");
+        }
 
-  if (!valid) {
-    event.preventDefault();
-  }
-});
-
+        if (!valid) {
+          event.preventDefault();
+        }
+      });
     </script>
 </body>
 

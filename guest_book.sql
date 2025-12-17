@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2025 at 03:49 PM
+-- Generation Time: Dec 17, 2025 at 04:40 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -128,13 +128,12 @@ CREATE TABLE `visit_data` (
   `phone_number` varchar(255) NOT NULL,
   `company_name` varchar(255) NOT NULL,
   `visit_regards` enum('Urusan_surat','Urusan_keuangan','Urusan_umum','Urusan_sarana','Janji_temu_unit','Janji_temu_staf') NOT NULL,
-  `visit_desc` varchar(255) DEFAULT NULL,
+  `visit_desc` varchar(255) NOT NULL,
   `id_unit` int(11) DEFAULT NULL,
   `id_staf` int(11) DEFAULT NULL,
   `visit_date` date NOT NULL,
   `time_in` time NOT NULL,
   `time_out` time NOT NULL,
-  `appointment` enum('Ya','Tidak') NOT NULL,
   `status` enum('Pending','Done','Upcoming','Close','Now','Rejected') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -142,32 +141,36 @@ CREATE TABLE `visit_data` (
 -- Dumping data for table `visit_data`
 --
 
-INSERT INTO `visit_data` (`id`, `guest_name`, `email`, `phone_number`, `company_name`, `visit_regards`, `visit_desc`, `id_unit`, `id_staf`, `visit_date`, `time_in`, `time_out`, `appointment`, `status`) VALUES
-(1, 'Dwi Agung Willy Anto', 'dwiagung0515@gmail.com', '+62895337342838', 'Black Market', 'Urusan_surat', 'Mengurus Surat', NULL, NULL, '2025-11-22', '09:43:59', '09:49:17', 'Tidak', 'Done'),
-(2, 'Samuel Simorangkir', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Mengurus Kerja sama', 11, NULL, '2025-11-22', '12:49:11', '13:49:11', 'Tidak', 'Done'),
-(3, 'Nayla Azkyah Azra', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_staf', 'Konsultasi dengan Waldos aagahfpahfawhaohgaphwfaphwgahpfdhaspfhapshapgsh-awhgpwahfgpaihsgoahgawhawfhahfaphg0qw9tghq9ht-16etoifbabpaqwr1yt0ehfoHBOGR0111rfasgtqhSFAfgGs', NULL, 8, '2025-11-22', '09:38:57', '10:50:57', 'Ya', 'Done'),
-(4, 'Fauzan Najib Ali', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji_temu_unit', 'Menemui UPA Perpustakaan', 4, NULL, '2025-11-27', '12:24:40', '14:24:40', 'Ya', 'Done'),
-(9, 'Berly Aditya Alfarizi', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji_temu_staf', 'Bertemu Dosen Teknik Mesin', NULL, 14, '2025-12-05', '12:05:53', '00:00:00', 'Ya', ''),
-(10, 'Arys Apriatna Ananda', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji_temu_unit', 'Mengurus Surat PKM', 6, NULL, '2025-12-02', '10:34:17', '10:34:17', 'Tidak', 'Done'),
-(14, 'Zaky Fajar Permana', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji_temu_unit', 'Mengurus Surat PKM', 6, NULL, '2025-12-08', '06:13:00', '06:15:00', 'Tidak', 'Done'),
-(15, 'Muhammad Safamal Jovanda', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan_surat', 'Mengurus Surat', NULL, NULL, '2025-02-08', '06:17:05', '06:21:05', 'Tidak', 'Done'),
-(16, 'Arief Han ZK', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-04-08', '06:18:01', '06:23:01', 'Tidak', 'Done'),
-(17, 'Rizky Ramadhani', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-04-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(18, 'Firman Kholiq', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-10-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(19, 'Dedeng Puji Atmoko', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-10-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(20, 'Muhammad Melvin Vernandez', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-09-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(21, 'Alfat Khomara', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(22, 'Christh Valdo Aritonang', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(23, 'Arif Ifansyah', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(24, 'Dimas Putra Pratama', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-07-10', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(25, 'M Davawin Cahyono', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-06-11', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(26, 'Kevin Febriano', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-05-07', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(27, 'Muhammad Riswan', 'dwiagung0515@gmail.com', '+62895337342838', 'Uknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-03-11', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(28, 'Muhammad Febriyadi', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-03-14', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(29, 'Taufiq Qurrohman', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-02-05', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(30, 'Johan Fanizar', 'dwiagung0515@gmail.com', '+62895337342838', 'Uknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-01-01', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(31, 'Ilham Pramana', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-01-09', '06:21:56', '06:24:56', 'Tidak', 'Done'),
-(32, 'Agung', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji_temu_unit', 'AAA', 2, NULL, '2025-12-16', '20:28:25', '23:04:00', 'Ya', 'Now');
+INSERT INTO `visit_data` (`id`, `guest_name`, `email`, `phone_number`, `company_name`, `visit_regards`, `visit_desc`, `id_unit`, `id_staf`, `visit_date`, `time_in`, `time_out`, `status`) VALUES
+(1, 'Dwi Agung Willy Anto', 'dwiagung0515@gmail.com', '+62895337342838', 'Black Market', 'Urusan_surat', 'Mengurus Surat', NULL, NULL, '2025-11-22', '09:43:59', '09:49:17', 'Done'),
+(2, 'Samuel Simorangkir', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Mengurus Kerja sama', 11, NULL, '2025-11-22', '12:49:11', '13:49:11', 'Done'),
+(3, 'Nayla Azkyah Azra', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_staf', 'Konsultasi dengan Waldos aagahfpahfawhaohgaphwfaphwgahpfdhaspfhapshapgsh-awhgpwahfgpaihsgoahgawhawfhahfaphg0qw9tghq9ht-16etoifbabpaqwr1yt0ehfoHBOGR0111rfasgtqhSFAfgGs', NULL, 8, '2025-11-22', '09:38:57', '10:50:57', 'Done'),
+(4, 'Fauzan Najib Ali', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji_temu_unit', 'Menemui UPA Perpustakaan', 4, NULL, '2025-11-27', '12:24:40', '14:24:40', 'Done'),
+(9, 'Berly Aditya Alfarizi', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji_temu_staf', 'Bertemu Dosen Teknik Mesin', NULL, 14, '2025-12-05', '12:05:53', '00:00:00', ''),
+(10, 'Arys Apriatna Ananda', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji_temu_unit', 'Mengurus Surat PKM', 6, NULL, '2025-12-02', '10:34:17', '10:34:17', 'Done'),
+(14, 'Zaky Fajar Permana', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Janji_temu_unit', 'Mengurus Surat PKM', 6, NULL, '2025-12-08', '06:13:00', '06:15:00', 'Done'),
+(15, 'Muhammad Safamal Jovanda', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan_surat', 'Mengurus Surat', NULL, NULL, '2025-02-08', '06:17:05', '06:21:05', 'Done'),
+(16, 'Arief Han ZK', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-04-08', '06:18:01', '06:23:01', 'Done'),
+(17, 'Rizky Ramadhani', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-04-08', '06:21:56', '06:24:56', 'Done'),
+(18, 'Firman Kholiq', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-10-08', '06:21:56', '06:24:56', 'Done'),
+(19, 'Dedeng Puji Atmoko', 'dwiagung0515@gmail.com', '+62895337342838', 'ITEBA', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-10-08', '06:21:56', '06:24:56', 'Done'),
+(20, 'Muhammad Melvin Vernandez', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-09-08', '06:21:56', '06:24:56', 'Done'),
+(21, 'Alfat Khomara', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Done'),
+(22, 'Christh Valdo Aritonang', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Done'),
+(23, 'Arif Ifansyah', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-08-08', '06:21:56', '06:24:56', 'Done'),
+(24, 'Dimas Putra Pratama', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-07-10', '06:21:56', '06:24:56', 'Done'),
+(25, 'M Davawin Cahyono', 'dwiagung0515@gmail.com', '+62895337342838', 'Polibatam', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-06-11', '06:21:56', '06:24:56', 'Done'),
+(26, 'Kevin Febriano', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-05-07', '06:21:56', '06:24:56', 'Done'),
+(27, 'Muhammad Riswan', 'dwiagung0515@gmail.com', '+62895337342838', 'Uknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-03-11', '06:21:56', '06:24:56', 'Done'),
+(28, 'Muhammad Febriyadi', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-03-14', '06:21:56', '06:24:56', 'Done'),
+(29, 'Taufiq Qurrohman', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-02-05', '06:21:56', '06:24:56', 'Done'),
+(30, 'Johan Fanizar', 'dwiagung0515@gmail.com', '+62895337342838', 'Uknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-01-01', '06:21:56', '06:24:56', 'Done'),
+(31, 'Ilham Pramana', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-01-09', '06:21:56', '06:24:56', 'Done'),
+(38, 'Zaid', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-17', '10:36:08', '10:38:08', 'Close'),
+(39, 'Adit', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-18', '10:36:08', '10:38:08', 'Upcoming'),
+(40, 'Zaky', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-19', '10:36:08', '10:38:08', 'Upcoming'),
+(41, 'Fauzan', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-20', '10:36:08', '10:38:08', 'Upcoming'),
+(42, 'Agung', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-21', '10:36:08', '10:38:08', 'Upcoming');
 
 --
 -- Indexes for dumped tables
@@ -225,7 +228,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visit_data`
 --
 ALTER TABLE `visit_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Constraints for dumped tables

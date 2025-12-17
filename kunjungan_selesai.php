@@ -59,30 +59,30 @@
                                                     <a href="info.php?id=<?= $data['id'] ?>" class="btn btn-primary btn-sm" title="Info">
                                                         <i class=" fas fa-eye"></i>
                                                     </a>
-                                                    <a onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" href="proses_hapus.php?id=<?= $data['id'] ?>" class="btn btn-danger btn-sm" title="Hapus" onclick="confirm('Apakah Anda Yakin ingin Menghapus Data ini?')">
+                                                    <a href="proses_hapus.php?id=<?= $data['id'] ?>&redirect=kunjungan_selesai.php" class="btn btn-danger btn-sm" title="Hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
                                                         <i class="fas fa-trash"></i>
                                                     </a>
                                                 </td>
                                             </tr>
                                         <?php } ?>
-                                   </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- End of container-fluid -->
-                
+
             </div>
             <!-- End of content -->
-            
+
             <!-- Footer harus di sini, SETELAH content tapi DALAM content-wrapper -->
             <?php include 'dashboard_template/footer.php'; ?>
-            
+
         </div>
         <!-- End of content-wrapper -->
-        
+
     </div>
     <!-- End of wrapper -->
-    
+
 </body>

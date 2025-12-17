@@ -1,16 +1,17 @@
 <?php include 'dashboard_template/header.php'; ?>
+
 <body class="page-top">
-        <!-- Page Wrapper -->
+    <!-- Page Wrapper -->
     <div id="wrapper">
         <?php include 'dashboard_template/sidebar.php'; ?>
-               <!-- Content Wrapper -->
+        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-              <!-- Main Content -->
+            <!-- Main Content -->
             <div id="content">
                 <?php include 'dashboard_template/topbar.php'; ?>
-                  <!-- Content -->
+                <!-- Content -->
                 <div class="container-fluid">
-                           <!-- Page Heading -->
+                    <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Data Kunjungan</h1>
                     </div>
@@ -97,7 +98,7 @@
                                                         <a href="edit.php?id=<?= (int)$data['id'] ?>" class="btn btn-warning btn-sm" title="Edit">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
-                                                        <a href="#" class="btn btn-danger btn-sm" title="Hapus" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                                        <a href="proses_hapus.php?id=<?= $data['id'] ?>&redirect=kunjungan_berjalan.php" class="btn btn-danger btn-sm" title="Hapus" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                                             <i class="fas fa-trash"></i>
                                                         </a>
                                                     </td>
@@ -106,24 +107,24 @@
                                             }
                                         }
                                         ?>
-                                   </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- End of container-fluid -->
-                
+
             </div>
             <!-- End of content -->
-            
+
             <!-- Footer harus di sini, SETELAH content tapi DALAM content-wrapper -->
             <?php include 'dashboard_template/footer.php'; ?>
-            
+
         </div>
         <!-- End of content-wrapper -->
-        
+
     </div>
     <!-- End of wrapper -->
-    
+
 </body>
