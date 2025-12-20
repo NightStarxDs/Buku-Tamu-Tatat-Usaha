@@ -126,7 +126,7 @@
           <!-- Text Content -->
           <div class="col-md-7 text-md-start text-center">
             <h1 class="display-4 fw-bold">Selamat Datang di Buku Tamu Digital</h1>
-            <p class="lead">Catat kunjungan dengan cepat, mudah, dan efisien. Scan atau Tekan ombol dibawah ini</p>
+            <p class="lead">Catat kunjungan dengan cepat, mudah, dan efisien. Scan atau Tekan tombol dibawah ini</p>
             <a href="tamu.php" class="btn btn-primary btn-lg mt-3">Menuju Form</a>
           </div>
 
