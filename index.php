@@ -65,6 +65,24 @@
       color: white;
       border-color: teal;
     }
+
+    .qr-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .qr-placeholder {
+      width: 250px;
+      height: 250px;
+      background-color: #f8f9fa;
+      border: 3px dashed #6c757d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
   </style>
 </head>
 
@@ -90,11 +108,30 @@
     <!-- Overlay -->
     <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.5);"></div>
 
-    <!-- Text content -->
-    <div class="hero-content position-absolute top-50 start-50 translate-middle">
-      <h1 class="display-4 fw-bold">Selamat Datang di Buku Tamu Digital</h1>
-      <p>Catat kunjungan dengan cepat, mudah, dan efisien</p>
-      <a href="tamu.php" class="btn btn-primary mt-3">Menuju Form</a>
+    <!-- Content -->
+    <div class="hero-content position-absolute top-50 start-50 translate-middle w-100 px-4">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+          <!-- QR Code Section -->
+          <div class="col-md-5 mb-4 mb-md-0">
+            <div class="qr-container mx-auto" style="max-width: 320px;">
+              <div class="qr-placeholder mx-auto">
+                <img src="QR_CODE.png" alt="" class="img-fluid">
+              </div>
+              <p class="mt-3 mb-0 text-dark fw-semibold">Scan untuk mengisi form</p>
+            </div>
+          </div>
+
+          <!-- Text Content -->
+          <div class="col-md-7 text-md-start text-center">
+            <h1 class="display-4 fw-bold">Selamat Datang di Buku Tamu Digital</h1>
+            <p class="lead">Catat kunjungan dengan cepat, mudah, dan efisien. Scan atau Tekan ombol dibawah ini</p>
+            <a href="tamu.php" class="btn btn-primary btn-lg mt-3">Menuju Form</a>
+          </div>
+
+        </div>
+      </div>
     </div>
   </section>
 
