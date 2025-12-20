@@ -5,6 +5,7 @@ Buku Tamu Tata Usaha dirancang untuk mempermudah pencatatan tamu Tata Usaha mela
 # Fitur-Fitur
 
 **Landing Page**
+
 Landing page adalah halaman utama serta tampilan utama yang pertama kali diakses oleh pengunjung, pada landing page terdapat beberapa fitur yaitu:
 
 - Navigasi Utama: Menu bar di bagian atas menyediakan akses cepat menuju Beranda, FAQ, Tentang Kami, dan tombol login khusus untuk autentikasi staf.
@@ -18,6 +19,7 @@ Landing page adalah halaman utama serta tampilan utama yang pertama kali diakses
 - Informasi Sistem (Tentang Kami): Penjelasan profil sistem VISILOG sebagai platform digital modern untuk efisiensi dan keamanan pencatatan data pengunjung di Tata Usaha.
 
 **Form Login**
+
 Halaman ini adalah gerbang keamanan untuk masuk ke Dashboard Admin. Keamanan data menjadi prioritas pada bagian ini dengan rincian teknis sebagai berikut:
 
 - Alur Autentikasi Pengguna:
