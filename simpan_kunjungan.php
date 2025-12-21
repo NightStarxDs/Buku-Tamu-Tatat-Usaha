@@ -48,18 +48,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if (mysqli_query($koneksi, $sql)) {
     echo "<script>
-            alert('Data kunjungan berhasil disimpan! Status: $status');
-            window.location.href = 'form_kunjungan.php';
+            alert('Data kunjungan berhasil disimpan!);
+            window.location.href = 'tamu.php';
           </script>";
   } else {
     echo "<script>
             alert('Gagal menyimpan data: " . mysqli_error($koneksi) . "');
-            window.location.href = 'form_kunjungan.php';
+            window.location.href = 'tamu.php';
           </script>";
   }
 
   mysqli_close($koneksi);
 } else {
-  header("Location: form_kunjungan.php");
+  header("Location: tamu.php.php");
   exit();
 }
