@@ -82,8 +82,18 @@
       </div>
 
       <div class="mb-3">
-        <label class="form-label">Deskripsi Tambahan (Opsional)</label>
+        <label class="form-label">Deskripsi Kunjungan</label>
         <textarea name="visit_desc" class="form-control" rows="3" placeholder="Detail Singkat keperluan..."></textarea>
+      </div>
+
+      <div class="row" id="appointment_section" style="display: none;">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Sudah Membuat Janji?</label>
+          <select name="appointment" id="appointment" class="form-select">
+            <option value="No">Tidak</option>
+            <option value="Yes">Ya</option>
+          </select>
+        </div>
       </div>
 
       <hr>
@@ -105,45 +115,43 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <label class="form-label">Sudah Membuat Janji?</label>
-          <select name="appointment" class="form-select" required>
-            <option value="No">Tidak</option>
-            <option value="Yes">Ya</option>
-          </select>
-        </div>
-      </div>
-
       <button type="submit" class="btn btn-primary w-100 mt-3">Simpan Data Kunjungan</button>
     </form>
   </div>
 
   <script>
-    // Logika untuk menampilkan select Unit atau Staf berdasarkan kategori keperluan
     const visitRegardsSelect = document.getElementById('visit_regards');
     const unitSection = document.getElementById('unit_section');
     const stafSection = document.getElementById('staf_section');
+    const appointmentSection = document.getElementById('appointment_section'); // Variabel baru
+
     const unitSelect = document.getElementById('unit_tujuan');
     const stafSelect = document.getElementById('staf_tujuan');
 
     visitRegardsSelect.addEventListener('change', function() {
       const selectedValue = this.value;
 
-      // Reset dan sembunyikan semua section
+      // 1. Reset dan sembunyikan semua section
       unitSection.style.display = 'none';
       stafSection.style.display = 'none';
+      appointmentSection.style.display = 'none';
+
       unitSelect.removeAttribute('required');
       stafSelect.removeAttribute('required');
+
       unitSelect.value = '';
       stafSelect.value = '';
 
-      // Tampilkan section yang sesuai
+      // 2. Tampilkan section Unit
       if (selectedValue === 'Janji_temu_unit') {
         unitSection.style.display = 'block';
+        appointmentSection.style.display = 'block';
         unitSelect.setAttribute('required', 'required');
-      } else if (selectedValue === 'Janji_temu_staf') {
+      }
+      // 3. Tampilkan section Staf
+      else if (selectedValue === 'Janji_temu_staf') {
         stafSection.style.display = 'block';
+        appointmentSection.style.display = 'block';
         stafSelect.setAttribute('required', 'required');
       }
     });

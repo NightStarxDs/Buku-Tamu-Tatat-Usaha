@@ -3,21 +3,22 @@ include 'koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-  $guest_name = mysqli_real_escape_string($koneksi, $_POST['guest_name']);
-  $email = mysqli_real_escape_string($koneksi, $_POST['email']);
-  $phone_number = mysqli_real_escape_string($koneksi, $_POST['phone_number']);
-  $company_name = mysqli_real_escape_string($koneksi, $_POST['company_name']);
+  $guest_name    = mysqli_real_escape_string($koneksi, $_POST['guest_name']);
+  $email         = mysqli_real_escape_string($koneksi, $_POST['email']);
+  $phone_number  = mysqli_real_escape_string($koneksi, $_POST['phone_number']);
+  $company_name  = mysqli_real_escape_string($koneksi, $_POST['company_name']);
   $visit_regards = mysqli_real_escape_string($koneksi, $_POST['visit_regards']);
-  $visit_desc = mysqli_real_escape_string($koneksi, $_POST['visit_desc']);
-  $visit_date = mysqli_real_escape_string($koneksi, $_POST['visit_date']);
-  $time_in = mysqli_real_escape_string($koneksi, $_POST['time_in']);
-  $time_out = mysqli_real_escape_string($koneksi, $_POST['time_out']);
-  $appointment = mysqli_real_escape_string($koneksi, $_POST['appointment']);
+  $visit_desc    = mysqli_real_escape_string($koneksi, $_POST['visit_desc']);
+  $visit_date    = mysqli_real_escape_string($koneksi, $_POST['visit_date']);
+  $time_in       = mysqli_real_escape_string($koneksi, $_POST['time_in']);
+  $time_out      = mysqli_real_escape_string($koneksi, $_POST['time_out']);
 
-  if ($appointment == 'Ya') {
-    $status = 'pending';
+  $appointment = isset($_POST['appointment']) ? $_POST['appointment'] : 'No';
+
+  if ($appointment == 'Yes') {
+    $status = 'Pending';
   } else {
-    $status = 'upcoming';
+    $status = 'Upcoming';
   }
 
   $id_staf = NULL;
@@ -31,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_unit = mysqli_real_escape_string($koneksi, $_POST['unit_tujuan']);
   }
 
+  // 3. Query Insert
   $sql = "INSERT INTO visit_data (
                 guest_name, email, phone_number, company_name, 
                 visit_regards, visit_desc, visit_date, 
@@ -46,14 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if (mysqli_query($koneksi, $sql)) {
     echo "<script>
-                alert('Data kunjungan berhasil disimpan!');
-                window.location.href = 'form_kunjungan.php';
-              </script>";
+            alert('Data kunjungan berhasil disimpan! Status: $status');
+            window.location.href = 'form_kunjungan.php';
+          </script>";
   } else {
     echo "<script>
-                alert('Gagal menyimpan data!');
-                window.location.href = 'form_kunjungan.php';
-              </script>";
+            alert('Gagal menyimpan data: " . mysqli_error($koneksi) . "');
+            window.location.href = 'form_kunjungan.php';
+          </script>";
   }
 
   mysqli_close($koneksi);
