@@ -198,7 +198,7 @@
     </div>
 
     <div class="text-center mt-4">
-      <a href="contact.php" class="btn btn-outline-primary">Tanyakan pada Layanan Pelanggan kami</a>
+      <a href="mailto:VisiogTeam@gmail.com" class="btn btn-outline-primary">Tanyakan pada Layanan Pelanggan kami</a>
     </div>
   </section>
 
