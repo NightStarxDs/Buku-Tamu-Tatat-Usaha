@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2025 at 04:40 AM
+-- Generation Time: Dec 22, 2025 at 04:36 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -166,11 +166,12 @@ INSERT INTO `visit_data` (`id`, `guest_name`, `email`, `phone_number`, `company_
 (29, 'Taufiq Qurrohman', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-02-05', '06:21:56', '06:24:56', 'Done'),
 (30, 'Johan Fanizar', 'dwiagung0515@gmail.com', '+62895337342838', 'Uknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-01-01', '06:21:56', '06:24:56', 'Done'),
 (31, 'Ilham Pramana', 'dwiagung0515@gmail.com', '+62895337342838', 'Unknow', 'Urusan_umum', 'Mengurus apa saja', NULL, NULL, '2025-01-09', '06:21:56', '06:24:56', 'Done'),
-(38, 'Zaid', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-17', '10:36:08', '10:38:08', 'Close'),
-(39, 'Adit', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-18', '10:36:08', '10:38:08', 'Upcoming'),
-(40, 'Zaky', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-19', '10:36:08', '10:38:08', 'Upcoming'),
-(41, 'Fauzan', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-20', '10:36:08', '10:38:08', 'Upcoming'),
-(42, 'Agung', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-21', '10:36:08', '10:38:08', 'Upcoming');
+(38, 'Zaid', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-17', '10:36:08', '10:38:08', 'Done'),
+(39, 'Adit', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-18', '10:36:08', '10:38:08', 'Done'),
+(40, 'Zaky', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-19', '10:36:08', '10:38:08', 'Done'),
+(41, 'Fauzan', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-20', '10:36:08', '10:38:08', 'Done'),
+(42, 'Agung', 'dwiagung0515@gmail.com', '+62895337342838', 'Visilog', 'Janji_temu_unit', 'Bertemu Unit Penjamin Mutu', 1, NULL, '2025-12-21', '10:36:08', '10:38:08', 'Done'),
+(43, 'Dwi Agung', 'dwiagung0515@gmail.com', '62895337342838', 'Visilog', 'Urusan_umum', 'Mengurus Data Diri', NULL, NULL, '2026-12-30', '17:00:00', '18:00:00', 'Upcoming');
 
 --
 -- Indexes for dumped tables
@@ -228,7 +229,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visit_data`
 --
 ALTER TABLE `visit_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- Constraints for dumped tables
