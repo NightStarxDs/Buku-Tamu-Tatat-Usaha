@@ -118,7 +118,7 @@
                 <form action="export_handler.php" method="POST" target="_blank">
                     <div class="form-row align-items-end">
 
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label for="periode">Periode</label>
                             <select class="form-control" name="periode" id="periode" onchange="checkCustomDate()">
                                 <option value="minggu_ini">Minggu Ini</option>
@@ -128,11 +128,11 @@
                             </select>
                         </div>
 
-                        <div class="col-md-3 mb-3 d-none" id="custom_start_box">
+                        <div class="col-md-2 mb-3 d-none" id="custom_start_box">
                             <label for="start_date">Dari Tanggal</label>
                             <input type="date" class="form-control" name="start_date" id="start_date">
                         </div>
-                        <div class="col-md-3 mb-3 d-none" id="custom_end_box">
+                        <div class="col-md-2 mb-3 d-none" id="custom_end_box">
                             <label for="end_date">Sampai Tanggal</label>
                             <input type="date" class="form-control" name="end_date" id="end_date">
                         </div>
@@ -145,7 +145,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-1 mb-3">
+                        <div class="col-md-2 mb-3">
                             <button type="submit" class="btn btn-success btn-block">
                                 <i class="fas fa-download fa-sm"></i> Export
                             </button>
