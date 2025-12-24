@@ -1,10 +1,10 @@
 <?php
-include 'koneksi.php'; 
+include 'koneksi.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 
-$sql = "SELECT v.*, s.staf_name, s.staf_email, s.staf_number, u.unit_name 
+$sql = "SELECT v.*, s.staf_name, s.staf_email, s.staf_number, u.unit_name, u.unit_email, u.unit_number 
         FROM visit_data v
         LEFT JOIN staf s ON v.id_staf = s.id_staf
         LEFT JOIN unit u ON v.id_unit = u.id_unit
@@ -65,7 +65,7 @@ $clean_visitor_phone = preg_replace('/[^0-9]/', '', ($data['phone_number'] ?? ''
 ?>
 
 <body class="page-top">
-<?php include 'dashboard_template/header.php' ?>
+    <?php include 'dashboard_template/header.php' ?>
     <!-- Page Wrapper -->
     <div id="wrapper">
         <?php include 'dashboard_template/sidebar.php'; ?>
@@ -223,9 +223,9 @@ $clean_visitor_phone = preg_replace('/[^0-9]/', '', ($data['phone_number'] ?? ''
                                         <label for="unit_number">No. Telepon Unit</label>
                                         <div class="input-group">
                                             <input class="form-control" name="unit_number" id="unit_number" value="<?= ($data['unit_number'] ?? ''); ?>" readonly>
-                                           <div class="input-group-append">
+                                            <div class="input-group-append">
                                                 <a href="<?= $target_whatsapp_link; ?>" target="_blank" class="btn btn-success d-flex align-items-center" title="Hubungi via WhatsApp dengan Pesan Otomatis">
-                                                <i class="fab fa-whatsapp"></i></a>
+                                                    <i class="fab fa-whatsapp"></i></a>
                                             </div>
                                         </div>
                                     </div>

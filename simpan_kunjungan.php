@@ -13,23 +13,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $time_in       = mysqli_real_escape_string($koneksi, $_POST['time_in']);
   $time_out      = mysqli_real_escape_string($koneksi, $_POST['time_out']);
 
-  $appointment = isset($_POST['appointment']) ? $_POST['appointment'] : 'Yes';
-
-  if ($appointment == 'No') {
-    $status = 'Pending';
-  } else {
-    $status = 'Upcoming';
-  }
-
   $id_staf = NULL;
   $id_unit = NULL;
+  $status = 'Upcoming';
 
-  if ($visit_regards == 'Janji_temu_staf' && !empty($_POST['staf_tujuan'])) {
-    $id_staf = mysqli_real_escape_string($koneksi, $_POST['staf_tujuan']);
-  }
+  if ($visit_regards == 'Janji_temu_staf' || $visit_regards == 'Janji_temu_unit') {
+    $appointment = mysqli_real_escape_string($koneksi, $_POST['appointment']);
 
-  if ($visit_regards == 'Janji_temu_unit' && !empty($_POST['unit_tujuan'])) {
-    $id_unit = mysqli_real_escape_string($koneksi, $_POST['unit_tujuan']);
+    if ($appointment == 'No') {
+      $status = 'Pending';
+    } elseif ($appointment == 'Yes') {
+      $status = 'Upcoming';
+    }
+
+    if ($visit_regards == 'Janji_temu_staf' && !empty($_POST['staf_tujuan'])) {
+      $id_staf = mysqli_real_escape_string($koneksi, $_POST['staf_tujuan']);
+    }
+
+    if ($visit_regards == 'Janji_temu_unit' && !empty($_POST['unit_tujuan'])) {
+      $id_unit = mysqli_real_escape_string($koneksi, $_POST['unit_tujuan']);
+    }
   }
 
   $sql = "INSERT INTO visit_data (

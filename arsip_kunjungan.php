@@ -80,17 +80,17 @@ mysqli_query($koneksi, $delete_sql);
                     </div>
                 </div>
                 <!-- End of container-fluid -->
-                
+
             </div>
             <!-- End of content -->
-            
+
             <!-- Footer harus di sini, SETELAH content tapi DALAM content-wrapper -->
             <?php include 'dashboard_template/footer.php'; ?>
-            
+
         </div>
         <!-- End of content-wrapper -->
-        
+
     </div>
     <!-- End of wrapper -->
-    
+
 </body>
