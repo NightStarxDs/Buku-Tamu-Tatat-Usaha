@@ -90,8 +90,8 @@
         <div class="col-md-6 mb-3">
           <label class="form-label">Sudah Membuat Janji?</label>
           <select name="appointment" id="appointment" class="form-select">
-            <option value="No">Tidak</option>
-            <option value="Yes">Ya</option>
+            <option value="No">Belum</option>
+            <option value="Yes">Sudah</option>
           </select>
         </div>
       </div>
@@ -131,7 +131,6 @@
     visitRegardsSelect.addEventListener('change', function() {
       const selectedValue = this.value;
 
-      // 1. Reset dan sembunyikan semua section
       unitSection.style.display = 'none';
       stafSection.style.display = 'none';
       appointmentSection.style.display = 'none';
@@ -142,14 +141,11 @@
       unitSelect.value = '';
       stafSelect.value = '';
 
-      // 2. Tampilkan section Unit
       if (selectedValue === 'Janji_temu_unit') {
         unitSection.style.display = 'block';
         appointmentSection.style.display = 'block';
         unitSelect.setAttribute('required', 'required');
-      }
-      // 3. Tampilkan section Staf
-      else if (selectedValue === 'Janji_temu_staf') {
+      } else if (selectedValue === 'Janji_temu_staf') {
         stafSection.style.display = 'block';
         appointmentSection.style.display = 'block';
         stafSelect.setAttribute('required', 'required');

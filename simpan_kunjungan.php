@@ -13,9 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $time_in       = mysqli_real_escape_string($koneksi, $_POST['time_in']);
   $time_out      = mysqli_real_escape_string($koneksi, $_POST['time_out']);
 
-  $appointment = isset($_POST['appointment']) ? $_POST['appointment'] : 'No';
+  $appointment = isset($_POST['appointment']) ? $_POST['appointment'] : 'Yes';
 
-  if ($appointment == 'Yes') {
+  if ($appointment == 'No') {
     $status = 'Pending';
   } else {
     $status = 'Upcoming';
@@ -32,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_unit = mysqli_real_escape_string($koneksi, $_POST['unit_tujuan']);
   }
 
-  // 3. Query Insert
   $sql = "INSERT INTO visit_data (
                 guest_name, email, phone_number, company_name, 
                 visit_regards, visit_desc, visit_date, 
@@ -48,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if (mysqli_query($koneksi, $sql)) {
     echo "<script>
-            alert('Data kunjungan berhasil disimpan!);
+            alert('Data kunjungan berhasil disimpan!');
             window.location.href = 'tamu.php';
           </script>";
   } else {
@@ -60,6 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   mysqli_close($koneksi);
 } else {
-  header("Location: tamu.php.php");
+  header("Location: tamu.php");
   exit();
 }
