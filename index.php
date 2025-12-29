@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Buku Tamu Digital</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -446,7 +447,7 @@
   <!-- HEADER -->
   <header class="d-flex justify-content-between align-items-center position-sticky top-0 shadow-sm" style="background-color: #ffffff; z-index: 1000;">
     <div class="d-flex align-items-center">
-      <img src="visilog2.png" alt="Visilog Logo">
+      <img src="Visilog2.png" alt="Visilog Logo">
     </div>
 
     <!-- HAMBURGER BUTTON (Mobile Only) -->

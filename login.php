@@ -5,12 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Login Page</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <!-- Bootstrap CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet" />
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
@@ -149,32 +150,239 @@
     header {
       background-color: #ffffff;
       font-size: 1rem;
+      padding: 0.75rem 1.5rem;
     }
 
-    .btn-outline-warning {
+    header img {
+      width: 120px;
+      position: relative;
+    }
+
+    header nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    header nav a {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+    }
+
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #008080;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background-color: #ffffff;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease-in-out;
+      z-index: 1050;
+      padding: 2rem 1.5rem;
+    }
+
+    .sidebar.active {
+      right: 0;
+    }
+
+    .sidebar-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #333;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .sidebar-nav a {
+      padding: 1rem;
+      text-decoration: none;
+      color: #333;
+      border-radius: 8px;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+
+    .sidebar-nav a:hover {
+      background-color: #f0f0f0;
+      color: #008080;
+      transform: translateX(5px);
+    }
+
+    .sidebar-nav a.btn-outline-info {
+      border: 2px solid #008080;
+      color: #008080;
+      text-align: center;
+    }
+
+    .sidebar-nav a.btn-outline-info:hover {
+      background-color: #008080;
+      color: white;
+    }
+
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+      z-index: 1040;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .btn-outline-info {
       color: teal;
       border-color: teal;
     }
 
-    .btn-outline-warning:hover {
+    .btn-outline-info:hover {
       background-color: teal;
-      color: black;
+      color: white;
+      border-color: teal;
+    }
+
+    /* Media Queries for Header */
+    @media (max-width: 991px) {
+      .hamburger-btn {
+        display: block;
+      }
+
+      header nav {
+        display: none;
+      }
+
+      header {
+        padding: 0.25rem 0.50rem;
+      }
+
+      header img {
+        width: 120px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      header img {
+        width: 80px;
+      }
+
+      .sidebar {
+        width: 250px;
+      }
+    }
+
+    @media (min-width: 576px) and (max-width: 767px) {
+      header img {
+        width: 100px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+      header img {
+        width: 110px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .hamburger-btn {
+        display: none;
+      }
+
+      header nav {
+        display: flex;
+      }
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+      header img {
+        width: 120px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      header img {
+        width: 120px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header class="d-flex justify-content-between align-items-center px-4 py-2 position-sticky top-0 shadow-sm" style="background-color: #ffffff; z-index: 1000;">
+  <!-- OVERLAY FOR SIDEBAR -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <button class="sidebar-close" id="sidebarClose">
+      <i class="bi bi-x"></i>
+    </button>
+    <nav class="sidebar-nav">
+      <a href="index.php#home">
+        <i class="bi bi-house-door me-2"></i> Beranda
+      </a>
+      <a href="index.php#faq">
+        <i class="bi bi-question-circle me-2"></i> FAQ
+      </a>
+      <a href="index.php#about">
+        <i class="bi bi-info-circle me-2"></i> Tentang Kami
+      </a>
+      <a href="login.php" class="btn-outline-info">
+        <i class="bi bi-box-arrow-in-right me-2"></i> Masuk
+      </a>
+    </nav>
+  </div>
+
+  <!-- HEADER -->
+  <header class="d-flex justify-content-between align-items-center position-sticky top-0 shadow-sm" style="background-color: #ffffff; z-index: 1000;">
     <div class="d-flex align-items-center">
-      <img src="visilog.png" alt="" width="120" class="me-2 position-absolute">
+      <img src="Visilog2.png" alt="Visilog Logo">
     </div>
+
+    <!-- HAMBURGER BUTTON (Mobile Only) -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <!-- NORMAL NAV (Desktop Only) -->
     <nav>
-      <a href="index.php#home" class="btn btn-outline-white mx-1">Beranda</a>
-      <a href="index.php#faq" class="btn btn-outline-white mx-1">FAQ</a>
-      <a href="index.php#about" class="btn btn-outline-white mx-1">Tentang Kami</a>
-      <a href="login.php" class="btn btn-outline-info mx-1 active">Masuk</a>
+      <a href="index.php#home" class="btn btn-outline-white">Beranda</a>
+      <a href="index.php#faq" class="btn btn-outline-white">FAQ</a>
+      <a href="index.php#about" class="btn btn-outline-white">Tentang</a>
+      <a href="login.php" class="btn btn-outline-info">Masuk</a>
     </nav>
   </header>
+
 
   <div class="container">
     <div class="login-card">
@@ -249,6 +457,46 @@
 
         if (!valid) {
           event.preventDefault();
+        }
+      });
+    </script>
+    <script>
+      // Fungsi Sidebar
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const sidebar = document.getElementById('sidebar');
+      const sidebarClose = document.getElementById('sidebarClose');
+      const sidebarOverlay = document.getElementById('sidebarOverlay');
+      const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+
+      // Buka Sidebar
+      hamburgerBtn.addEventListener('click', () => {
+        sidebar.classList.add('active');
+        sidebarOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scroll when sidebar open
+      });
+
+      // Tutup Sidebar
+      function closeSidebar() {
+        sidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scroll
+      }
+
+      sidebarClose.addEventListener('click', closeSidebar);
+      sidebarOverlay.addEventListener('click', closeSidebar);
+
+      // Tutup sidebar Ketika Menekan link
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          // Delay closing to allow smooth navigation
+          setTimeout(closeSidebar, 300);
+        });
+      });
+
+      // Tutup sidebar Ketika Menekan ESC key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+          closeSidebar();
         }
       });
     </script>

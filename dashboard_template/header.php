@@ -26,6 +26,7 @@ $username = $_SESSION['username']
     <meta name="author" content="">
 
     <title>Staf Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <!-- Custom fonts for this template-->
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
