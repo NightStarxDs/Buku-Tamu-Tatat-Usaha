@@ -414,7 +414,7 @@
             id="password"
             name="password"
             class="form-control"
-            placeholder="Masukkan password"
+            placeholder="Masukkan Kata Sandi"
             required />
           <div class="invalid-feedback">
             Kata Sandi harus minimal 6 karakter.

@@ -21,11 +21,11 @@
                 aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="ganti_username.php">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Ganti Username
+                    Ganti Nama Pengguna
                 </a>
                 <a class="dropdown-item" href="ganti_passwd.php">
                     <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Ganti Password
+                    Ganti Kata Sandi
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logoutModal">

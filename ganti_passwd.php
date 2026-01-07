@@ -24,21 +24,21 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Ganti Password</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Ganti Kata Sandi</h1>
                     </div>
                     <div class="card card-head">
                         <div class="card card-body">
                             <form action="proses_ganti_passwd.php" method="POST" id="changePasswordForm">
                                 <div class="form-group">
-                                    <label for="password_lama">Password Lama</label>
+                                    <label for="password_lama">Kata Sandi Lama</label>
                                     <input type="password" name="password_lama" id="password_lama" class="form-control" placeholder="Masukkan Password Lama" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="password_baru">Password Baru</label>
+                                    <label for="password_baru">Kata Sandi Baru</label>
                                     <input type="password" name="password_baru" id="password_baru" class="form-control" placeholder="Masukkan Password Baru (Minimal 6 Karakter)" required minlength="6">
                                 </div>
                                 <div class="form-group">
-                                    <label for="konfirmasi_password">Konfirmasi Password Baru</label>
+                                    <label for="konfirmasi_password">Konfirmasi Kata Sandi Baru</label>
                                     <input type="password" id="konfirmasi_password" class="form-control" placeholder="Konfirmasi Password Baru" required>
                                     <small id="passwordMatch" class="form-text"></small>
                                 </div>
