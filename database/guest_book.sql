@@ -133,7 +133,7 @@ CREATE TABLE `visit_data` (
   `id_staf` int(11) DEFAULT NULL,
   `visit_date` date NOT NULL,
   `time_in` time NOT NULL,
-  `time_out` time NOT NULL,
+  `time_out` time DEFAULT NULL,
   `status` enum('Pending','Done','Upcoming','Close','Now','Rejected') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

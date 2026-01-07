@@ -2,6 +2,197 @@
 
 Buku Tamu Tata Usaha dirancang untuk mempermudah pencatatan tamu Tata Usaha melalui media digital berbasis website yang mengutamakan kecepatan kinerja, kemudahan pencarian, pengfilteran data serta akses yang lebih fleksibel.
 
+# Panduan Instalasi
+
+## Persyaratan Sistem
+
+Sebelum melakukan instalasi, pastikan sistem Anda memiliki:
+
+- **XAMPP** (versi terbaru) atau server lokal lainnya dengan PHP 7.0+
+- **PHP 7.0+** dengan ekstensi mysqli dan curl
+- **MySQL 5.7+** atau MariaDB
+- **Composer** (untuk manajemen dependencies)
+- **Git** (opsional, untuk kloning repositori)
+- Browser modern (Chrome, Firefox, Edge, atau Safari)
+
+## Langkah-Langkah Instalasi
+
+### 1. Download dan Persiapan Project
+
+#### Opsi A: Menggunakan Git
+
+```bash
+# Buka terminal/command prompt
+# Navigasi ke folder htdocs XAMPP
+cd c:\xampp\htdocs
+
+# Clone repository
+git clone <repository-url> Buku-Tamu-Tata-Usaha
+cd Buku-Tamu-Tata-Usaha
+```
+
+#### Opsi B: Download Manual
+
+- Download file project dari repository
+- Ekstrak ke folder `c:\xampp\htdocs\Buku-Tamu-Tata-Usaha`
+
+### 2. Instalasi Dependencies PHP
+
+Buka command prompt/terminal dan jalankan:
+
+```bash
+# Navigasi ke folder project
+cd c:\xampp\htdocs\Buku-Tamu-Tata-Usaha
+
+# Install dependencies menggunakan Composer
+composer install
+```
+
+Dependencies yang akan diinstall:
+
+- **PHPSpreadsheet**: Untuk export/import data ke Excel
+- **TCPDF**: Untuk generate dokumen PDF
+
+### 3. Konfigurasi Database
+
+#### Langkah 3.1: Buat Database Baru
+
+- Buka **phpMyAdmin** di browser: `http://localhost/phpmyadmin`
+- Login dengan kredensial default (username: `root`, password: kosong)
+- Klik **"New"** untuk membuat database baru
+- Masukkan nama database: `guest_book`
+- Klik **Create**
+
+#### Langkah 3.2: Import File Database
+
+- Buka folder project, cari file `guest_book.sql`
+- Di phpMyAdmin, pilih database `guest_book`
+- Klik tab **"Import"**
+- Pilih file `guest_book.sql` dari komputer Anda
+- Klik **"Go"** untuk import
+
+**Atau melalui command line:**
+
+```bash
+mysql -u root -p guest_book < guest_book.sql
+```
+
+(Tekan Enter ketika diminta password, karena password default kosong)
+
+### 4. Konfigurasi File Koneksi Database
+
+Edit file `koneksi.php` sesuai dengan konfigurasi database Anda:
+
+```php
+<?php
+$host = "localhost";      // Host database (default: localhost)
+$user = "root";           // Username database (default: root)
+$pass = "";               // Password database (kosongi jika tidak ada password)
+$db   = "guest_book";     // Nama database
+
+$koneksi = mysqli_connect($host, $user, $pass, $db);
+
+if (!$koneksi) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+?>
+```
+
+**Catatan:** Jika Anda menggunakan password untuk MySQL, ubah bagian `$pass` sesuai password Anda.
+
+### 5. Jalankan XAMPP
+
+- Buka **XAMPP Control Panel**
+- Klik tombol **"Start"** pada modul **Apache** dan **MySQL**
+- Tunggu hingga status berubah menjadi hijau
+
+### 6. Akses Aplikasi
+
+Buka browser dan akses aplikasi:
+
+#### Landing Page (Publik)
+
+```
+http://localhost/Buku-Tamu-Tata-Usaha/landing.php
+```
+
+atau
+
+```
+http://localhost/Buku-Tamu-Tata-Usaha/
+```
+
+#### Form Login (Admin)
+
+```
+http://localhost/Buku-Tamu-Tata-Usaha/login.php
+```
+
+#### Dashboard Admin (Setelah Login)
+
+```
+http://localhost/Buku-Tamu-Tata-Usaha/dashboard.php
+```
+
+### 7. Login Admin Pertama Kali
+
+Akses halaman login dan gunakan kredensial default yang telah ada di database. Jika tidak ada user yang tersedia, hubungi administrator untuk membuat user baru melalui database.
+
+## Troubleshooting Umum
+
+### Masalah: Koneksi Database Gagal
+
+**Solusi:**
+
+1. Pastikan MySQL sudah berjalan di XAMPP Control Panel
+2. Verifikasi nama database adalah `guest_book`
+3. Cek kembali file `koneksi.php` apakah sudah benar
+4. Coba akses phpMyAdmin untuk memastikan database ada
+
+### Masalah: 404 Page Not Found
+
+**Solusi:**
+
+1. Pastikan folder project berada di `c:\xampp\htdocs\Buku-Tamu-Tata-Usaha`
+2. Pastikan Apache sudah berjalan
+3. Coba akses via `http://localhost/Buku-Tamu-Tata-Usaha/landing.php`
+
+### Masalah: Composer Install Error
+
+**Solusi:**
+
+1. Pastikan Composer sudah terinstall: `composer --version`
+2. Update Composer: `composer self-update`
+3. Hapus folder `vendor` dan `composer.lock`, kemudian jalankan `composer install` kembali
+
+### Masalah: File Upload Tidak Berfungsi
+
+**Solusi:**
+
+1. Pastikan folder `uploads` atau yang sejenis memiliki permission 777
+2. Edit `php.ini` dan pastikan `upload_max_filesize` dan `post_max_size` cukup besar
+3. Restart Apache di XAMPP Control Panel
+
+## Verifikasi Instalasi Berhasil
+
+Untuk memastikan instalasi berhasil, cek:
+
+1. ✅ Database `guest_book` ada di phpMyAdmin
+2. ✅ Folder `vendor` ada di project root
+3. ✅ Akses `http://localhost/Buku-Tamu-Tata-Usaha/landing.php` tanpa error
+4. ✅ Halaman login dapat diakses tanpa error database
+5. ✅ Dapat login dengan kredensial admin
+
+## Langkah-Langkah Selanjutnya
+
+Setelah instalasi berhasil:
+
+1. Buat akun admin tambahan untuk keamanan
+2. Ubah password default admin
+3. Konfigurasi email (jika diperlukan) untuk notifikasi
+4. Set timezone yang sesuai
+5. Backup database secara berkala
+
 # Fitur-Fitur
 
 **Landing Page**
